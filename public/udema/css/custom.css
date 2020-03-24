@@ -1,0 +1,53 @@
+/*============================================================================================*/
+/* Your custom styles below */
+/*============================================================================================*/
+.mifosmobilogo{
+    color: #fff;
+    padding: 0 8px 15px 8px;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.header.header.sticky {
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background: #191b53;
+    background: -webkit-linear-gradient(left, #191b53, #fd6162);
+    background: linear-gradient(to right, #191b53, #fd6162);
+    padding: 15px 20px;
+}
+
+ul#top_menu li a.btn_1 {
+
+    background-color: #191b53;
+    color: #fff;
+    padding: 13px 30px;
+
+}
+.slider_app_icon{
+    width: 400px;
+    height: 200px;
+}
+.margin_120_0 {
+
+    padding-top: 20px;
+
+}
+
+/*#carousel_slider.flexslider ul.slides li {*/
+
+    /*position: relative;*/
+    /*-webkit-border-radius: 5px;*/
+    /*-moz-border-radius: 5px;*/
+    /*-ms-border-radius: 5px;*/
+    /*border-radius: 5px;*/
+    /*background-color: #fff;*/
+    /*overflow: hidden;*/
+
+/*}*/
