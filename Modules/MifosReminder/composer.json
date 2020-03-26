@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/mifosreminder",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\MifosReminder\\Providers\\MifosReminderServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\MifosReminder\\": ""
+        }
+    }
+}

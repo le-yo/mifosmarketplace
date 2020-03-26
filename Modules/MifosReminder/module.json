@@ -1,0 +1,13 @@
+{
+    "name": "MifosReminder",
+    "alias": "mifosreminder",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\MifosReminder\\Providers\\MifosReminderServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
