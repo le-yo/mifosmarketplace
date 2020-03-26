@@ -2,677 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89510f89-a9fb-400e-845a-b056d2ef6a6c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/ajax-loader.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/blog.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/bootstrap.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/bootstrap.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/custom.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/fonts/flexslider-icon.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/fonts/flexslider-icon.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/fonts/flexslider-icon.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/fonts/flexslider-icon.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/fullcalendar.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/fullcalendar.print.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/Italic.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/agenda.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/alarm-clock.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/alert.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/align-center.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/align-justify.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/align-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/align-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/anchor.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/android.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/angle-double-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/angle-double-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/angle-double-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/angle-double-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/angle-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/angle-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/angle-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/angle-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/announcement.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/apple.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/archive.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrow-circle-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrow-circle-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrow-circle-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrow-circle-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrow-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrow-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrow-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrow-top-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrow-top-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrow-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrow.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrows-corner.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrows-horizontal.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/arrows-vertical.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/back-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/back-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/bag.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/bar-chart-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/bar-chart.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/basketball.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/bell.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/blackboard.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/bolt-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/bolt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/book.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/bookmark-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/bookmark.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/briefcase.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/brush-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/brush.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/calendar.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/camera.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/car.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/check-box.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/check.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/clip.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/clipboard.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/close.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/cloud-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/cloud-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/cloud.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/comment-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/comment.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/comments-smiley.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/comments.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/control-backward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/control-eject.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/control-forward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/control-pause.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/control-play.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/control-record.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/control-shuffle.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/control-skip-backward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/control-skip-forward.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/control-stop.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/credit-card.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/crown.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/css3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/cup.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/cut.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/dashboard.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/desktop.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/direction-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/direction.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/download.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/dribbble.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/dropbox-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/dropbox.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/drupal.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/email.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/envelope.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/eraser.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/exchange-vertical.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/export.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/eye.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/face-sad.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/face-smile.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/facebook.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/file.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/files.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/filter.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/flag-alt-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/flag-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/flag.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/flickr-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/flickr.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/folder.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/fullscreen.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/gallery.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/game.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/gift.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/github.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/google.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/hand-drag.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/hand-open.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/hand-point-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/hand-point-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/hand-point-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/hand-point-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/hand-stop.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/harddrive.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/harddrives.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/headphone-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/headphone.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/heart-broken.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/heart.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/help-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/help.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/home.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/html5.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/hummer.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/id-badge.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/image.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/import.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/infinite.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/info-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/info.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/ink-pen.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/instagram.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/joomla.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/jsfiddle.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/key.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layers-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layers.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-accordion-list.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-accordion-merged.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-accordion-separated.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-column2-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-column2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-column3-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-column3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-column4-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-column4.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-cta-btn-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-cta-btn-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-cta-center.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-cta-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-cta-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-grid2-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-grid2-thumb.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-grid2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-grid3-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-grid3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-grid4-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-grid4.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-line-solid.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-list-large-image.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-list-post.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-list-thumb-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-list-thumb.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-media-center-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-media-center.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-media-left-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-media-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-media-overlay-alt-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-media-overlay-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-media-overlay.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-media-right-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-media-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-menu-full.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-menu-separated.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-menu-v.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-menu.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-placeholder.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-sidebar-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-sidebar-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-sidebar-none.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-sidebar-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-slider-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-slider.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-tab-min.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-tab-v.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-tab-window.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-tab.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-width-default-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-width-default.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout-width-full.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/layout.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/light-bulb.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/line-dashed.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/line-dotted.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/line-double.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/link.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/linkedin.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/linux.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/list-ol.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/list.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/location-arrow.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/location-pin.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/lock.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/loop.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/magnet.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/map-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/map.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/marker-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/marker.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/medall-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/medall.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/menu-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/menu.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/microphone-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/microphone.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/microsoft-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/microsoft.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/minus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/mobile.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/money.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/more-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/more.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/mouse-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/mouse.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/music-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/music.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/na.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/new-window.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/notepad.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/package.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/paint-bucket.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/paint-roller.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/palette.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/panel.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/paragraph.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/pencil-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/pencil-alt2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/pencil.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/pie-chart.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/pin-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/pin.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/pin2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/pinterest-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/pinterest.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/plug.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/plus.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/power-off.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/printer.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/pulse.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/quote-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/quote-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/receipt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/reddit.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/reload.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/rocket.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/rss-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/rss.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/ruler-alt-2.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/ruler-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/ruler-pencil.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/ruler.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/save-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/save.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/search.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/server.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/settings.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/share-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/share.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/sharethis-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/sharethis.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/shield.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/shift-left-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/shift-left.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/shift-right-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/shift-right.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/shine.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/shopping-cart-full.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/shopping-cart.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/shortcode.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/signal.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/skype.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/slice.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/smallcap.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/soundcloud.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/split-h.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/split-v-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/split-v.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/spray.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/stack-overflow.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/stamp.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/star.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/stats-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/stats-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/support.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/tablet.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/tag.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/target.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/text.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/themify-favicon-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/themify-favicon.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/themify-logo.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/thought.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/thumb-down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/thumb-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/ticket.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/time.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/timer.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/trash.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/trello.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/truck.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/tumblr-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/tumblr.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/twitter-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/twitter.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/underline.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/unlink.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/unlock.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/upload.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/uppercase.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/user.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/vector.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/video-camera.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/video-clapper.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/view-grid.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/view-list-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/view-list.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/vimeo-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/vimeo.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/volume.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/wallet.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/wand.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/wheelchair.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/widget-alt.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/widget.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/widgetized.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/window.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/wordpress.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/world.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/write.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/yahoo.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/youtube.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/zip.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/zoom-in.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/SVG_icon_set_4/zoom-out.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/css/all_icons.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/css/all_icons.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/css/fontello-codes.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/css/icon_set_1.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/css/icon_set_2.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/css/icon_set_3.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/css/icon_set_4.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/demo_icon_set_1.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/demo_icon_set_2.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/demo_icon_set_3.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/demo_icon_set_4.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/ElegantIcons.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/ElegantIcons.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/ElegantIcons.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/ElegantIcons.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/Pe-icon-7-stroke.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/Pe-icon-7-stroke.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/Pe-icon-7-stroke.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/Pe-icon-7-stroke.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/fontello.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/fontello.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/fontello.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/fontello.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/icon_set_1.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/icon_set_1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/icon_set_1.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/icon_set_1.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/themify.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/themify.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/themify.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/icon_fonts/font/themify.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/jquery.mmenu.all.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/menu_2.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/owl.video.play.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/all.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/_all.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/aero.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/aero.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/aero@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/blue.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/blue.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/blue@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/flat.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/flat.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/flat@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/green.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/green.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/green@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/grey.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/grey.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/grey@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/orange.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/orange.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/orange@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/pink.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/pink.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/pink@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/purple.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/purple.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/purple@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/red.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/red.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/red@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/yellow.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/yellow.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/flat/yellow@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/futurico/futurico.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/futurico/futurico.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/futurico/futurico@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/_all.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/aero.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/blue.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/green.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/grey.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/line.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/line.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/line@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/orange.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/pink.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/purple.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/red.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/line/yellow.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/_all.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/aero.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/aero.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/aero@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/blue.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/blue.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/blue@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/green.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/green.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/green@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/grey.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/grey.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/grey@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/minimal.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/minimal.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/minimal@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/orange.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/orange.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/orange@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/pink.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/pink.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/pink@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/purple.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/purple.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/purple@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/red.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/red.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/red@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/yellow.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/yellow.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/minimal/yellow@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/polaris/polaris.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/polaris/polaris.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/polaris/polaris@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/_all.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/aero.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/aero.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/aero@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/blue.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/blue.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/blue@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/green.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/green.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/green@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/grey.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/grey.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/grey@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/orange.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/orange.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/orange@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/pink.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/pink.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/pink@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/purple.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/purple.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/purple@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/red.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/red.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/red@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/square.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/square.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/square@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/yellow.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/yellow.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/yellow.psd" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/skins/square/yellow@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/style.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/tables.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/vendors.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/vendors.unminified.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/css/wizard.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/apple-touch-icon-114x114-precomposed.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/apple-touch-icon-144x144-precomposed.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/apple-touch-icon-57x57-precomposed.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/apple-touch-icon-72x72-precomposed.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/arrow_down.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/drag_icon.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/favicon.ico" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/flex_slides/slide_1.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/flex_slides/slide_1_thumb.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/flex_slides/slide_2.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/flex_slides/slide_2_thumb.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/flex_slides/slide_3.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/flex_slides/slide_3_thumb.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/flex_slides/slide_4.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/flex_slides/slide_4_thumb.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/logo_2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/logo_black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/logo_black_2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/map-marker.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/pattern_1.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/search.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/small-arrow.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/svg-loaders/audio.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/svg-loaders/ball-triangle.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/svg-loaders/bars.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/svg-loaders/circles.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/svg-loaders/grid.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/svg-loaders/hearts.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/svg-loaders/oval.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/svg-loaders/puff.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/svg-loaders/rings.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/svg-loaders/spinning-circles.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/svg-loaders/tail-spin.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/svg-loaders/three-dots.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/video_fix.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/img/wizard_intro_icon.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/ResizeSensor.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/ResizeSensor.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/admission_func.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/bootstrap.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/bootstrap.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/classie.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/common_scripts.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/fullcalendar.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/fullcalendar.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/fullcalendar_func.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/icheck.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/icheck.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery-2.2.4.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery-ui-1.8.22.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery-ui.custom.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery.cookiebar.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery.flexslider.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery.flexslider.uncompressed.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery.magnific-popup.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery.magnific-popup.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery.mmenu.all.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery.mmenu.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery.selectbox-0.2.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery.validate.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/jquery.wizard.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/main.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/main_admission.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/mapmarker.jquery.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/mapmarker_func.jquery.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/modernizr.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/modernizr_slider.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/modernizr_tables.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/moment.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/owl.carousel.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/owl.carousel.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/popper.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/pw_strenght.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/retina-replace.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/retina-replace.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/sticky-kit-1.4.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/sticky-kit-1.4.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/sticky-kit.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/sticky-kit.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/tables_func.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/theia-sticky-sidebar.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/video_header.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/wow.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/js/wow.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/css/blank.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/css/layerslider.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/js/greensock.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/js/jquery.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/js/layerslider.kreaturamedia.jquery.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/js/layerslider.transitions.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlessdark/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlessdark/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlessdark/shadow.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlessdark/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlessdark/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlessdark3d/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlessdark3d/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlessdark3d/shadow.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlessdark3d/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlessdark3d/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlesslight/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlesslight/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlesslight/shadow.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlesslight/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlesslight/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlesslight3d/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlesslight3d/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlesslight3d/shadow.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlesslight3d/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/borderlesslight3d/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/carousel/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/carousel/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/carousel/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/carousel/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/darkskin/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/darkskin/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/darkskin/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/darkskin/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/defaultskin/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/defaultskin/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/defaultskin/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/defaultskin/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/fullwidth/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/fullwidth/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/fullwidth/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/fullwidth/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/fullwidthdark/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/fullwidthdark/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/fullwidthdark/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/fullwidthdark/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/glass/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/glass/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/glass/shadow.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/glass/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/glass/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/lightskin/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/lightskin/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/lightskin/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/lightskin/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/minimal/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/minimal/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/minimal/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/minimal/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/noskin/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/noskin/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/noskin/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/noskin/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/v5/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/v5/nothumb.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/v5/skin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/udema/layerslider/skins/v5/skin.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/resources/views/landing.blade.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -686,83 +17,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.json">
+      <file leaf-file-name="MifosHelperServiceProvider.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Modules/MifosHelper/Providers/MifosHelperServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="welcome.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-96">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1584882371690" expanded="true" signature="30:73" ph="..." />
-                <marker date="1584882371690" expanded="true" signature="1703:1722" ph="..." />
-                <marker date="1584882371690" expanded="true" signature="1831:1845" ph="..." />
-                <marker date="1584882371690" expanded="true" signature="1919:1935" ph="..." />
-                <marker date="1584882371690" expanded="true" signature="1979:2001" ph="..." />
-                <marker date="1584882371690" expanded="true" signature="2042:2061" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="landing.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/landing.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="290" column="30" lean-forward="true" selection-start-line="290" selection-start-column="30" selection-end-line="290" selection-end-column="30" />
-              <folding>
-                <marker date="1585051554420" expanded="true" signature="435:451" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="553:569" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="692:708" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="833:849" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="976:992" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="1220:1236" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="1298:1314" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="1368:1384" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="1440:1456" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="1563:1579" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="1666:1682" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="1969:1985" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="3612:3628" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="4164:4180" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="5017:5033" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="5464:5480" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="5896:5912" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="6346:6362" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="6789:6805" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="7214:7230" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="7657:7673" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="8100:8116" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="8535:8551" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="9683:9699" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="11015:11031" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="12388:12404" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="13782:13798" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="15122:15138" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="19666:19682" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="19734:19750" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="19800:19816" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="19856:19872" ph="..." />
-                <marker date="1585051554420" expanded="true" signature="19947:19963" ph="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -770,8 +30,8 @@
       <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/udema/css/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="555">
+              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -802,6 +62,7 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/public/udema/css/custom.css" />
         <option value="$PROJECT_DIR$/resources/views/landing.blade.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
       </list>
     </option>
   </component>
@@ -909,6 +170,7 @@
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/nwidart/laravel-modules" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
@@ -933,7 +195,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -944,34 +205,20 @@
             <path>
               <item name="mifosmarketplace" type="b2602c69:ProjectViewProjectNode" />
               <item name="mifosmarketplace" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Modules" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="mifosmarketplace" type="b2602c69:ProjectViewProjectNode" />
               <item name="mifosmarketplace" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="udema" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="mifosmarketplace" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mifosmarketplace" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="udema" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="img" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="mifosmarketplace" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mifosmarketplace" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="udema" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="img" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="flex_slides" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Modules" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="MifosReminder" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1020,13 +267,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8250000" />
+    <option name="totallyTimeSpent" value="8446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="179" y="23" width="1344" height="879" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20122887" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1039,12 +285,24 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20122887" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1058,6 +316,129 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/resources/views/landing.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4350">
+          <caret line="290" column="30" lean-forward="false" selection-start-line="290" selection-start-column="30" selection-end-line="290" selection-end-column="30" />
+          <folding>
+            <marker date="1585225824890" expanded="true" signature="435:451" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="553:569" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="692:708" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="833:849" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="976:992" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1220:1236" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1298:1314" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1368:1384" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1440:1456" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1563:1579" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1666:1682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1969:1985" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="3612:3628" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="4164:4180" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5017:5033" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5464:5480" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5896:5912" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6346:6362" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6789:6805" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7214:7230" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7657:7673" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8100:8116" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8535:8551" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="9683:9699" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="11015:11031" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="12388:12404" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="13782:13798" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="15122:15138" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19666:19682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19734:19750" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19800:19816" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19856:19872" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19947:19963" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1585225824891" expanded="true" signature="30:73" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1703:1722" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1831:1845" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1919:1935" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1979:2001" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="2042:2061" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/landing.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4350">
+          <caret line="290" column="30" lean-forward="true" selection-start-line="290" selection-start-column="30" selection-end-line="290" selection-end-column="30" />
+          <folding>
+            <marker date="1585225824890" expanded="true" signature="435:451" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="553:569" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="692:708" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="833:849" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="976:992" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1220:1236" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1298:1314" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1368:1384" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1440:1456" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1563:1579" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1666:1682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1969:1985" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="3612:3628" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="4164:4180" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5017:5033" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5464:5480" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5896:5912" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6346:6362" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6789:6805" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7214:7230" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7657:7673" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8100:8116" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8535:8551" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="9683:9699" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="11015:11031" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="12388:12404" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="13782:13798" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="15122:15138" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19666:19682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19734:19750" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19800:19816" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19856:19872" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19947:19963" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/udema/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1079,12 +460,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1584882371690" expanded="true" signature="30:73" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="1703:1722" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="1831:1845" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="1919:1935" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="1979:2001" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="2042:2061" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="30:73" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1703:1722" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1831:1845" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1919:1935" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1979:2001" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="2042:2061" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1094,39 +475,39 @@
         <state relative-caret-position="435">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <marker date="1585051554420" expanded="true" signature="435:451" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="553:569" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="692:708" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="833:849" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="976:992" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1220:1236" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1298:1314" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1368:1384" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1440:1456" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1563:1579" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1666:1682" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1969:1985" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="3612:3628" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="4164:4180" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="5017:5033" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="5464:5480" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="5896:5912" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="6346:6362" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="6789:6805" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="7214:7230" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="7657:7673" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="8100:8116" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="8535:8551" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="9683:9699" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="11015:11031" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="12388:12404" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="13782:13798" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="15122:15138" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19666:19682" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19734:19750" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19800:19816" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19856:19872" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19947:19963" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="435:451" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="553:569" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="692:708" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="833:849" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="976:992" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1220:1236" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1298:1314" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1368:1384" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1440:1456" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1563:1579" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1666:1682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1969:1985" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="3612:3628" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="4164:4180" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5017:5033" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5464:5480" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5896:5912" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6346:6362" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6789:6805" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7214:7230" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7657:7673" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8100:8116" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8535:8551" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="9683:9699" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="11015:11031" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="12388:12404" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="13782:13798" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="15122:15138" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19666:19682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19734:19750" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19800:19816" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19856:19872" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19947:19963" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1152,12 +533,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1584882371690" expanded="true" signature="30:73" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="1703:1722" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="1831:1845" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="1919:1935" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="1979:2001" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="2042:2061" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="30:73" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1703:1722" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1831:1845" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1919:1935" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1979:2001" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="2042:2061" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1167,55 +548,55 @@
         <state relative-caret-position="435">
           <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <marker date="1585051554420" expanded="true" signature="435:451" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="553:569" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="692:708" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="833:849" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="976:992" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1220:1236" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1298:1314" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1368:1384" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1440:1456" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1563:1579" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1666:1682" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1969:1985" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="3612:3628" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="4164:4180" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="5017:5033" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="5464:5480" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="5896:5912" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="6346:6362" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="6789:6805" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="7214:7230" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="7657:7673" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="8100:8116" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="8535:8551" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="9683:9699" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="11015:11031" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="12388:12404" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="13782:13798" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="15122:15138" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19666:19682" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19734:19750" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19800:19816" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19856:19872" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19947:19963" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="435:451" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="553:569" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="692:708" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="833:849" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="976:992" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1220:1236" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1298:1314" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1368:1384" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1440:1456" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1563:1579" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1666:1682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1969:1985" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="3612:3628" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="4164:4180" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5017:5033" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5464:5480" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5896:5912" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6346:6362" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6789:6805" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7214:7230" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7657:7673" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8100:8116" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8535:8551" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="9683:9699" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="11015:11031" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="12388:12404" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="13782:13798" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="15122:15138" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19666:19682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19734:19750" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19800:19816" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19856:19872" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19947:19963" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+        <state relative-caret-position="375">
+          <caret line="25" column="15" lean-forward="false" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/udema/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="555">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1225,12 +606,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1584882371690" expanded="true" signature="30:73" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="1703:1722" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="1831:1845" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="1919:1935" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="1979:2001" ph="..." />
-            <marker date="1584882371690" expanded="true" signature="2042:2061" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="30:73" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1703:1722" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1831:1845" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1919:1935" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1979:2001" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="2042:2061" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1245,43 +626,545 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/landing.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="290" column="30" lean-forward="true" selection-start-line="290" selection-start-column="30" selection-end-line="290" selection-end-column="30" />
+        <state relative-caret-position="15">
+          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
-            <marker date="1585051554420" expanded="true" signature="435:451" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="553:569" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="692:708" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="833:849" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="976:992" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1220:1236" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1298:1314" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1368:1384" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1440:1456" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1563:1579" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1666:1682" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="1969:1985" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="3612:3628" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="4164:4180" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="5017:5033" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="5464:5480" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="5896:5912" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="6346:6362" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="6789:6805" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="7214:7230" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="7657:7673" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="8100:8116" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="8535:8551" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="9683:9699" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="11015:11031" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="12388:12404" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="13782:13798" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="15122:15138" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19666:19682" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19734:19750" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19800:19816" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19856:19872" ph="..." />
-            <marker date="1585051554420" expanded="true" signature="19947:19963" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="435:451" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="553:569" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="692:708" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="833:849" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="976:992" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1220:1236" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1298:1314" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1368:1384" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1440:1456" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1563:1579" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1666:1682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1969:1985" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="3612:3628" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="4164:4180" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5017:5033" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5464:5480" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5896:5912" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6346:6362" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6789:6805" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7214:7230" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7657:7673" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8100:8116" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8535:8551" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="9683:9699" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="11015:11031" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="12388:12404" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="13782:13798" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="15122:15138" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19666:19682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19734:19750" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19800:19816" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19856:19872" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19947:19963" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1585225824891" expanded="true" signature="30:73" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1703:1722" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1831:1845" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1919:1935" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1979:2001" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="2042:2061" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/landing.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <marker date="1585225824890" expanded="true" signature="435:451" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="553:569" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="692:708" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="833:849" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="976:992" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1220:1236" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1298:1314" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1368:1384" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1440:1456" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1563:1579" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1666:1682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1969:1985" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="3612:3628" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="4164:4180" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5017:5033" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5464:5480" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5896:5912" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6346:6362" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6789:6805" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7214:7230" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7657:7673" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8100:8116" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8535:8551" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="9683:9699" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="11015:11031" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="12388:12404" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="13782:13798" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="15122:15138" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19666:19682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19734:19750" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19800:19816" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19856:19872" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19947:19963" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1585225824891" expanded="true" signature="30:73" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1703:1722" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1831:1845" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1919:1935" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1979:2001" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="2042:2061" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/landing.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <marker date="1585225824890" expanded="true" signature="435:451" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="553:569" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="692:708" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="833:849" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="976:992" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1220:1236" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1298:1314" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1368:1384" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1440:1456" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1563:1579" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1666:1682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1969:1985" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="3612:3628" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="4164:4180" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5017:5033" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5464:5480" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5896:5912" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6346:6362" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6789:6805" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7214:7230" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7657:7673" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8100:8116" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8535:8551" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="9683:9699" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="11015:11031" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="12388:12404" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="13782:13798" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="15122:15138" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19666:19682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19734:19750" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19800:19816" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19856:19872" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19947:19963" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/udema/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1585225824891" expanded="true" signature="30:73" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1703:1722" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1831:1845" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1919:1935" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1979:2001" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="2042:2061" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/landing.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <marker date="1585225824890" expanded="true" signature="435:451" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="553:569" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="692:708" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="833:849" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="976:992" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1220:1236" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1298:1314" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1368:1384" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1440:1456" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1563:1579" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1666:1682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1969:1985" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="3612:3628" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="4164:4180" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5017:5033" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5464:5480" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5896:5912" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6346:6362" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6789:6805" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7214:7230" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7657:7673" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8100:8116" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8535:8551" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="9683:9699" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="11015:11031" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="12388:12404" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="13782:13798" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="15122:15138" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19666:19682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19734:19750" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19800:19816" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19856:19872" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19947:19963" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/MifosReminder/Http/Controllers/MifosReminderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="3" lean-forward="false" selection-start-line="17" selection-start-column="3" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/MifosReminder/Http/Controllers/MifosXController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/MifosReminder/Routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="15" column="56" lean-forward="false" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/MifosReminder/Providers/MifosReminderServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="38" column="35" lean-forward="false" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1585225824891" expanded="true" signature="30:73" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1703:1722" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1831:1845" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1919:1935" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1979:2001" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="2042:2061" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/landing.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <marker date="1585225824890" expanded="true" signature="435:451" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="553:569" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="692:708" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="833:849" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="976:992" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1220:1236" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1298:1314" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1368:1384" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1440:1456" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1563:1579" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1666:1682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1969:1985" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="3612:3628" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="4164:4180" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5017:5033" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5464:5480" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5896:5912" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6346:6362" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6789:6805" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7214:7230" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7657:7673" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8100:8116" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8535:8551" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="9683:9699" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="11015:11031" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="12388:12404" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="13782:13798" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="15122:15138" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19666:19682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19734:19750" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19800:19816" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19856:19872" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19947:19963" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1585225824891" expanded="true" signature="30:73" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1703:1722" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1831:1845" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1919:1935" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1979:2001" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="2042:2061" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/landing.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <marker date="1585225824890" expanded="true" signature="435:451" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="553:569" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="692:708" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="833:849" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="976:992" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1220:1236" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1298:1314" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1368:1384" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1440:1456" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1563:1579" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1666:1682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1969:1985" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="3612:3628" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="4164:4180" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5017:5033" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5464:5480" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5896:5912" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6346:6362" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6789:6805" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7214:7230" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7657:7673" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8100:8116" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8535:8551" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="9683:9699" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="11015:11031" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="12388:12404" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="13782:13798" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="15122:15138" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19666:19682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19734:19750" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19800:19816" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19856:19872" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19947:19963" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/udema/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1585225824891" expanded="true" signature="30:73" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1703:1722" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1831:1845" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1919:1935" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="1979:2001" ph="..." />
+            <marker date="1585225824891" expanded="true" signature="2042:2061" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/landing.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <marker date="1585225824890" expanded="true" signature="435:451" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="553:569" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="692:708" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="833:849" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="976:992" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1220:1236" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1298:1314" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1368:1384" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1440:1456" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1563:1579" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1666:1682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="1969:1985" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="3612:3628" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="4164:4180" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5017:5033" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5464:5480" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="5896:5912" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6346:6362" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="6789:6805" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7214:7230" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="7657:7673" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8100:8116" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="8535:8551" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="9683:9699" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="11015:11031" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="12388:12404" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="13782:13798" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="15122:15138" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19666:19682" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19734:19750" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19800:19816" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19856:19872" ph="..." />
+            <marker date="1585225824890" expanded="true" signature="19947:19963" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/MifosHelper/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/MifosHelper/Providers/MifosHelperServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-96">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

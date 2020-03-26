@@ -1,0 +1,13 @@
+{
+    "name": "MifosHelper",
+    "alias": "mifoshelper",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\MifosHelper\\Providers\\MifosHelperServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

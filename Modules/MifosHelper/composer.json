@@ -1,0 +1,25 @@
+{
+    "name": "le-yo/mifoshelper",
+    "description": "",
+    "authors": [
+        {
+            "name": "Leonard korir",
+            "email": "gmail#le-yo.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\MifosHelper\\Providers\\MifosHelperServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\MifosHelper\\": ""
+        }
+    }
+}
