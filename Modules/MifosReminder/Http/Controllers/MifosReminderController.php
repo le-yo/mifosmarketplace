@@ -5,6 +5,7 @@ namespace Modules\MifosReminder\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\MifosHelper\Http\Controllers\MifosHelperController;
 
 class MifosReminderController extends Controller
 {
@@ -23,8 +24,11 @@ class MifosReminderController extends Controller
 
     public function send()
     {
-        $mifos = new MifosXController();
-        $response = $mifos->listAllDueAndOverdueClients();
+        $username = 'Pesapal';
+        $pass = 'P3s@Cr7dt';
+        $mifos_url = "https://hermes.pesapal.credit/";
+        $tenant = "default";
+        $response = MifosHelperController::listAllDueAndOverdueClients($mifos_url,$username,$pass,$tenant);
 
         foreach ($response as $sd)
         {
