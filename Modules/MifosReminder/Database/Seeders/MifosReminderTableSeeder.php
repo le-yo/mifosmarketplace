@@ -26,7 +26,7 @@ class MifosReminderTableSeeder extends Seeder
             array(
                 'mifos_reminder_app_id' => 1,
                 'message' => "Dear {name}, your loan repayment of KES {amount} is due on {due_date}. Please make plans to make payment. Thanks",
-                'day' => "-3",
+                'day' => "3",
             )
         ));
     }

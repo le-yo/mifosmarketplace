@@ -27,7 +27,7 @@ class MifosReminderConfigTableSeeder extends Seeder
         DB::table('mifos_reminder_configs')->insert(array(
             array(
                 'mifos_reminder_app_id' => 1,
-                'mifos_url' => "https://hermes.pesapal.credit/",
+                'mifos_url' => "https://hermes.pesapal.com/",
                 'username' => "Pesapal",
                 'password' => Crypt::encrypt('P3s@Cr7dt'),
                 'tenant' => "default",

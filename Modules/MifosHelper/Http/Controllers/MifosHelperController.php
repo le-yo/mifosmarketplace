@@ -84,7 +84,7 @@ class MifosHelperController extends Controller
     {
         $url = $config->mifos_url . "fineract-provider/api/v1/loans/" . $loan_id . "?associations=repaymentSchedule&tenantIdentifier=" . $config->tenant;
         $loan = self::get($url,$config);
-        $loan = self::MifosGetTransaction($url, $post_data = "",$config);
+//        $loan = self::MifosGetTransaction($url, $post_data = "",$config);
         return $loan;
     }
 
@@ -94,7 +94,7 @@ class MifosHelperController extends Controller
     {
         // Get the url for running the report
 //        $getURl = $mifos_url."fineract-provider/api/v1/runreports/Loan%20Payments%20Due%20Report?";
-        $getURl = $config->mifos_url."fineract-provider/api/v1/runreports/Loan%20Payments%20Due%20Report?R_startDate=".Carbon::today()->subDays(16)->format('Y-m-d')."&R_endDate=".Carbon::today()->addDays(6)->format('Y-m-d')."&R_officeId=1&R_currencyId=-1&R_loanProductId=1";
+        $getURl = $config->mifos_url."fineract-provider/api/v1/runreports/Loan%20Payments%20Due%20Report?R_startDate=".Carbon::today()->addDays(3)->format('Y-m-d')."&R_endDate=".Carbon::today()->addDays(4)->format('Y-m-d')."&R_officeId=1";
 
         // Send a GET request
         $reports = self::get($getURl,$config);

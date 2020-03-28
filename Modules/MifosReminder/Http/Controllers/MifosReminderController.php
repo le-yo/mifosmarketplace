@@ -67,12 +67,12 @@ class MifosReminderController extends Controller
                 $exploded = explode("-",$sd['Due Date']);
                 $due_date = Carbon::createFromDate($exploded[0], $exploded[1], $exploded[2]);
                 $diff = Carbon::now()->diffInDays($due_date,false);
-                $diff = "-3";
+
+//                $diff = "-3";
                 //check if there is reminder for that day:
                 $reminder = MifosReminder::where("day","=",$diff)->first();
-
                 if($reminder) {
-                    self::sendReminder($reminder,$sd,$config);
+                    self::sendReminder($reminder->message,$sd,$config);
                     exit;
                 }
             }
@@ -90,19 +90,19 @@ class MifosReminderController extends Controller
 
     public function sendReminder($reminder,$sd,$config)
     {
-        print_r($sd);
-        exit;
+
             //populate outbox
             $message = new MifosReminderOutbox();
-            $message->app_id = $reminder->id;
+            $message->app_id = 1;
             $message->phone = '254'.substr($sd['Mobile No'], -9);
-            $message->reminder_id = $reminder->id;
             $message->status = 0;
             $message->content = json_encode($sd);
-            $search  = array('{phone}', '{due_date}', '{balance}', '{name}', '{principal}', '{interest}', '{penalties}', '{instalment}','{totalOverdue}');
+            $search  = array('{phone}', '{due_date}', '{amount}', '{name}', '{principal}', '{interest}', '{penalties}', '{instalment}','{totalOverdue}');
             $replace = array($sd['Mobile No'], $sd['Due Date'], number_format($sd['Loan Balance'],2), $sd['Client Name'],number_format($sd['Principal Due'],2),number_format($sd['Interest Due'],2),number_format($sd['Penalty Due'],2),number_format($sd['Total Due'],2),number_format($sd['totalOverdue'],2));
-            $subject = $reminder->message;
+            $subject = $reminder;
             $msg = str_replace($search, $replace, $subject);
+            print_r($msg);
+            exit;
             $message->message = $msg;
             $message->save();
 
