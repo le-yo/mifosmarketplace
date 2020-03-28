@@ -25,7 +25,7 @@ class MifosReminderTableSeeder extends Seeder
         DB::table('mifos_reminders')->insert(array(
             array(
                 'mifos_reminder_app_id' => 1,
-                'message' => "This is a test reminder",
+                'message' => "Dear {name}, your loan repayment of KES {amount} is due on {due_date}. Please make plans to make payment. Thanks",
                 'day' => "-3",
             )
         ));
