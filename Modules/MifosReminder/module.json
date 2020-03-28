@@ -6,7 +6,7 @@
     "order": 0,
     "providers": [
         "Modules\\MifosReminder\\Providers\\MifosReminderServiceProvider",
-        "Module\\Providers\\ScheduleServiceProvider"
+        "Modules\\MifosReminder\\Providers\\ScheduleServiceProvider"
     ],
     "aliases": {},
     "files": [],
