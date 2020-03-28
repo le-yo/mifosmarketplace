@@ -101,8 +101,6 @@ class MifosReminderController extends Controller
             $replace = array($sd['Mobile No'], $sd['Due Date'], number_format($sd['Loan Balance'],2), $sd['Client Name'],number_format($sd['Principal Due'],2),number_format($sd['Interest Due'],2),number_format($sd['Penalty Due'],2),number_format($sd['Total Due'],2),number_format($sd['totalOverdue'],2));
             $subject = $reminder;
             $msg = str_replace($search, $replace, $subject);
-            print_r($msg);
-            exit;
             $message->message = $msg;
             $message->save();
 

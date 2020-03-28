@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\MifosReminder\Console;
+namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call('Modules\MifosReminder\Http\Controllers\MifosReminderController@send')->everyMinute()->name('payment-reminder');
+        $schedule->call('Modules\MifosReminder\Http\Controllers\MifosReminderController@send')->dailyAt('08:00')->name('payment-reminder');
     }
 
     /**
