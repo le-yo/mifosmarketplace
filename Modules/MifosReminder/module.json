@@ -5,7 +5,8 @@
     "keywords": [],
     "order": 0,
     "providers": [
-        "Modules\\MifosReminder\\Providers\\MifosReminderServiceProvider"
+        "Modules\\MifosReminder\\Providers\\MifosReminderServiceProvider",
+        "Module\\Providers\\ScheduleServiceProvider"
     ],
     "aliases": {},
     "files": [],
