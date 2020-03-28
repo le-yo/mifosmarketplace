@@ -90,11 +90,11 @@ class MifosHelperController extends Controller
 
 
 
-    public static function listAllDueAndOverdueClients($config)
+    public static function listAllDueAndOverdueClients($config,$reminder)
     {
         // Get the url for running the report
 //        $getURl = $mifos_url."fineract-provider/api/v1/runreports/Loan%20Payments%20Due%20Report?";
-        $getURl = $config->mifos_url."fineract-provider/api/v1/runreports/Loan%20Payments%20Due%20Report?R_startDate=".Carbon::today()->addDays(3)->format('Y-m-d')."&R_endDate=".Carbon::today()->addDays(4)->format('Y-m-d')."&R_officeId=1";
+        $getURl = $config->mifos_url."fineract-provider/api/v1/runreports/Loan%20Payments%20Due%20Report?R_startDate=".Carbon::today()->addDays($reminder->day)->format('Y-m-d')."&R_endDate=".Carbon::today()->addDays($reminder->day+1)->format('Y-m-d')."&R_officeId=1";
 
         // Send a GET request
         $reports = self::get($getURl,$config);

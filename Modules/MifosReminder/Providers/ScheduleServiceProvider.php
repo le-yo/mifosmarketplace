@@ -16,7 +16,8 @@ class ScheduleServiceProvider extends ServiceProvider
     {
         $this->app->booted(function () {
             $schedule = $this->app->make(Schedule::class);
-            $schedule->call('Modules\MifosReminder\Http\Controllers\MifosReminderController@send')->dailyAt('21:35')->name('payment-reminder');
+            $schedule->call('Modules\MifosReminder\Http\Controllers\MifosReminderController@send')->everyMinute()->name('payment-reminder');
+            $schedule->call('Modules\MifosReminder\Http\Controllers\MifosReminderController@send')->dailyAt('09:00')->name('payment-reminder');
         });
     }
 

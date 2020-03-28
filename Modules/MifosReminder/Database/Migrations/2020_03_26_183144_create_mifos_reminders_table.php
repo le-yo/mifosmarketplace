@@ -18,6 +18,7 @@ class CreateMifosRemindersTable extends Migration
             $table->string('mifos_reminder_app_id')->default(0);
             $table->longText('message');
             $table->string('day')->nullable();
+            $table->string('schedule_time')->default(0);
             $table->timestamps();
         });
     }
