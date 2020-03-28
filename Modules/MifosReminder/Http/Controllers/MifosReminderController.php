@@ -105,7 +105,7 @@ class MifosReminderController extends Controller
             $message->save();
 
             if(strlen($sd['Mobile No']) > 7) {
-                $response = MifosHelperController::sendSms("254728355429","Test Message ".$msg,$config);
+                $response = MifosHelperController::sendSms('254'.substr($sd['Mobile No'], -9),$msg,$config);
                 if($response[0]->statusCode == 101){
                     $message->status= 1;
                     $message->cost = $response[0]->cost;
