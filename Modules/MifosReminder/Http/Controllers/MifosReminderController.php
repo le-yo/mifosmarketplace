@@ -2,10 +2,16 @@
 
 namespace Modules\MifosReminder\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Crypt;
 use Modules\MifosHelper\Http\Controllers\MifosHelperController;
+use Modules\MifosReminder\Entities\MifosReminder;
+use Modules\MifosReminder\Entities\MifosReminderConfig;
+use Modules\MifosReminder\Entities\MifosReminderOutbox;
 
 class MifosReminderController extends Controller
 {
@@ -24,23 +30,23 @@ class MifosReminderController extends Controller
 
     public function send()
     {
-        $username = 'Pesapal';
-        $pass = 'P3s@Cr7dt';
-        $mifos_url = "https://hermes.pesapal.credit/";
-        $tenant = "default";
-        $response = MifosHelperController::listAllDueAndOverdueClients($mifos_url,$username,$pass,$tenant);
+        $app_id = 1;
+        $config = MifosReminderConfig::find($app_id);
+        //get configured messages
+
+
+        $response = MifosHelperController::listAllDueAndOverdueClients($config);
 
         foreach ($response as $sd)
         {
-            $check = Outbox::wherePhone('254'.substr($sd['Mobile No'], -9))->whereIsReminder(1)->whereDate('created_at', Carbon::today())->first();
+            $check = MifosReminderOutbox::wherePhone('254'.substr($sd['Mobile No'], -9))->whereDate('created_at', Carbon::today())->first();
 
             if($check) {
                 continue;
             }
 
             // Retrieve the loan details
-            $loanData = new HooksController();
-            $loanDataResponse = $loanData->getLoan(substr($sd['Loan Account Number'], -9));
+            $loanDataResponse = MifosHelperController::getLoan(substr($sd['Loan Account Number'], -9),$config);
 
             // Get the loan schedule periods
             $schedule = $loanDataResponse->repaymentSchedule;
@@ -48,7 +54,7 @@ class MifosReminderController extends Controller
             array_splice($periods, 0, 1);
 
             // Get all unpaid periods
-            $period = array_values(array_where($periods, function ($value, $key) use ($sd) {
+            $period = array_values(Arr::where($periods, function ($value, $key) use ($sd) {
                 return $value->complete == false && Carbon::parse(implode('-', $value->dueDate))->eq(new Carbon($sd['Due Date']));
             }));
 
@@ -61,13 +67,13 @@ class MifosReminderController extends Controller
                 $exploded = explode("-",$sd['Due Date']);
                 $due_date = Carbon::createFromDate($exploded[0], $exploded[1], $exploded[2]);
                 $diff = Carbon::now()->diffInDays($due_date,false);
+                $diff = "-3";
+                //check if there is reminder for that day:
+                $reminder = MifosReminder::where("day","=",$diff)->first();
 
-                if($diff<0) {
-                    $reminder = Reminder::whereDaysOverdue(abs($diff))->first();
-                    self::sendReminder($reminder,$sd, 1);
-                } else {
-                    $reminder = Reminder::whereDaysTo($diff)->first();
-                    self::sendReminder($reminder,$sd, 0);
+                if($reminder) {
+                    self::sendReminder($reminder,$sd,$config);
+                    exit;
                 }
             }
         }
@@ -82,17 +88,15 @@ class MifosReminderController extends Controller
         ]);
     }
 
-    public function sendReminder($reminder,$sd, $type)
+    public function sendReminder($reminder,$sd,$config)
     {
-        if($reminder) {
-            $notify = new NotifyController();
 
             //populate outbox
-            $message = new Outbox();
+            $message = new MifosReminderOutbox();
+            $message->app_id = $reminder->id;
             $message->phone = '254'.substr($sd['Mobile No'], -9);
             $message->reminder_id = $reminder->id;
             $message->status = 0;
-            $message->is_reminder = 1;
             $message->content = json_encode($sd);
             $search  = array('{phone}', '{due_date}', '{balance}', '{name}', '{principal}', '{interest}', '{penalties}', '{instalment}','{totalOverdue}');
             $replace = array($sd['Mobile No'], $sd['Due Date'], number_format($sd['Loan Balance'],2), $sd['Client Name'],number_format($sd['Principal Due'],2),number_format($sd['Interest Due'],2),number_format($sd['Penalty Due'],2),number_format($sd['Total Due'],2),number_format($sd['totalOverdue'],2));
@@ -102,18 +106,17 @@ class MifosReminderController extends Controller
             $message->save();
 
             if(strlen($sd['Mobile No']) > 7) {
-                $notify->sendSms($sd['Mobile No'],$msg);
-                $message->status= 1;
-                $message->save();
+                $response = MifosHelperController::sendSms("254728355429","Test Message ".$msg,$config);
+                if($response[0]->statusCode == 101){
+                    $message->status= 1;
+                    $message->cost= $response[0]['cost'];
+                    $message->messageId= $response[0]['messageId'];
+                    $message->messageParts= $response[0]['messageParts'];
+                    $message->save();
+                }
+
             }
 
-            if ($type == 1)
-            {
-                $this->overdueReminderCount++;
-            } else {
-                $this->dueReminderCount++;
-            }
-        }
     }
 
     public function index()

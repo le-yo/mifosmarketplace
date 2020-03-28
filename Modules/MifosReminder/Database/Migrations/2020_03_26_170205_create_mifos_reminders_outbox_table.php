@@ -21,6 +21,9 @@ class CreateMifosRemindersOutboxTable extends Migration
             $table->integer('status')->default(0);
             $table->integer('reminder_id')->default(0);
             $table->longText('content')->default(null);
+            $table->text('cost')->nullable();
+            $table->text('messageId')->nullable();
+            $table->text('messageParts')->nullable();
             $table->timestamps();
         });
     }

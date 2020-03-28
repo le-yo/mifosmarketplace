@@ -16,6 +16,8 @@ class MifosReminderDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call("OthersTableSeeder");
+         $this->call("Modules\MifosReminder\Database\Seeders\MifosReminderTableSeeder");
+         $this->call("Modules\MifosReminder\Database\Seeders\MifosReminderConfigTableSeeder");
+         $this->call("Modules\MifosReminder\Database\Seeders\MifosReminderSmsGatewayTableSeeder");
     }
 }
