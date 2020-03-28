@@ -90,7 +90,8 @@ class MifosReminderController extends Controller
 
     public function sendReminder($reminder,$sd,$config)
     {
-
+        print_r($sd);
+        exit;
             //populate outbox
             $message = new MifosReminderOutbox();
             $message->app_id = $reminder->id;
