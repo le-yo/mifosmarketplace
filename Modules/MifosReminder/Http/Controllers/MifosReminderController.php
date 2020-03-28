@@ -108,9 +108,9 @@ class MifosReminderController extends Controller
                 $response = MifosHelperController::sendSms("254728355429","Test Message ".$msg,$config);
                 if($response[0]->statusCode == 101){
                     $message->status= 1;
-                    $message->cost= $response[0]['cost'];
-                    $message->messageId= $response[0]['messageId'];
-                    $message->messageParts= $response[0]['messageParts'];
+                    $message->cost = $response[0]->cost;
+                    $message->messageId= $response[0]->messageId;
+                    $message->messageParts= $response[0]->messageParts;
                     $message->save();
                 }
 
