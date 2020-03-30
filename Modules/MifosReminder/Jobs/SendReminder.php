@@ -50,7 +50,7 @@ class SendReminder implements ShouldQueue
             // Retrieve the loan details
             $loanDataResponse = MifosHelperController::getLoan(substr($sd['Loan Account Number'], -9),$config);
             $url = $config->mifos_url . "fineract-provider/api/v1/loanproducts/" . $loanDataResponse->loanProductId . "?" . $config->tenant;
-            $loanproduct = self::get($url,$config);
+            $loanproduct = MifosHelperController::get($url,$config);
             // Get the url for retrieving the specific loan
             $no = substr($sd['Mobile No'], -9);
 
