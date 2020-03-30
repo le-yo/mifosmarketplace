@@ -49,7 +49,26 @@ class SendReminder implements ShouldQueue
 
             // Retrieve the loan details
             $loanDataResponse = MifosHelperController::getLoan(substr($sd['Loan Account Number'], -9),$config);
+            $url = $config->mifos_url . "fineract-provider/api/v1/loanproducts/" . $loanDataResponse->loanProductId . "?" . $config->tenant;
+            $loanproduct = self::get($url,$config);
+            // Get the url for retrieving the specific loan
+            $no = substr($sd['Mobile No'], -9);
 
+            $url = $config->mifos_url . "fineract-provider/api/v1/clients?sqlSearch=(c.mobile_no%20like%20%27" . $no . "%27)&tenantIdentifier=" . $config->tenant;
+
+            $client = MifosHelperController::get($url,$config);
+
+            if ($client->totalFilteredRecords == 0) {
+                $url = $config->mifos_url . "fineract-provider/api/v1/clients?sqlSearch=(c.mobile_no%20like%20%270" . $no . "%27)&tenantIdentifier=" . $config->tenant;
+                $client = MifosHelperController::get($url,$config);
+
+                if ($client->totalFilteredRecords == 0) {
+                    $url = $config->mifos_url . "fineract-provider/api/v1/clients?sqlSearch=(c.mobile_no%20like%20%27254" . $no . "%27)&tenantIdentifier=" . $config->tenant;
+                    $client = MifosHelperController::get($url,$config);
+                }
+            }
+            $sd['loanproduct'] = $loanproduct;
+            $sd['client'] = $client;
             // Get the loan schedule periods
             $schedule = $loanDataResponse->repaymentSchedule;
             $periods = $schedule->periods;
@@ -86,23 +105,34 @@ class SendReminder implements ShouldQueue
         $message->status = 0;
         $message->reminder_id = $reminder->id;
         $message->content = json_encode($sd);
-        $search  = array('{phone}', '{due_date}', '{amount}', '{name}', '{principal}', '{interest}', '{penalties}', '{instalment}','{totalOverdue}');
-        $replace = array($sd['Mobile No'], $sd['Due Date'], number_format($sd['Loan Balance'],2), $sd['Client Name'],number_format($sd['Principal Due'],2),number_format($sd['Interest Due'],2),number_format($sd['Penalty Due'],2),number_format($sd['Total Due'],2),number_format($sd['totalOverdue'],2));
+        $search  = array('{prefix}','{external_id}','{phone}', '{due_date}', '{amount}', '{name}', '{principal}', '{interest}', '{penalties}', '{instalment}','{totalOverdue}');
+        $replace = array($sd['loanproduct']->shortName,$sd['client']->pageItems[0]->externalId,$sd['Mobile No'], $sd['Due Date'], number_format($sd['Loan Balance'],2), $sd['Client Name'],number_format($sd['Principal Due'],2),number_format($sd['Interest Due'],2),number_format($sd['Penalty Due'],2),number_format($sd['Total Due'],2),number_format($sd['totalOverdue'],2));
         $subject = $reminder->message;
         $msg = str_replace($search, $replace, $subject);
         $message->message = $msg;
         $message->save();
         if(strlen($sd['Mobile No']) > 7) {
 //            $response = MifosHelperController::sendSms('254728355429',$msg,$config);
-            $response = MifosHelperController::sendSms('254'.substr($sd['Mobile No'], -9),$msg,$config);
-            if($response[0]->statusCode == 101){
-                $message->status= 1;
-                $message->cost = $response[0]->cost;
-                $message->messageId= $response[0]->messageId;
-                $message->messageParts= $response[0]->messageParts;
-                $message->save();
+            if($config->mifos_reminder_sms_gateway_id == 2){
+                $response = MifosHelperController::sendSmsViaAT('254'.substr($sd['Mobile No'], -9),$msg,$config);
+                if($response[0]->statusCode == 101){
+                    $message->status= 1;
+                    $message->cost = $response[0]->cost;
+                    $message->messageId= $response[0]->messageId;
+                    $message->messageParts= $response[0]->messageParts;
+                    $message->save();
+                }
             }
-
+            if($config->mifos_reminder_sms_gateway_id == 1){
+                $response = MifosHelperController::sendSmsViaWasiliana('254'.substr($sd['Mobile No'], -9),$msg,$config);
+                if($response->status == 'success'){
+                    $message->status= 1;
+                    $message->cost = 0;
+                    $message->messageId= "";
+                    $message->messageParts= "";
+                    $message->save();
+                }
+            }
         }
 
     }

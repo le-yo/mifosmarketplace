@@ -13,7 +13,6 @@ use Modules\MifosReminder\Entities\MifosReminderOutbox;
 class MifosHelperController extends Controller
 {
 
-
     public function checkNextInstallment($loanId)
     {
         $overdue_status = 0;
@@ -79,16 +78,12 @@ class MifosHelperController extends Controller
         return $response;
     }
 
-
     public static function getLoan($loan_id,$config)
     {
         $url = $config->mifos_url . "fineract-provider/api/v1/loans/" . $loan_id . "?associations=repaymentSchedule&tenantIdentifier=" . $config->tenant;
         $loan = self::get($url,$config);
-//        $loan = self::MifosGetTransaction($url, $post_data = "",$config);
         return $loan;
     }
-
-
 
     public static function listAllDueAndOverdueClients($config,$reminder)
     {
@@ -127,8 +122,7 @@ class MifosHelperController extends Controller
         return $response;
     }
 
-
-    public static function sendSms($to,$message,$config){
+    public static function sendSmsViaAT($to,$message,$config){
 
         $data = ['phone' => $to, 'message' => $message];
 
@@ -145,6 +139,37 @@ class MifosHelperController extends Controller
 
         return $results;
 
+    }
+
+    public static function sendSmsViaWasiliana($to,$message,$config){
+
+        $data = array();
+        $data['recipients'] = array($to);
+        $data['from'] = $config->sender_name;
+        $data['message'] = $message;
+        $url = 'https://api.wasiliana.com/api/v1/developer/sms/bulk/send/sms/request';
+        $apiKey = "apiKey: ".Crypt::decrypt($config->sms_key);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                $apiKey)
+        );
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        $data = curl_exec($ch);
+        if ($errno = curl_errno($ch)) {
+            $error_message = curl_strerror($errno);
+            echo "cURL error ({$errno}):\n {$error_message}";
+        }
+        curl_close($ch);
+        $dt = ['slug' => 'send_sms_response', 'content' => $data];
+        $response = json_decode($data);
+        return $response;
     }
 
     public static function get($url,$config)
@@ -178,7 +203,6 @@ class MifosHelperController extends Controller
 
         return $response;
     }
-
 
     public static function MifosGetTransaction($url,$post_data=null,$config){
         $data = ['slug' => 'mifos_get_request', 'content' => $url];
@@ -215,6 +239,7 @@ class MifosHelperController extends Controller
         $response = json_decode($data);
         return $response;
     }
+
     public static function MifosPostTransaction($url,$post_data,$config){
 
         $data = ['slug' => 'mifos_post_request', 'content' => $post_data];
