@@ -39,7 +39,7 @@ class MifosReminderTableSeeder extends Seeder
                 'mifos_reminder_app_id' => 2,
                 'message' => "Dear {name}, your loan is due today. Kindly pay {amount} before 12 noon through Paybill 189779 and Account {prefix}{external_id}.",
                 'day' => "0",
-                'schedule_time' => "00:35",
+                'schedule_time' => "00:40",
 //                'schedule_time' => "08:00",
             ),
             array(
