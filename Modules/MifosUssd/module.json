@@ -1,0 +1,13 @@
+{
+    "name": "MifosUssd",
+    "alias": "mifosussd",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\MifosUssd\\Providers\\MifosUssdServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

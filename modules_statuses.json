@@ -1,3 +1,4 @@
 {
-    "MifosReminder": true
+    "MifosReminder": true,
+    "MifosUssd": true
 }

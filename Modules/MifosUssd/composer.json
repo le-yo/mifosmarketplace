@@ -1,16 +1,16 @@
 {
-    "name": "nwidart/mifosreminder",
+    "name": "nwidart/mifosussd",
     "description": "",
     "authors": [
         {
-            "name": "Leonard Korir",
-            "email": "lenykoskey@gmail.com"
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
         }
     ],
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\MifosReminder\\Providers\\MifosReminderServiceProvider"
+                "Modules\\MifosUssd\\Providers\\MifosUssdServiceProvider"
             ],
             "aliases": {
 
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\MifosReminder\\": ""
+            "Modules\\MifosUssd\\": ""
         }
     }
 }
