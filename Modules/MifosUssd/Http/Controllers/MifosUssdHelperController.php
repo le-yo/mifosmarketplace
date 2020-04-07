@@ -459,44 +459,26 @@ class MifosUssdHelperController extends Controller
 
     public function customApp($session,$menu){
 
-        echo "hapa";
-        exit;
-        switch ($menu->type) {
-            case 1:
-                //continue to another menu
-                $menu_items = self::getMenuItems($menu->id);
-                $i = 1;
-                $response = $menu->title . PHP_EOL;
-                foreach ($menu_items as $key => $value) {
-                    $response = $response . $i . ": " . $value->description . PHP_EOL;
-                    $i++;
-                }
 
-                $mifos_ussd_session->menu_id = $menu->id;
-                $mifos_ussd_session->menu_item_id = 0;
-                $mifos_ussd_session->progress = 0;
-                $mifos_ussd_session->save();
-                //self::continueUssdMenu($user,$message,$menu);
-                break;
-            case 2:
-                //start a process
-                self::storeUssdResponse($mifos_ussd_session, $menu->id);
-                $response = self::singleProcess($menu, $mifos_ussd_session, 1);
-                return $menu->title.PHP_EOL.$response;
-                break;
-            case 3:
-                //start a process
-                self::storeUssdResponse($mifos_ussd_session, $menu->id);
-                $response = self::singleProcess($menu, $mifos_ussd_session, 1);
-                return $menu->title.PHP_EOL.$response;
-                break;
-            case 4:
-                //start a process
-                self::storeUssdResponse($mifos_ussd_session, $menu->id);
-                self::customApp($mifos_ussd_session,$menu);
+        switch ($menu->id) {
+            case 8:
+                //repay Loan app
+                $other = json_decode($session->other);
+                $client_id = $other->client_id;
+                $config = MifosUssdConfig::find($session->app_id);
+                $loanAccounts = MifosHelperController::getClientLoanAccounts($client_id,$config);
+
+                $response = $menu->title.PHP_EOL."Paybill 4017901";
+
+                foreach ($loanAccounts as $lA){
+                    if($lA->status->id ==300){
+                    $response = $response.PHP_EOL.$lA->shortProductName.$lA->id."(".$lA->productName."):".$lA->loanBalance;
+                    }
+                }
+                self::sendResponse($response,2,$session);
                 break;
             default :
-                self::resetUser($mifos_ussd_session,null);
+//                self::resetUser($mifos_ussd_session,null);
                 $response = "An authentication error occurred";
                 break;
         }
@@ -619,4 +601,22 @@ class MifosUssdHelperController extends Controller
         }
 
     }
+
+    public static function confirmGoBack($session, $message)
+    {
+
+        if (self::validationVariations($message, 1, "yes")) {
+            self::resetUser($session);
+            $root_menu = MifosUssdMenu::whereAppIdAndIsRoot($session->app_id,1)->first();
+            $response = MifosUssdHelperController::nextMenuSwitch($session,$root_menu);
+            MifosUssdHelperController::sendResponse($response, 1, $session);
+
+        }else{
+            $response = "Thank you for being our valued customer";
+            self::sendResponse($response, 3, $session);
+
+        }
+
+    }
+
 }

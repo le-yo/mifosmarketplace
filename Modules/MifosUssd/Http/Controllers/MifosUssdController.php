@@ -74,7 +74,7 @@ class MifosUssdController extends Controller
                     break;
                 case 4 :
                     //Go back menu
-                    $response = self::confirmGoBack($mifos_ussd_session, $message);
+                    $response = MifosUssdHelperController::confirmGoBack($mifos_ussd_session, $message);
                     break;
                 case 5 :
                     //Go back menu

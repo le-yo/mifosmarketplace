@@ -105,7 +105,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
                 'title' => 'Repay Loan',
                 'description' => 'Repay Loan Menu',
                 'is_root' => 0,
-                'type' => 1,
+                'type' => 4,
                 'skippable'=>false,
                 'next_mifos_ussd_menu_id'=>0,
                 'confirmation_message' => "",
