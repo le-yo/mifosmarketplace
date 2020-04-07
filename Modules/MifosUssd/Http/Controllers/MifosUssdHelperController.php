@@ -138,9 +138,9 @@ class MifosUssdHelperController extends Controller
             $session->save();
            return $response;
             }else{
-                $amount = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,$menuItem->id)->orderBy('id', 'DESC')->limit(2)->get();
+                $amount = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,$menuItem->id)->where('response', '!=' , 1)->orderBy('id', 'DESC')->first();
 
-                $amount = $amount[1]->response;
+                $amount = $amount->response;
 
                 $other = json_decode($session->other);
 

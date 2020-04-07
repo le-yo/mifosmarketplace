@@ -15,7 +15,7 @@ use Modules\MifosUssd\Entities\MifosUssdMenu;
 class MifosHelperController extends Controller
 {
 
-    public function checkNextInstallment($loanId)
+    public static function checkNextInstallment($loanId)
     {
         $overdue_status = 0;
         // Get the url for retrieving the specific loan
@@ -464,11 +464,7 @@ class MifosHelperController extends Controller
     }
 
     public static function applyLoan($product_id,$client_id, $amount,$config){
-        if($product_id ==7){
-            $repaymentPeriods = 12;
-        }else{
-            $repaymentPeriods = 5;
-        }
+        $linkAccountId = '';
         $groupId = self::getUserGroupId($client_id,$config);
         $user_group = self::getUserGroup($groupId,$config);
         $calendarId = $user_group->collectionMeetingCalendar->id;
@@ -476,7 +472,19 @@ class MifosHelperController extends Controller
 
         //get loan settings:
         $url = $config->mifos_url . "fineract-provider/api/v1/loanproducts/".$product_id."?tenantIdentifier=" .$config->tenant;
-        $loan_settings = self::MifosGetTransaction($url,null,$config);
+        $loanproduct = self::MifosGetTransaction($url,null,$config);
+
+        //get clients savings account:
+        $savingsAccounts = self::getClientSavingsAccounts($client_id,$config);
+        foreach ($savingsAccounts as $sa){
+            if($sa->shortProductName == 'TAC'){
+                $linkAccountId = $sa->id;
+                break;
+            }
+        }
+
+
+        $repaymentPeriods = $loanproduct->minNumberOfRepayments;;
 
         $date = Carbon::now()->format('d M Y');
 
@@ -494,26 +502,32 @@ class MifosHelperController extends Controller
         $loan_data['locale'] = 'en_GB';
         $loan_data['dateFormat'] = 'dd MMMM yyyy';
         $loan_data['clientId'] = $client_id;
-        $loan_data['productId'] = $loan_settings->id;
+        $loan_data['productId'] = $loanproduct->id;
         $loan_data['principal'] = $amount;
+        $loan_data['fundId'] = $loanproduct->fundId;
         $loan_data['loanTermFrequency'] = $repaymentPeriods;
-        $loan_data['loanTermFrequencyType'] = 1; // 1
+        $loan_data['loanTermFrequencyType'] = $loanproduct->repaymentFrequencyType->id; // 1
         $loan_data['loanType'] = 'jlg';
         $loan_data['numberOfRepayments'] = $repaymentPeriods;
-        $loan_data['repaymentEvery'] = 1; // 2
-        $loan_data['repaymentFrequencyType'] = 1; //3
-        $loan_data['interestRatePerPeriod'] = 0;
-        $loan_data['interestRateFrequencyType'] = 3;
-        $loan_data['amortizationType'] = 1; //4
+        $loan_data['repaymentEvery'] = $loanproduct->repaymentEvery; // 2
+        $loan_data['repaymentFrequencyType'] = $loanproduct->repaymentFrequencyType->id; //3
+        $loan_data['interestRatePerPeriod'] = $loanproduct->interestRatePerPeriod;
+        $loan_data['interestRateFrequencyType'] = $loanproduct->interestRateFrequencyType->id;
+        $loan_data['amortizationType'] = $loanproduct->amortizationType->id; //4
         $loan_data['groupId'] = $groupId;
 //        $loan_data['interestType'] = self::getInterestType($loan_settings->productId);
-        $loan_data['interestType'] = 1;
-        $loan_data['interestCalculationPeriodType'] = 1; //5
+        $loan_data['interestType'] = $loanproduct->interestType->id;
+        $loan_data['interestCalculationPeriodType'] = $loanproduct->interestCalculationPeriodType->id; //5
+        $loan_data['allowPartialPeriodInterestCalcualtion'] = $loanproduct->allowPartialPeriodInterestCalcualtion;
         $loan_data['expectedDisbursementDate'] = $disbursement_date;
-        $loan_data['transactionProcessingStrategyId'] = 5; //6
+        $loan_data['transactionProcessingStrategyId'] = $loanproduct->transactionProcessingStrategyId; //6
+        $loan_data['graceOnPrincipalPayment'] = $loanproduct->graceOnPrincipalPayment; //6
+        $loan_data['graceOnInterestPayment'] = $loanproduct->graceOnInterestPayment; //6
+        $loan_data['overdueDaysForNPA'] = $loanproduct->overdueDaysForNPA; //6
         $loan_data['submittedOnDate'] = $date;
         $loan_data['repaymentsStartingFromDate'] = $groupMeetingDate;
         $loan_data['calendarId'] = $calendarId;
+        $loan_data['linkAccountId'] = $linkAccountId;
         $dData = array();
         $dData['expectedDisbursementDate'] = $disbursement_date;
         $dData['principal'] = $amount;
@@ -554,4 +568,30 @@ class MifosHelperController extends Controller
 
         return $group;
     }
+
+    public static function getClientLoanAccounts($client_id,$config)
+    {
+
+        $url = $config->mifos_url . "fineract-provider/api/v1/clients/" . $client_id . "/accounts?fields=loanAccounts&tenantIdentifier=" .$config->tenant;
+        $loanAccounts = self::MifosGetTransaction($url,null,$config);
+        if (!empty($loanAccounts->loanAccounts)) {
+            $loanAccounts = array_reverse($loanAccounts->loanAccounts);
+        } else {
+            $loanAccounts = array();
+        }
+        return $loanAccounts;
+    }
+
+    public static function getClientSavingsAccounts($client_id,$config)
+    {
+        $url = $config->mifos_url . "fineract-provider/api/v1/clients/" . $client_id . "/accounts?fields=savingsAccounts&tenantIdentifier=" .$config->tenant;
+        $savingsAccounts = self::MifosGetTransaction($url,null,$config);
+        if (!empty($savingsAccounts->savingsAccounts)) {
+            $savingsAccounts = array_reverse($savingsAccounts->savingsAccounts);
+        } else {
+            $savingsAccounts = array();
+        }
+        return $savingsAccounts;
+    }
+
 }
