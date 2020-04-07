@@ -471,7 +471,7 @@ class MifosHelperController extends Controller
         $groupMeetingDate = Carbon::parse(implode('-', $user_group->collectionMeetingCalendar->nextTenRecurringDates[0]))->format('d M Y');
 
         //get loan settings:
-        $url = $config->mifos_url . "fineract-provider/api/v1/loanproducts/".$product_id."?tenantIdentifier=" .$config->tenant;
+        $url = $config->mifos_url . "fineract-provider/api/v1/loanproducts/".$product_id."?template=true&tenantIdentifier=" .$config->tenant;
         $loanproduct = self::MifosGetTransaction($url,null,$config);
 
         //get clients savings account:
@@ -528,12 +528,19 @@ class MifosHelperController extends Controller
         $loan_data['repaymentsStartingFromDate'] = $groupMeetingDate;
         $loan_data['calendarId'] = $calendarId;
         $loan_data['linkAccountId'] = $linkAccountId;
+        $loan_data['charges'] = array();
+        $charges = array();
+        foreach ($loanproduct->charges as $charge){
+            $charges['chargeId']=$charge->id;
+            $charges['amount']=$charge->amount;
+            array_push($loan_data['charges'],$charges);
+        }
         $dData = array();
         $dData['expectedDisbursementDate'] = $disbursement_date;
         $dData['principal'] = $amount;
         $dData['approvedPrincipal'] = $amount;
         $loan_data['disbursementData'] = array();
-
+        array_push($loan_data['disbursementData'],$dData);
         $postURl = $config->mifos_url . "fineract-provider/api/v1/loans?tenantIdentifier=" .$config->tenant;
         // post the encoded application details
         $loanApplication = self::MifosPostTransaction($postURl, json_encode($loan_data),$config);
