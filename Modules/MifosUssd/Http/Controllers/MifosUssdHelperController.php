@@ -604,7 +604,8 @@ class MifosUssdHelperController extends Controller
 
         if (self::validationVariations($message, 1, "yes")) {
             self::resetUser($session);
-            $root_menu = MifosUssdMenu::whereAppIdAndIsRoot($session->app_id,1)->first();
+//            $root_menu = MifosUssdMenu::whereAppIdAndIsRoot($session->app_id,1)->first();
+            $menu = MifosUssdMenu::find(3);
             $response = MifosUssdHelperController::nextMenuSwitch($session,$root_menu);
             MifosUssdHelperController::sendResponse($response, 1, $session);
 
