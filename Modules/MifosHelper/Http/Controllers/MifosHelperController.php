@@ -530,9 +530,11 @@ class MifosHelperController extends Controller
         $loan_data['charges'] = array();
         $charges = array();
         foreach ($loanproduct->charges as $charge){
+            if($charge->chargeTimeType->code == 'chargeTimeType.disbursement'){
             $charges['chargeId']=$charge->id;
             $charges['amount']=$charge->amount;
             array_push($loan_data['charges'],$charges);
+            }
         }
         $dData = array();
         $dData['expectedDisbursementDate'] = $disbursement_date;
