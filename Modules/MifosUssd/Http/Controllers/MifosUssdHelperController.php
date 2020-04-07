@@ -619,7 +619,7 @@ class MifosUssdHelperController extends Controller
     {
 
         if (self::validationVariations($message, 1, "yes")) {
-            self::resetUser($session);
+//            self::resetUser($session);
             $menu = MifosUssdMenu::find(3);
             $response = MifosUssdHelperController::nextMenuSwitch($session,$menu);
             MifosUssdHelperController::sendResponse($response, 1, $session);
