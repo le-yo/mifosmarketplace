@@ -169,6 +169,9 @@ class MifosUssdHelperController extends Controller
                     }else{
                         return FALSE;
                     }
+                }else{
+                    $response = "National ID is not registered. Service only available to registered customers";
+                    self::sendResponse($response,1,$session);
                 }
                 break;
             case 3:
