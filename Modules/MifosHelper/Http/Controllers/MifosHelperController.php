@@ -516,7 +516,7 @@ class MifosHelperController extends Controller
         $loan_data['amortizationType'] = $loanproduct->amortizationType->id; //4
         $loan_data['groupId'] = $groupId;
 //        $loan_data['interestType'] = self::getInterestType($loan_settings->productId);
-        $loan_data['interestType'] = $loanproduct->interestType->id;
+        $loan_data['interestType'] = 0;
         $loan_data['interestCalculationPeriodType'] = $loanproduct->interestCalculationPeriodType->id; //5
         $loan_data['allowPartialPeriodInterestCalcualtion'] = $loanproduct->allowPartialPeriodInterestCalcualtion;
         $loan_data['expectedDisbursementDate'] = $disbursement_date;

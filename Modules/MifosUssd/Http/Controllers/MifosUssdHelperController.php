@@ -159,11 +159,8 @@ class MifosUssdHelperController extends Controller
                     self::sendResponse($response, 2, $session);
                 } else {
                     $response = "You loan application has been received successfully";
-                    self::sendResponse($response,1,$session);
-                    return true;
+                    self::sendResponse($response,2,$session);
                 }
-                echo "lets apply for the loan";
-                exit;
             }
         }else{
 
