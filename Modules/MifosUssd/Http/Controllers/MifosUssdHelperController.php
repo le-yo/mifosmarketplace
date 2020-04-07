@@ -441,6 +441,12 @@ class MifosUssdHelperController extends Controller
                 self::storeUssdResponse($mifos_ussd_session, $menu->id);
                 self::customApp($mifos_ussd_session,$menu);
                 break;
+            case 5:
+                //start a process
+                self::storeUssdResponse($mifos_ussd_session, $menu->id);
+                $response = $menu->confirmation_message;
+                MifosUssdHelperController::sendResponse($response,3,$mifos_ussd_session);
+                break;
             default :
                 self::resetUser($mifos_ussd_session,null);
                 $response = "An authentication error occurred";

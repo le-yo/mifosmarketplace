@@ -114,7 +114,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 3,
                 'description' => 'Logout',
-                'next_menu_id' => 4,
+                'next_menu_id' => 15,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
@@ -154,7 +154,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 4,
                 'description' => 'Logout',
-                'next_menu_id' => 4,
+                'next_menu_id' => 15,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
@@ -186,7 +186,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 7,
                 'description' => 'Main Menu',
-                'next_menu_id' => 4,
+                'next_menu_id' => 3,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
@@ -194,7 +194,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 7,
                 'description' => 'Logout',
-                'next_menu_id' => 4,
+                'next_menu_id' => 15,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
@@ -226,7 +226,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 5,
                 'description' => 'Main Menu',
-                'next_menu_id' => 4,
+                'next_menu_id' => 3,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
@@ -234,7 +234,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 5,
                 'description' => 'Logout',
-                'next_menu_id' => 4,
+                'next_menu_id' => 15,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',

@@ -135,7 +135,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
             //Menu 11
             array(
                 'app_id' => 1,
-                'title' => 'Savings',
+                'title' => 'Shares',
                 'description' => 'Shares Menu',
                 'is_root' => 0,
                 'type' => 1,
@@ -175,6 +175,17 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
                 'skippable'=>false,
                 'next_mifos_ussd_menu_id'=>0,
                 'confirmation_message' => "You loan has been submitted successfully. ",
+            ),
+            //Menu 15
+            array(
+                'app_id' => 1,
+                'title' => 'Logout',
+                'description' => 'Logout',
+                'is_root' => 0,
+                'type' => 5,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>0,
+                'confirmation_message' => "Thank you for using Hazina USSD",
             ),
         ));
     }
