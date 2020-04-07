@@ -474,6 +474,22 @@ class MifosUssdHelperController extends Controller
                 }
                 self::sendResponse($response,2,$session);
                 break;
+            case 9:
+                //repay Loan app
+                $other = json_decode($session->other);
+                $client_id = $other->client_id;
+                $config = MifosUssdConfig::find($session->app_id);
+                $loanAccounts = MifosHelperController::getClientLoanAccounts($client_id,$config);
+
+                $response = $menu->title;
+
+                foreach ($loanAccounts as $lA){
+                    if($lA->status->id ==300){
+                        $response = $response.PHP_EOL.$lA->shortProductName.$lA->id."(".$lA->productName."):".$lA->loanBalance;
+                    }
+                }
+                self::sendResponse($response,2,$session);
+                break;
             default :
 //                self::resetUser($mifos_ussd_session,null);
                 $response = "An authentication error occurred";
@@ -604,7 +620,6 @@ class MifosUssdHelperController extends Controller
 
         if (self::validationVariations($message, 1, "yes")) {
             self::resetUser($session);
-//            $root_menu = MifosUssdMenu::whereAppIdAndIsRoot($session->app_id,1)->first();
             $menu = MifosUssdMenu::find(3);
             $response = MifosUssdHelperController::nextMenuSwitch($session,$root_menu);
             MifosUssdHelperController::sendResponse($response, 1, $session);

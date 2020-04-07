@@ -484,7 +484,7 @@ class MifosHelperController extends Controller
         }
 
 
-        $repaymentPeriods = $loanproduct->minNumberOfRepayments;;
+        $repaymentPeriods = $loanproduct->maxNumberOfRepayments;;
 
         $date = Carbon::now()->format('d M Y');
 
