@@ -464,7 +464,11 @@ class MifosHelperController extends Controller
     }
 
     public static function applyLoan($product_id,$client_id, $amount,$config){
-
+        if($product_id ==7){
+            $repaymentPeriods = 12;
+        }else{
+            $repaymentPeriods = 5;
+        }
         $groupId = self::getUserGroupId($client_id,$config);
         $user_group = self::getUserGroup($groupId,$config);
         $calendarId = $user_group->collectionMeetingCalendar->id;
@@ -486,14 +490,13 @@ class MifosHelperController extends Controller
             $disbursement_date = Carbon::now()->format('d M Y');
         }
 
-        $repaymentPeriods = 12;
         $loan_data = [];
         $loan_data['locale'] = 'en_GB';
         $loan_data['dateFormat'] = 'dd MMMM yyyy';
         $loan_data['clientId'] = $client_id;
         $loan_data['productId'] = $loan_settings->id;
         $loan_data['principal'] = $amount;
-        $loan_data['loanTermFrequency'] = 12;
+        $loan_data['loanTermFrequency'] = $repaymentPeriods;
         $loan_data['loanTermFrequencyType'] = 1; // 1
         $loan_data['loanType'] = 'jlg';
         $loan_data['numberOfRepayments'] = $repaymentPeriods;
