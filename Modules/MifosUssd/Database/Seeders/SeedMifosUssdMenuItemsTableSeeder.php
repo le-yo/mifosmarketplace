@@ -170,7 +170,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 7,
                 'description' => 'Masaa Loan',
-                'next_menu_id' => 4,
+                'next_menu_id' => 14,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
@@ -241,6 +241,14 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             ),
             array(
                 'menu_id' => 13,
+                'description' => 'Enter Amount',
+                'next_menu_id' => 0,
+                'step' => 1,
+                'validation' => 'schedule',
+                'confirmation_phrase' => 'Amount',
+            ),
+            array(
+                'menu_id' => 14,
                 'description' => 'Enter Amount',
                 'next_menu_id' => 0,
                 'step' => 1,

@@ -165,6 +165,17 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
                 'next_mifos_ussd_menu_id'=>0,
                 'confirmation_message' => "You loan has been submitted successfully. ",
             ),
+            //Menu 14
+            array(
+                'app_id' => 1,
+                'title' => 'Apply Masaa Loan',
+                'description' => 'Apply Masaa Loan',
+                'is_root' => 0,
+                'type' => 3,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>0,
+                'confirmation_message' => "You loan has been submitted successfully. ",
+            ),
         ));
     }
 }
