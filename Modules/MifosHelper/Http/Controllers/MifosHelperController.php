@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Crypt;
+use Modules\MifosHelper\Entities\MifosRequestLog;
 use Modules\MifosReminder\Entities\MifosReminderOutbox;
 use Modules\MifosUssd\Entities\MifosUssdMenu;
 
@@ -208,7 +209,7 @@ class MifosHelperController extends Controller
     public static function MifosGetTransaction($url,$post_data=null,$config){
         $data = ['slug' => 'mifos_get_request', 'content' => $url];
         //log request
-//        Log::create($data);
+        MifosRequestLog::create($data);
 //        print_r($url);
 //        exit;
         $post_data="";
@@ -235,7 +236,7 @@ class MifosHelperController extends Controller
         }
         $dt = ['slug' => 'mifos_get_response', 'content' => $data];
         //log response
-//        Log::create($dt);
+        MifosRequestLog::create($dt);
         curl_close($ch);
         $response = json_decode($data);
         return $response;
@@ -244,7 +245,7 @@ class MifosHelperController extends Controller
     public static function MifosPostTransaction($url,$post_data,$config){
         $data = ['slug' => 'mifos_post_request', 'content' => $post_data];
         //log request
-//        Log::create($data);
+        MifosRequestLog::create($data);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -269,7 +270,7 @@ class MifosHelperController extends Controller
         $dt = ['slug' => 'mifos_post_response', 'content' => $data];
 
         //log response
-//        Log::create($dt);
+        MifosRequestLog::create($dt);
 
         $response = json_decode($data);
 
@@ -279,7 +280,7 @@ class MifosHelperController extends Controller
     public static function MifosPutTransaction($url,$post_data,$config){
         $data = ['slug' => 'mifos_post_request', 'content' => $post_data];
         //log request
-//        Log::create($data);
+        MifosRequestLog::create($data);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
@@ -304,7 +305,7 @@ class MifosHelperController extends Controller
         $dt = ['slug' => 'mifos_post_response', 'content' => $data];
 
         //log response
-//        Log::create($dt);
+        MifosRequestLog::create($dt);
 
         $response = json_decode($data);
 
@@ -462,4 +463,92 @@ class MifosHelperController extends Controller
         return $response;
     }
 
+    public static function applyLoan($product_id,$client_id, $amount,$config){
+
+        $groupId = self::getUserGroupId($client_id,$config);
+        $user_group = self::getUserGroup($groupId,$config);
+        $calendarId = $user_group->collectionMeetingCalendar->id;
+        $groupMeetingDate = Carbon::parse(implode('-', $user_group->collectionMeetingCalendar->nextTenRecurringDates[0]))->format('d M Y');
+
+        //get loan settings:
+        $url = $config->mifos_url . "fineract-provider/api/v1/loanproducts/".$product_id."?tenantIdentifier=" .$config->tenant;
+        $loan_settings = self::MifosGetTransaction($url,null,$config);
+
+        $date = Carbon::now()->format('d M Y');
+
+        if(Carbon::now()->isWeekend()){
+            if(Carbon::now()->isSaturday()){
+                $disbursement_date = Carbon::now()->addDays(2)->format('d M Y');
+            }else{
+                $disbursement_date = Carbon::now()->addDays(1)->format('d M Y');
+            }
+        }else{
+            $disbursement_date = Carbon::now()->format('d M Y');
+        }
+
+        $repaymentPeriods = 12;
+        $loan_data = [];
+        $loan_data['locale'] = 'en_GB';
+        $loan_data['dateFormat'] = 'dd MMMM yyyy';
+        $loan_data['clientId'] = $client_id;
+        $loan_data['productId'] = $loan_settings->id;
+        $loan_data['principal'] = $amount;
+        $loan_data['loanTermFrequency'] = 12;
+        $loan_data['loanTermFrequencyType'] = 1; // 1
+        $loan_data['loanType'] = 'jlg';
+        $loan_data['numberOfRepayments'] = $repaymentPeriods;
+        $loan_data['repaymentEvery'] = 1; // 2
+        $loan_data['repaymentFrequencyType'] = 1; //3
+        $loan_data['interestRatePerPeriod'] = 0;
+        $loan_data['interestRateFrequencyType'] = 3;
+        $loan_data['amortizationType'] = 1; //4
+        $loan_data['groupId'] = $groupId;
+//        $loan_data['interestType'] = self::getInterestType($loan_settings->productId);
+        $loan_data['interestType'] = 1;
+        $loan_data['interestCalculationPeriodType'] = 1; //5
+        $loan_data['expectedDisbursementDate'] = $disbursement_date;
+        $loan_data['transactionProcessingStrategyId'] = 5; //6
+        $loan_data['submittedOnDate'] = $date;
+        $loan_data['repaymentsStartingFromDate'] = $groupMeetingDate;
+        $loan_data['calendarId'] = $calendarId;
+        $dData = array();
+        $dData['expectedDisbursementDate'] = $disbursement_date;
+        $dData['principal'] = $amount;
+        $dData['approvedPrincipal'] = $amount;
+        $loan_data['disbursementData'] = array();
+
+        $postURl = $config->mifos_url . "fineract-provider/api/v1/loans?tenantIdentifier=" .$config->tenant;
+        // post the encoded application details
+        $loanApplication = self::MifosPostTransaction($postURl, json_encode($loan_data),$config);
+
+        return $loanApplication;
+    }
+
+    public static function getUserGroupId($clientId,$config)
+    {
+        // get the user's details
+        $url = $config->mifos_url . "fineract-provider/api/v1/clients/" . $clientId . "?tenantIdentifier=" .$config->tenant;
+
+        // get the details from Mifos
+        $user = self::MifosGetTransaction($url, $post_data = "",$config);
+
+        // get the group of the user
+        $groups = $user->groups;
+//
+//        print_r($groups);
+//        exit;
+
+        return $groups[0]->id;
+    }
+
+    public static function getUserGroup($groupId,$config)
+    {
+        // get the user's details
+        $url = $config->mifos_url . "fineract-provider/api/v1/groups/" . $groupId . "?associations=all&tenantIdentifier=" .$config->tenant;
+
+        // get the details from Mifos
+        $group = self::MifosGetTransaction($url, $post_data = "",$config);
+
+        return $group;
+    }
 }

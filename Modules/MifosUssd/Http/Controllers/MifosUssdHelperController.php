@@ -138,8 +138,30 @@ class MifosUssdHelperController extends Controller
             $session->save();
            return $response;
             }else{
+                $amount = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,$menuItem->id)->orderBy('id', 'DESC')->limit(2)->get();
+
+                $amount = $amount[1]->response;
+
+                $other = json_decode($session->other);
+
+                $config = MifosUssdConfig::whereAppId($session->app_id)->first();
+                if($menuItem->id == 28){
+                    $product_id =7;
+                }else{
+                    $product_id = 2;
+                }
                 //apply for the loan
-                
+                $response = MifosHelperController::applyLoan($product_id,$other->client_id,$amount,$config);
+
+                if (empty($response->loanId)) {
+                    $response = "We had a problem processing your loan. Kindly retry or contact customer care";
+                    //self::resetUser($user);
+                    self::sendResponse($response, 2, $session);
+                } else {
+                    $response = "You loan application has been received successfully";
+                    self::sendResponse($response,1,$session);
+                    return true;
+                }
                 echo "lets apply for the loan";
                 exit;
             }
