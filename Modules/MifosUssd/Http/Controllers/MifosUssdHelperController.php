@@ -94,7 +94,31 @@ class MifosUssdHelperController extends Controller
         return $response;
 
     }
+    public function confirmLoanApplication($session,$message,$menuItem){
 
+//            $amount = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,$menuItem->id)->orderBy('id', 'DESC')->first();
+//
+//
+//            $response =
+//
+//            $MifosX = new MifosXController();
+//            $monthly_payment = $MifosX->calculateFullRepaymentSchedule($user->client_id, $amount, PCL_ID, $response->response);
+//
+//            if ($response->response < 2) {
+//
+//                $confirmation = $confirmation . PHP_EOL . "Period: " . $response->response . " months";
+//                $confirmation = $confirmation . PHP_EOL . "Expected payment: " . $monthly_payment;
+//
+//            } else {
+//                $confirmation = $confirmation . PHP_EOL . "Period: " . $response->response . " month";
+//                $confirmation = $confirmation . PHP_EOL . "REPAYMENT(S) : " . PHP_EOL . $monthly_payment;
+//            }
+//
+//        $response = $confirmation . PHP_EOL . "1. Yes" . PHP_EOL . "2. No";
+//
+//        print_r($session);
+//        exit;
+    }
     public static function continueSingleProcess($session, $message, $menu)
     {
         self::storeUssdResponse($session, $message);
@@ -105,6 +129,19 @@ class MifosUssdHelperController extends Controller
         if($menuItem->validation == 'custom'){
             if(self::customValidation($session,$message,$menuItem)){
             $step = $session->progress + 1;
+            }
+        }elseif($menuItem->validation == 'schedule'){
+            if($session->confirm_from == 0){
+            $response = "Confirm ".$menu->title.PHP_EOL."Amount ".$message;
+            $response = $response . PHP_EOL . "1. Yes" . PHP_EOL . "2. No";
+            $session->confirm_from = $menuItem->id;
+            $session->save();
+           return $response;
+            }else{
+                //apply for the loan
+                
+                echo "lets apply for the loan";
+                exit;
             }
         }else{
 
@@ -128,7 +165,7 @@ class MifosUssdHelperController extends Controller
             $session->save();
             return $response. $menuItem->description;
         } else {
-            if($menu->type == 3){
+            if($menu->id == 1){
                 $response = $menu->confirmation_message;
                 $skipLogic = MifosUssdUserMenuSkipLogic::wherePhoneAndMifosUssdMenuId($session->phone,$menu->id)->first();
                 if(!$skipLogic){
@@ -377,6 +414,11 @@ class MifosUssdHelperController extends Controller
                 $response = self::singleProcess($menu, $mifos_ussd_session, 1);
                 return $menu->title.PHP_EOL.$response;
                 break;
+            case 4:
+                //start a process
+                self::storeUssdResponse($mifos_ussd_session, $menu->id);
+                self::customApp($mifos_ussd_session,$menu);
+                break;
             default :
                 self::resetUser($mifos_ussd_session,null);
                 $response = "An authentication error occurred";
@@ -385,6 +427,51 @@ class MifosUssdHelperController extends Controller
 
         return $response;
 
+    }
+
+    public function customApp($session,$menu){
+
+        echo "hapa";
+        exit;
+        switch ($menu->type) {
+            case 1:
+                //continue to another menu
+                $menu_items = self::getMenuItems($menu->id);
+                $i = 1;
+                $response = $menu->title . PHP_EOL;
+                foreach ($menu_items as $key => $value) {
+                    $response = $response . $i . ": " . $value->description . PHP_EOL;
+                    $i++;
+                }
+
+                $mifos_ussd_session->menu_id = $menu->id;
+                $mifos_ussd_session->menu_item_id = 0;
+                $mifos_ussd_session->progress = 0;
+                $mifos_ussd_session->save();
+                //self::continueUssdMenu($user,$message,$menu);
+                break;
+            case 2:
+                //start a process
+                self::storeUssdResponse($mifos_ussd_session, $menu->id);
+                $response = self::singleProcess($menu, $mifos_ussd_session, 1);
+                return $menu->title.PHP_EOL.$response;
+                break;
+            case 3:
+                //start a process
+                self::storeUssdResponse($mifos_ussd_session, $menu->id);
+                $response = self::singleProcess($menu, $mifos_ussd_session, 1);
+                return $menu->title.PHP_EOL.$response;
+                break;
+            case 4:
+                //start a process
+                self::storeUssdResponse($mifos_ussd_session, $menu->id);
+                self::customApp($mifos_ussd_session,$menu);
+                break;
+            default :
+                self::resetUser($mifos_ussd_session,null);
+                $response = "An authentication error occurred";
+                break;
+        }
     }
 
     public function storeUssdResponse($session, $message)

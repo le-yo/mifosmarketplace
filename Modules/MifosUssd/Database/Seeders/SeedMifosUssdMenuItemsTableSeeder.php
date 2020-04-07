@@ -122,7 +122,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 4,
                 'description' => 'Apply Loan',
-                'next_menu_id' => 4,
+                'next_menu_id' => 7,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
@@ -130,7 +130,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 4,
                 'description' => 'Repay Loan',
-                'next_menu_id' => 4,
+                'next_menu_id' => 8,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
@@ -138,7 +138,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 4,
                 'description' => 'Check Balance',
-                'next_menu_id' => 4,
+                'next_menu_id' => 9,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
@@ -146,7 +146,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 4,
                 'description' => 'Main Menu',
-                'next_menu_id' => 4,
+                'next_menu_id' => 3,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
@@ -162,7 +162,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 7,
                 'description' => 'Nibebe Loan',
-                'next_menu_id' => 4,
+                'next_menu_id' => 13,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
@@ -238,6 +238,14 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
+            ),
+            array(
+                'menu_id' => 13,
+                'description' => 'Enter Amount',
+                'next_menu_id' => 0,
+                'step' => 1,
+                'validation' => 'schedule',
+                'confirmation_phrase' => 'Amount',
             ),
         ));
     }

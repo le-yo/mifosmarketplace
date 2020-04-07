@@ -31,7 +31,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
                 'type' => 3,
                 'skippable'=>true,
                 'next_mifos_ussd_menu_id'=>2,
-                'confirmation_message' => "Your account has been validate and your PIN has been set successfully. Kindly dial *665*300# to proceed",
+                'confirmation_message' => "Your account has been validated and your PIN has been set successfully. Kindly dial *665*300# to proceed",
             ),
             //Menu 2
             array(
@@ -92,7 +92,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
             array(
                 'app_id' => 1,
                 'title' => 'Apply Loan',
-                'description' => 'Apply Lon Menu',
+                'description' => 'Apply Loan Menu',
                 'is_root' => 0,
                 'type' => 1,
                 'skippable'=>false,
@@ -153,6 +153,17 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
                 'skippable'=>false,
                 'next_mifos_ussd_menu_id'=>0,
                 'confirmation_message' => "You have Reset Your PIN Successfully. Dial *665*300# to proceed",
+            ),
+            //Menu 13
+            array(
+                'app_id' => 1,
+                'title' => 'Apply Nibebe Loan',
+                'description' => 'Apply Nibebe Loan',
+                'is_root' => 0,
+                'type' => 3,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>0,
+                'confirmation_message' => "You loan has been submitted successfully. ",
             ),
         ));
     }
