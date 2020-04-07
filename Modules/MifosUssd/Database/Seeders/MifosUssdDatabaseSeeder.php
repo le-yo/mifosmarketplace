@@ -16,6 +16,10 @@ class MifosUssdDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call("OthersTableSeeder");
+        $this->call("Modules\MifosUssd\Database\Seeders\SeedMifosUssdConfigsTableSeeder");
+        $this->call("Modules\MifosUssd\Database\Seeders\SeedMifosUssdSettingsTableSeeder");
+        $this->call("Modules\MifosUssd\Database\Seeders\SeedMifosUssdGatewaysTableSeeder");
+        $this->call("Modules\MifosUssd\Database\Seeders\SeedMifosUssdMenuTableSeeder");
+        $this->call("Modules\MifosUssd\Database\Seeders\SeedMifosUssdMenuItemsTableSeeder");
     }
 }

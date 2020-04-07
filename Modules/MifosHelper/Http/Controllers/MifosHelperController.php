@@ -9,6 +9,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Crypt;
 use Modules\MifosReminder\Entities\MifosReminderOutbox;
+use Modules\MifosUssd\Entities\MifosUssdMenu;
 
 class MifosHelperController extends Controller
 {
@@ -241,7 +242,6 @@ class MifosHelperController extends Controller
     }
 
     public static function MifosPostTransaction($url,$post_data,$config){
-
         $data = ['slug' => 'mifos_post_request', 'content' => $post_data];
         //log request
 //        Log::create($data);
@@ -274,6 +274,107 @@ class MifosHelperController extends Controller
         $response = json_decode($data);
 
         return $response;
+    }
+
+    public static function MifosPutTransaction($url,$post_data,$config){
+        $data = ['slug' => 'mifos_post_request', 'content' => $post_data];
+        //log request
+//        Log::create($data);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($ch, CURLOPT_POSTFIELDS,$post_data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($post_data))
+        );
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($ch, CURLOPT_USERPWD, $config->username.':'.Crypt::decrypt($config->password));
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        $data = curl_exec($ch);
+        if ($errno = curl_errno($ch)) {
+            $error_message = curl_strerror($errno);
+            echo "cURL error ({$errno}):\n {$error_message}";
+        }
+//        print_r($data);exit;
+        curl_close($ch);
+
+        $dt = ['slug' => 'mifos_post_response', 'content' => $data];
+
+        //log response
+//        Log::create($dt);
+
+        $response = json_decode($data);
+
+        return $response;
+    }
+
+    public static function getClientUsingPhone($phone,$config){
+        $no = substr($phone,-9);
+        $url = $config->mifos_url . "fineract-provider/api/v1/clients?sqlSearch=(c.mobile_no%20like%20%27" . $no . "%27)&tenantIdentifier=" . $config->tenant;
+
+        // Get all clients
+        $client = MifosHelperController::MifosGetTransaction($url, $post_data = '',$config);
+
+        if ($client->totalFilteredRecords == 0) {
+            $url = $config->mifos_url . "fineract-provider/api/v1/clients?sqlSearch=(c.mobile_no%20like%20%270" . $no . "%27)&tenantIdentifier=" . $config->tenant;
+
+            // Get all clients
+            $client = MifosHelperController::MifosGetTransaction($url, $post_data = '',$config);
+
+            if ($client->totalFilteredRecords == 0) {
+                $url = $config->mifos_url . "fineract-provider/api/v1/clients?sqlSearch=(c.mobile_no%20like%20%27254" . $no . "%27)&tenantIdentifier=" . $config->tenant;
+
+                // Get all clients
+                $client = MifosHelperController::MifosGetTransaction($url, $post_data = '',$config);
+            }
+        }
+
+        $user = FALSE;
+        if ($client->totalFilteredRecords > 0) {
+            return $client->pageItems[0];
+        } else {
+           return FALSE;
+        }
+    }
+
+    public static function getClientByNationalId($externalid,$config){
+        $user = FALSE;
+        $url =$config->mifos_url . "fineract-provider/api/v1/search?exactMatch=true&query=" . $externalid . "&resource=clientIdentifiers&tenantIdentifier=" .$config->tenant;
+        // Get client
+        $client = self::MifosGetTransaction($url, $post_data = '',$config);
+        return $client;
+    }
+
+    public static function getClientBypPhone($phone,$config){
+        $user = FALSE;
+        $url =$config->mifos_url . "fineract-provider/api/v1/search?exactMatch=true&query=" . $phone . "&resource=client&tenantIdentifier=" .$config->tenant;
+        // Get client
+        $client = self::MifosGetTransaction($url, $post_data = '',$config);
+        return $client;
+    }
+
+    public static function getClientByClientId($client_id,$config)
+    {
+        $url = $config->mifos_url . "fineract-provider/api/v1/clients/" . $client_id . "?tenantIdentifier=" . $config->tenant;
+        $client = self::MifosGetTransaction($url,null,$config);
+        return $client;
+    }
+
+    public static function setDatatable($datatable,$entityid,$json_data,$config,$update=0){
+        $postURl = $config->mifos_url . "fineract-provider/api/v1/datatables/".$datatable."/" . $entityid . "?tenantIdentifier=" .$config->tenant;
+        if($update == 1){
+        return self::MifosPutTransaction($postURl, $json_data,$config);
+        }else{
+        return self::MifosPostTransaction($postURl, $json_data,$config);
+        }
+    }
+
+    public static function getDatatable($datatable,$entityid,$config){
+        $postURl = $config->mifos_url . "fineract-provider/api/v1/datatables/".$datatable."/" . $entityid . "?tenantIdentifier=" .$config->tenant;
+            return self::MifosGetTransaction($postURl,$config);
     }
 
 }
