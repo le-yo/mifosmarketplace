@@ -98,7 +98,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 3,
                 'description' => 'Deposit',
-                'next_menu_id' => 4,
+                'next_menu_id' => 5,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
