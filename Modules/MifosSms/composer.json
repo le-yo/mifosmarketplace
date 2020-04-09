@@ -1,16 +1,16 @@
 {
-    "name": "leyo/mifosussd",
+    "name": "nwidart/mifossms",
     "description": "",
     "authors": [
         {
-            "name": "Leonard Korir",
+            "name": "Nicolas Widart",
             "email": "n.widart@gmail.com"
         }
     ],
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\MifosUssd\\Providers\\MifosUssdServiceProvider"
+                "Modules\\MifosSms\\Providers\\MifosSmsServiceProvider"
             ],
             "aliases": {
 
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\MifosUssd\\": ""
+            "Modules\\MifosSms\\": ""
         }
     }
 }

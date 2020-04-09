@@ -7,6 +7,8 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Crypt;
 use Modules\MifosHelper\Http\Controllers\MifosHelperController;
+use Modules\MifosSms\Entities\MifosSmsConfig;
+use Modules\MifosSms\Http\Controllers\MifosSmsController;
 use Modules\MifosUssd\Entities\MifosUssdConfig;
 use Modules\MifosUssd\Entities\MifosUssdLog;
 use Modules\MifosUssd\Entities\MifosUssdMenu;
@@ -155,11 +157,26 @@ class MifosUssdHelperController extends Controller
 
                 if (empty($response->loanId)) {
                     $response = "We had a problem processing your loan. Kindly retry or contact customer care";
+                    $message = "Dear {first_name}, your loan request of {amount} was not successfully submitted. Please try again or call us on 0706247815 / 0784247815 for assistance.";
+
+                    $client = MifosHelperController::getClientByClientId($other->client_id,$config);
+                    $search  = array('{first_name}','{amount}');
+                    $replace = array($client->firstname,$amount);
+                    $msg = str_replace($search, $replace, $message);
+                    $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
+                    MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
                     //self::resetUser($user);
                     self::sendResponse($response, 2, $session);
                 } else {
-                    $response = "You loan application has been received successfully";
-                    self::sendResponse($response,2,$session);
+                    $ussd_message = "You loan application has been received successfully";
+                    $message = "Dear {first_name}, your loan request of {amount} has been received and is undergoing approval as loan {loan_account_number}. Please wait for confirmation.";
+                    $client = MifosHelperController::getClientByClientId($response->clientId,$config);
+                    $search  = array('{first_name}','{amount}','{loan_account_number}');
+                    $replace = array($client->firstname,$amount,$response->loanId);
+                    $msg = str_replace($search, $replace, $message);
+                    $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
+                    MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                    self::sendResponse($ussd_message,2,$session);
                 }
             }
         }else{
@@ -194,6 +211,9 @@ class MifosUssdHelperController extends Controller
                 $skipLogic->mifos_ussd_menu_id = $menu->id;
                 $skipLogic->skip = true;
                 $skipLogic->save();
+                //send SMS
+                $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
+                MifosSmsController::sendSMSViaConnectBind($session->phone,$response,$MifosSmsConfig);
                 self::sendResponse($response,3,$session);
             }else{
             $response = self::confirmBatch($session, $menu);
@@ -231,7 +251,7 @@ class MifosUssdHelperController extends Controller
                 }
                 break;
             case 3:
-                //veify if the IDs are equal
+                //veify if the PINs are equal
                 $PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,2)->orderBy('id', 'DESC')->first();
                 $CONFIRM_PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,2)->orderBy('id', 'DESC')->first();
                 if($PIN->response == $CONFIRM_PIN->response){

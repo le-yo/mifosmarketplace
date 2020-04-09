@@ -1,0 +1,13 @@
+{
+    "name": "MifosSms",
+    "alias": "mifossms",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\MifosSms\\Providers\\MifosSmsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
