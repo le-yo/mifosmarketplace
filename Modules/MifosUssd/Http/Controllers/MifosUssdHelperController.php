@@ -269,7 +269,7 @@ class MifosUssdHelperController extends Controller
 
                         if (strpos($r->defaultUserMessage, 'already exists')) {
                             //we try to update
-                            $r = MifosHelperController::setDatatable('PIN',$client_details->client_id,json_encode($datatable),$config,1);
+                            $r = MifosHelperController::updateDatatable('PIN',$client_details->client_id,json_encode($datatable),$config,1);
                         }
                         if(!empty($r->errors)){
                             $error_msg = 'We had a problem setting your PIN. Kindly retry or contact Customer Care';
@@ -342,7 +342,7 @@ class MifosUssdHelperController extends Controller
 
                         if (strpos($r->defaultUserMessage, 'already exists')) {
                             //we try to update
-                            $r = MifosHelperController::setDatatable('PIN',$client_details->client_id,json_encode($datatable),$config,1);
+                            $r = MifosHelperController::updateDatatable('PIN',$client_details->client_id,json_encode($datatable),$config);
                         }
                         if(!empty($r->errors)){
                             $error_msg = 'We had a problem setting your PIN. Kindly retry or contact Customer Care';

@@ -364,14 +364,15 @@ class MifosHelperController extends Controller
         return $client;
     }
 
-    public static function setDatatable($datatable,$entityid,$json_data,$config,$update=0){
+    public static function setDatatable($datatable,$entityid,$json_data,$config){
         $postURl = $config->mifos_url . "fineract-provider/api/v1/datatables/".$datatable."/" . $entityid . "?tenantIdentifier=" .$config->tenant;
-        if($update == 1){
-        return self::MifosPutTransaction($postURl, $json_data,$config);
-        }else{
         return self::MifosPostTransaction($postURl, $json_data,$config);
-        }
     }
+    public static function updateDatatable($datatable,$entityid,$json_data,$config){
+        $postURl = $config->mifos_url . "fineract-provider/api/v1/datatables/".$datatable."/" . $entityid . "?tenantIdentifier=" .$config->tenant;
+            return self::MifosPutTransaction($postURl, $json_data,$config);
+    }
+
 
     public static function getDatatable($datatable,$entityid,$config){
         $postURl = $config->mifos_url . "fineract-provider/api/v1/datatables/".$datatable."/" . $entityid . "?tenantIdentifier=" .$config->tenant;
