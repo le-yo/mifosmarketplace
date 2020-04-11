@@ -75,7 +75,8 @@ class MifosSmsController extends Controller
         $log->message = $message;
         $log->status = 0;
         $log->save();
-        $url = "http://rslr.connectbind.com:8080/bulksms/bulksms?username=".$config->username."&password=".Crypt::decrypt($config->key)."@5&type=0&dlr=1&destination=".$to."&source=".$config->sender_name."&message=".urlencode($message);
+//        $url = "http://rslr.connectbind.com/bulksms/bulksms?username=".$config->username."&password=".Crypt::decrypt($config->key)."&type=0&dlr=1&destination=".$to."&source=".$config->sender_name."&message=".urlencode($message);
+        $url = "http://rslr.connectbind.com:8080/bulksms/bulksms?username=".$config->username."&password=".Crypt::decrypt($config->key)."&type=0&dlr=1&destination=".$to."&source=".$config->sender_name."&message=".urlencode($message);
         $ch = curl_init();
         $data = ""; 
         curl_setopt($ch, CURLOPT_URL, $url);
