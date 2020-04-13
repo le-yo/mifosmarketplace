@@ -202,7 +202,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 5,
                 'description' => 'Savings',
-                'next_menu_id' => 4,
+                'next_menu_id' => 10,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',
@@ -210,7 +210,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 5,
                 'description' => 'Shares',
-                'next_menu_id' => 4,
+                'next_menu_id' => 11,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',

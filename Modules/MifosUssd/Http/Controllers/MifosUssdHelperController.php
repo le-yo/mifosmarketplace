@@ -555,6 +555,50 @@ class MifosUssdHelperController extends Controller
                 }
                 self::sendResponse($response,1,$session);
                 break;
+            case 10:
+                $other = json_decode($session->other);
+                $client_id = $other->client_id;
+                $config = MifosUssdConfig::find($session->app_id);
+                $savingsAccount = MifosHelperController::getClientSavingsAccounts($client_id,$config);
+
+                //repay Loan app
+                if($session->progress == 1){
+                    $i = 1;
+
+                    foreach ($savingsAccount as $SA){
+                        if($SA->status->id ==300 && isset($SA->accountBalance) && $message==$i){
+                            $message = "Dear {first_name}; top up your savings by Lipa na M-PESA >> Paybill >> Business No.: 4017901 >> Account No.: {prefix}{phone_number}. For assistance, call us on 0706247815 / 0784247815.";
+                            $client = MifosHelperController::getClientByClientId($client_id,$config);
+                            $search  = array('{first_name}','{prefix}','{phone_number}');
+                            $replace = array($client->firstname,$SA->shortProductName,"254".substr($session->phone,-9));
+                            $msg = str_replace($search, $replace, $message);
+                            $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
+                            //send SMS
+                            MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                            break;
+                            $i++;
+                        }
+                    }
+
+
+                    self::sendResponse($msg,2,$session);
+                }
+
+                $response = $menu->title;
+                $i = 1;
+                foreach ($savingsAccount as $SA){
+                    if($SA->status->id ==300 && isset($SA->accountBalance)){
+                        $response = $response.PHP_EOL.$i.": ".$SA->shortProductName.$SA->id.":".$SA->accountBalance;
+                        $i++;
+                    }
+                }
+                $session->menu_id = $menu->id;
+                $session->menu_item_id = 0;
+                $session->progress = 1;
+                $session->session = 6;
+                $session->save();
+                self::sendResponse($response,1,$session);
+                break;
             default :
 //                self::resetUser($mifos_ussd_session,null);
                 $response = "An authentication error occurred";
