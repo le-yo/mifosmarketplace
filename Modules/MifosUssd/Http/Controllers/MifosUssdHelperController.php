@@ -485,19 +485,18 @@ class MifosUssdHelperController extends Controller
 
         switch ($menu->id) {
             case 6:
-                //repay Loan app
                 $other = json_decode($session->other);
                 $client_id = $other->client_id;
                 $config = MifosUssdConfig::find($session->app_id);
-                $savingsAccounts = MifosHelperController::getClientSavingsAccounts($client_id,$config);
-                $response = $menu->title;
-
-                foreach ($savingsAccounts as $lA){
-                    if($lA->status->id ==300){
-                        $response = $response.PHP_EOL.$lA->shortProductName.$lA->id."(".$lA->productName."):".$lA->loanBalance;
-                    }
-                }
-                self::sendResponse($response,2,$session);
+                $message = "Dear {first_name}; to pay your fees go to Lipa na M-PESA >> Paybill >> Business No.: 4017901 >> Account No.: {prefix}{phone_number}. For assistance, call us on 0706247815 / 0784247815.";
+                $client = MifosHelperController::getClientByClientId($client_id,$config);
+                $search  = array('{first_name}','{prefix}','{phone_number}');
+                $replace = array($client->firstname,"TAC","254".substr($session->phone,-9));
+                $msg = str_replace($search, $replace, $message);
+                $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
+                //send SMS
+                MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                self::sendResponse($msg,2,$session);
                 break;
             case 8:
                 $other = json_decode($session->other);
@@ -512,8 +511,8 @@ class MifosUssdHelperController extends Controller
                         if($lA->status->id ==300 && $i==$message){
                             $message = "Dear {first_name}; pay at least {amount_due} via Lipa na M-PESA >> Paybill >> Business No.: 4017901 >> Account No.: {prefix}{phone_number}. For assistance, call us on 0706247815 / 0784247815.";
                             $client = MifosHelperController::getClientByClientId($client_id,$config);
-                            $search  = array('{first_name}','{amount_due}','prefix','phone_number');
-                            $replace = array($client->firstname,$lA->loanBalance,$lA->shortProductName,"254".substr($session->phone,-1));
+                            $search  = array('{first_name}','{amount_due}','{prefix}','{phone_number}');
+                            $replace = array($client->firstname,$lA->loanBalance,$lA->shortProductName,"254".substr($session->phone,-9));
                             $msg = str_replace($search, $replace, $message);
                             $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
                             //send SMS
