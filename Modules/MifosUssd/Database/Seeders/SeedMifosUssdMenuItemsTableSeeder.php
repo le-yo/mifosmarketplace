@@ -106,7 +106,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 3,
                 'description' => 'Fees',
-                'next_menu_id' => 4,
+                'next_menu_id' => 6,
                 'step' => 0,
                 'validation' => '',
                 'confirmation_phrase' => '',

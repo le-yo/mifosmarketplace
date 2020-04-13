@@ -87,6 +87,11 @@ class MifosUssdHelperController extends Controller
                 //continue to a processs
                 $response = self::continueSingleProcess($session, $message, $menu);
                 break;
+            case 4:
+
+                $response = self::customApp($session, $menu, $message);
+
+                break;
             default :
                 self::resetUser($session);
                 $response = "An authentication error occurred";
@@ -456,7 +461,8 @@ class MifosUssdHelperController extends Controller
             case 4:
                 //start a process
                 self::storeUssdResponse($mifos_ussd_session, $menu->id);
-                self::customApp($mifos_ussd_session,$menu);
+                $message = '';
+                self::customApp($mifos_ussd_session,$menu,$message);
                 break;
             case 5:
                 //start a process
@@ -474,25 +480,65 @@ class MifosUssdHelperController extends Controller
 
     }
 
-    public function customApp($session,$menu){
+    public static function customApp($session,$menu,$message){
 
 
         switch ($menu->id) {
-            case 8:
+            case 6:
                 //repay Loan app
+                $other = json_decode($session->other);
+                $client_id = $other->client_id;
+                $config = MifosUssdConfig::find($session->app_id);
+                $savingsAccounts = MifosHelperController::getClientSavingsAccounts($client_id,$config);
+                $response = $menu->title;
+
+                foreach ($savingsAccounts as $lA){
+                    if($lA->status->id ==300){
+                        $response = $response.PHP_EOL.$lA->shortProductName.$lA->id."(".$lA->productName."):".$lA->loanBalance;
+                    }
+                }
+                self::sendResponse($response,2,$session);
+                break;
+            case 8:
                 $other = json_decode($session->other);
                 $client_id = $other->client_id;
                 $config = MifosUssdConfig::find($session->app_id);
                 $loanAccounts = MifosHelperController::getClientLoanAccounts($client_id,$config);
 
-                $response = $menu->title.PHP_EOL."Paybill 4017901";
+                //repay Loan app
+                if($session->progress == 1){
+                    $i = 1;
+                    foreach ($loanAccounts as $lA){
+                        if($lA->status->id ==300 && $i==$message){
+                            $message = "Dear {first_name}; pay at least {amount_due} via Lipa na M-PESA >> Paybill >> Business No.: 4017901 >> Account No.: {prefix}{phone_number}. For assistance, call us on 0706247815 / 0784247815.";
+                            $client = MifosHelperController::getClientByClientId($client_id,$config);
+                            $search  = array('{first_name}','{amount_due}','prefix','phone_number');
+                            $replace = array($client->firstname,$lA->loanBalance,$lA->shortProductName,"254".substr($session->phone,-1));
+                            $msg = str_replace($search, $replace, $message);
+                            $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
+                            //send SMS
+                            MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                            break;
+                        }
+                        $i++;
+                    }
+                    self::sendResponse($msg,2,$session);
+                }
 
+                $response = $menu->title;
+                $i = 1;
                 foreach ($loanAccounts as $lA){
                     if($lA->status->id ==300){
-                    $response = $response.PHP_EOL.$lA->shortProductName.$lA->id."(".$lA->productName."):".$lA->loanBalance;
+                        $response = $response.PHP_EOL.$i.": ".$lA->shortProductName.$lA->id.":".$lA->loanBalance;
+                        $i++;
                     }
                 }
-                self::sendResponse($response,2,$session);
+                $session->menu_id = $menu->id;
+                $session->menu_item_id = 0;
+                $session->progress = 1;
+                $session->session = 6;
+                $session->save();
+                self::sendResponse($response,1,$session);
                 break;
             case 9:
                 //repay Loan app
@@ -502,13 +548,13 @@ class MifosUssdHelperController extends Controller
                 $loanAccounts = MifosHelperController::getClientLoanAccounts($client_id,$config);
 
                 $response = $menu->title;
-
+                $i = 1;
                 foreach ($loanAccounts as $lA){
                     if($lA->status->id ==300){
-                        $response = $response.PHP_EOL.$lA->shortProductName.$lA->id."(".$lA->productName."):".$lA->loanBalance;
+                        $response = $response.PHP_EOL.$i.": ".$lA->shortProductName.$lA->id.":".$lA->loanBalance;
                     }
                 }
-                self::sendResponse($response,2,$session);
+                self::sendResponse($response,1,$session);
                 break;
             default :
 //                self::resetUser($mifos_ussd_session,null);
@@ -637,13 +683,17 @@ class MifosUssdHelperController extends Controller
 
     public static function confirmGoBack($session, $message)
     {
-
         if (self::validationVariations($message, 1, "yes")) {
 //            self::resetUser($session);
             $menu = MifosUssdMenu::find(3);
-            $response = MifosUssdHelperController::nextMenuSwitch($session,$menu);
-            MifosUssdHelperController::sendResponse($response, 1, $session);
 
+            $response = MifosUssdHelperController::nextMenuSwitch($session,$menu);
+            $session->session = 2;
+            $session->menu_id = $menu->id;
+            $session->menu_item_id = 0;
+            $session->progress = 0;
+            $session->save();
+            self::sendResponse($response, 1, $session);
         }else{
             $response = "Thank you for being our valued customer";
             self::sendResponse($response, 3, $session);

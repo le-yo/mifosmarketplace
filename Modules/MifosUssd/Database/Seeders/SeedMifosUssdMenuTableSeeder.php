@@ -83,7 +83,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
                 'title' => 'Fees',
                 'description' => 'Fees Menu',
                 'is_root' => 0,
-                'type' => 1,
+                'type' => 4,
                 'skippable'=>false,
                 'next_mifos_ussd_menu_id'=>0,
                 'confirmation_message' => "",
@@ -102,7 +102,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
             //Menu 8
             array(
                 'app_id' => 1,
-                'title' => 'Repay Loan',
+                'title' => 'Select Loan to Repay',
                 'description' => 'Repay Loan Menu'.PHP_EOL."Paybill 4017901",
                 'is_root' => 0,
                 'type' => 4,

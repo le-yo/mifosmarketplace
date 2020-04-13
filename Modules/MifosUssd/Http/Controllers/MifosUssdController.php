@@ -81,8 +81,10 @@ class MifosUssdController extends Controller
                     $response = self::resetPIN($mifos_ussd_session, $message);
                     break;
                 case 6 :
+
                     //accept terms and conditions
-                    $response = self::acceptTerms($mifos_ussd_session, $message);
+                    $menu = MifosUssdMenu::find($mifos_ussd_session->menu_id);
+                    $response = MifosUssdHelperController::customApp($mifos_ussd_session, $menu,$message);
                     break;
                 default:
                     break;
