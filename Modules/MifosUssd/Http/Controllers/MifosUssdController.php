@@ -57,12 +57,21 @@ class MifosUssdController extends Controller
                     //getloanaccount
                     $loan = MifosHelperController::getLoanDetails($loanAccounts[0]->id,$config);
                     //apply for the loan
-                    $response = MifosHelperController::applyLoan($loan->loanProductId,$correctid,$loan->principal,$config);
-                    if (!empty($response->loanId)) {
-                        $skips = MifosUssdUserMenuSkipLogic::wherePhone($skip->phone)->first();
-                        $skips->skip=2;
-                        $skips->save();
+                    if($skip->skip==1){
+                        $response = MifosHelperController::applyLoan($loan->loanProductId,$correctid,$loan->principal,$config);
+                        if (!empty($response->loanId)) {
+                            $skips = MifosUssdUserMenuSkipLogic::wherePhone($skip->phone)->first();
+                            $skips->skip=2;
+                            $skips->save();
+                        }
+                    }else{
+                        $loanAccounts = MifosHelperController::getClientLoanAccounts($correctid,$config);
+                        $loan = array();
+                        $loan['loanId'] = $loanAccounts[0]->id;
+                        $loan = (object) $loan;
+                        $response = $loan;
                     }
+
                     return $response;
                 }
         }else{
