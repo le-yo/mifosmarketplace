@@ -11,10 +11,38 @@ use Modules\MifosUssd\Entities\MifosUssdMenu;
 use Modules\MifosUssd\Entities\MifosUssdMenuItems;
 use Modules\MifosUssd\Entities\MifosUssdSession;
 use Modules\MifosUssd\Entities\MifosUssdSetting;
+use Modules\MifosUssd\Entities\MifosUssdUserMenuSkipLogic;
 
 class MifosUssdController extends Controller
 {
 
+    public function idfix(){
+
+        $app = MifosUssdConfig::whereAppName('hazina')->first();
+
+
+        $skips = MifosUssdUserMenuSkipLogic::all();
+        foreach ($skips as $skip){
+            //get client by phone
+            //get the current user
+            $session = MifosUssdSession::wherePhone($skip->phone)->first();
+            $client = MifosHelperController::getClientUsingPhone($session->phone,$app);
+
+            $client_details = json_decode($session->other);
+
+            if($client_details->client_id == $client->id){
+                echo $session->phone." iko sawa".PHP_EOL;
+            }else{
+                echo $session->phone." wrong Id:".$client_details->client_id." Correct ID :".$client->id.PHP_EOL;
+                //PHP_EOL;
+            }
+//            exit;
+
+            //confirm client_id
+        }
+
+        exit;
+    }
     public function app(Request $request,$app)
     {
         error_reporting(0);

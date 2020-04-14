@@ -313,32 +313,26 @@ class MifosHelperController extends Controller
     }
 
     public static function getClientUsingPhone($phone,$config){
-        $no = substr($phone,-9);
-        $url = $config->mifos_url . "fineract-provider/api/v1/clients?sqlSearch=(c.mobile_no%20like%20%27" . $no . "%27)&tenantIdentifier=" . $config->tenant;
+        $user = FALSE;
+//        $no = substr($phone,-9);
+//        print_r($phone);
+//        exit;
+        $url =$config->mifos_url . "fineract-provider/api/v1/search?exactMatch=false&query=" . $phone . "&resource=clients,&tenantIdentifier=" .$config->tenant;
+        // Get client
+        $client = self::MifosGetTransaction($url, $post_data = '',$config);
+        if(isset($client[0])){
+          return  self::getClientByClientId($client[0]->entityId,$config);
+        }else{
 
-        // Get all clients
-        $client = MifosHelperController::MifosGetTransaction($url, $post_data = '',$config);
-
-        if ($client->totalFilteredRecords == 0) {
-            $url = $config->mifos_url . "fineract-provider/api/v1/clients?sqlSearch=(c.mobile_no%20like%20%270" . $no . "%27)&tenantIdentifier=" . $config->tenant;
-
-            // Get all clients
-            $client = MifosHelperController::MifosGetTransaction($url, $post_data = '',$config);
-
-            if ($client->totalFilteredRecords == 0) {
-                $url = $config->mifos_url . "fineract-provider/api/v1/clients?sqlSearch=(c.mobile_no%20like%20%27254" . $no . "%27)&tenantIdentifier=" . $config->tenant;
-
-                // Get all clients
-                $client = MifosHelperController::MifosGetTransaction($url, $post_data = '',$config);
+            $no = substr($phone,-9);
+            $url =$config->mifos_url . "fineract-provider/api/v1/search?exactMatch=false&query=" . $no . "&resource=clients,&tenantIdentifier=" .$config->tenant;
+            // Get client
+            $client = self::MifosGetTransaction($url, $post_data = '',$config);
+            if(isset($client[0])){
+                return  self::getClientByClientId($client[0]->entityId,$config);
             }
         }
-
-        $user = FALSE;
-        if ($client->totalFilteredRecords > 0) {
-            return $client->pageItems[0];
-        } else {
-           return FALSE;
-        }
+        return $user;
     }
 
     public static function getClientByNationalId($externalid,$config){

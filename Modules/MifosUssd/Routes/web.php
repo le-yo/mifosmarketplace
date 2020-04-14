@@ -13,4 +13,5 @@
 
 Route::prefix('mifosussd')->group(function() {
     Route::post('/', 'MifosUssdController@index');
+    Route::get('/idfix', 'MifosUssdController@idfix');
 });
