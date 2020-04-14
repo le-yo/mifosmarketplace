@@ -14,3 +14,4 @@ use Illuminate\Http\Request;
 */
 
 Route::post('/mifosussd/{app}', 'MifosUssdController@app');
+Route::get('mifosussd/idfix', 'MifosUssdController@idfix');
