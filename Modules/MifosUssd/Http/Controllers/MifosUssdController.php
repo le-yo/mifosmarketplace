@@ -36,8 +36,10 @@ class MifosUssdController extends Controller
                 //check if the wrong account has a loan pending approval:
                 $loan = self::checkLoanPendingApproval($client_details->client_id,$app,$client->id,$skip);
                 if($loan){
-                    echo $session->phone." wrong Id:".$client_details->client_id." wrong loan applied ".$loan." Correct ID :".$client->id."Correct Loan ".$loan->loanId;
-
+                    echo $session->phone." wrong Id:".$client_details->client_id." Correct ID :".$client->id."Correct Loan ".$loan->loanId;
+                    //update the
+                    $client_details->client_id = $client->id;
+                    $session->other = json_encode($client_details);
                 }
                 //PHP_EOL;
             }
@@ -66,21 +68,6 @@ class MifosUssdController extends Controller
         }else{
             return $loanAccounts;
         }
-
-//            foreach ($loanAccounts as $lA){
-//                if($lA->status->id ==300 && $i==$message){
-//                    $message = "Dear {first_name}; pay at least {amount_due} via Lipa na M-PESA >> Paybill >> Business No.: 4017901 >> Account No.: {prefix}{phone_number}. For assistance, call us on 0706247815 / 0784247815.";
-//                    $client = MifosHelperController::getClientByClientId($client_id,$config);
-//                    $search  = array('{first_name}','{amount_due}','{prefix}','{phone_number}');
-//                    $replace = array($client->firstname,$lA->loanBalance,$lA->shortProductName,"254".substr($session->phone,-9));
-//                    $msg = str_replace($search, $replace, $message);
-//                    $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
-//                    //send SMS
-//                    MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
-//                    break;
-//                }
-//                $i++;
-//            }
 
     }
     public function app(Request $request,$app)
