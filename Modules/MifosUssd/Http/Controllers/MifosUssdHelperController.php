@@ -239,7 +239,7 @@ class MifosUssdHelperController extends Controller
                         //check if ID belongs to the same client
                         $client = MifosHelperController::getClientbyClientId($response[0]->parentId,$config);
                         if(substr($client->mobileNo,-9) == (substr($session->phone,-9))){
-                            $client_details = array('client_id'=>$response[0]->entityId,'external_id'=>$message);
+                            $client_details = array('client_id'=>$response[0]->parentId,'external_id'=>$message);
                             $session->other = json_encode($client_details);
                             $session->save();
                             return TRUE;
@@ -314,9 +314,9 @@ class MifosUssdHelperController extends Controller
                 if(isset($response[0])){
                     if($response[0]->entityType == 'CLIENTIDENTIFIER'){
                         //check if ID belongs to the same client
-                        $client = MifosHelperController::getClientbyClientId($response[0]->entityId,$config);
+                        $client = MifosHelperController::getClientbyClientId($response[0]->parentId,$config);
                         if(substr($client->mobileNo,-9) == (substr($session->phone,-9))){
-                            $client_details = array('client_id'=>$response[0]->entityId,'external_id'=>$message);
+                            $client_details = array('client_id'=>$response[0]->parentId,'external_id'=>$message);
                             $session->other = json_encode($client_details);
                             return TRUE;
                         }else{
