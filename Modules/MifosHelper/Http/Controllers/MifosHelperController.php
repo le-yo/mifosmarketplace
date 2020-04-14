@@ -596,5 +596,11 @@ class MifosHelperController extends Controller
         }
         return $savingsAccounts;
     }
+    public static function getLoanDetails($loan_id,$config)
+    {
+        $url = $config->mifos_url . "fineract-provider/api/v1/loans/" . $loan_id . "?tenantIdentifier=" .$config->tenant;
+        $loan = self::MifosGetTransaction($url,null,$config);
+        return $loan;
+    }
 
 }

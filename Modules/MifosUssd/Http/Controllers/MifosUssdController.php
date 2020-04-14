@@ -34,9 +34,9 @@ class MifosUssdController extends Controller
                 echo $session->phone." iko sawa".PHP_EOL;
             }else{
                 //check if the wrong account has a loan pending approval:
-                $loan = self::checkLoanPendingApproval($client_details->client_id,$app);
+                $loan = self::checkLoanPendingApproval($client_details->client_id,$app,$client->id,$skip);
                 if($loan){
-                    echo $session->phone." wrong Id:".$client_details->client_id." wrong loan applied ".$loan." Correct ID :".$client->id.PHP_EOL;
+                    echo $session->phone." wrong Id:".$client_details->client_id." wrong loan applied ".$loan." Correct ID :".$client->id."Correct Loan ".$loan->loanId;
 
                 }
                 //PHP_EOL;
@@ -48,11 +48,20 @@ class MifosUssdController extends Controller
 
         exit;
     }
-    public function checkLoanPendingApproval($clientId,$config){
+    public function checkLoanPendingApproval($clientId,$config,$correctid,$skip){
         $loanAccounts = MifosHelperController::getClientLoanAccounts($clientId,$config);
         if($loanAccounts){
                 if($loanAccounts[0]->status->code =='loanStatusType.submitted.and.pending.approval'){
-                    return $loanAccounts[0]->id;
+                    //getloanaccount
+                    $loan = MifosHelperController::getLoanDetails($loanAccounts[0]->id,$config);
+                    //apply for the loan
+                    $response = MifosHelperController::applyLoan($loan->loanProductId,$correctid,$loan->principal,$config);
+                    if (!empty($response->loanId)) {
+                        $skips = MifosUssdUserMenuSkipLogic::wherePhone($skip->phone)->first();
+                        $skips->skip=2;
+                        $skips->save();
+                    }
+                    return $response;
                 }
         }else{
             return $loanAccounts;
