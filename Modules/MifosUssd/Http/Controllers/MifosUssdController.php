@@ -44,7 +44,7 @@ class MifosUssdController extends Controller
                     $client_details->client_id = $client->id;
                     $session->other = json_encode($client_details);
                     $session->save();
-//                }
+//                }  
                 //PHP_EOL;
             }
 //            exit;
