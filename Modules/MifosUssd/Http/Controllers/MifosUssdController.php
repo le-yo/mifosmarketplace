@@ -34,13 +34,17 @@ class MifosUssdController extends Controller
                 echo $session->phone." iko sawa".PHP_EOL;
             }else{
                 //check if the wrong account has a loan pending approval:
-                $loan = self::checkLoanPendingApproval($client_details->client_id,$app,$client->id,$skip);
-                if(isset($loan->loanId)){
+//                $loan = self::checkLoanPendingApproval($client_details->client_id,$app,$client->id,$skip);
+//                if(isset($loan->loanId)){
                     echo $session->phone." wrong Id:".$client_details->client_id." Correct ID :".$client->id."Correct Loan ".$loan->loanId.PHP_EOL;
                     //update the
+//                    $client_details->client_id = $client->id;
+//                    $session->other = json_encode($client_details);
+
                     $client_details->client_id = $client->id;
                     $session->other = json_encode($client_details);
-                }
+                    $session->save();
+//                }
                 //PHP_EOL;
             }
 //            exit;
