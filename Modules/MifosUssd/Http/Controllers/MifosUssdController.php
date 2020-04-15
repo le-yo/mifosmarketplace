@@ -29,6 +29,7 @@ class MifosUssdController extends Controller
             $client = MifosHelperController::getClientUsingPhone($skip->phone,$app);
 
             $client_details = json_decode($session->other);
+            if(isset($client->id)){
 
             if($client_details->client_id == $client->id){
                 echo $session->phone." iko sawa".PHP_EOL;
@@ -46,6 +47,8 @@ class MifosUssdController extends Controller
                     $session->save();
 //                }
                 //PHP_EOL;
+            }
+
             }
 //            exit;
 
