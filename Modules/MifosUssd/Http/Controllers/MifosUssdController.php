@@ -36,7 +36,7 @@ class MifosUssdController extends Controller
                 //check if the wrong account has a loan pending approval:
 //                $loan = self::checkLoanPendingApproval($client_details->client_id,$app,$client->id,$skip);
 //                if(isset($loan->loanId)){
-                    echo $session->phone." wrong Id:".$client_details->client_id." Correct ID :".$client->id."Correct Loan ".$loan->loanId.PHP_EOL;
+                    echo $session->phone." wrong Id:".$client_details->client_id." Correct ID :".$client->id;
                     //update the
 //                    $client_details->client_id = $client->id;
 //                    $session->other = json_encode($client_details);
@@ -44,7 +44,7 @@ class MifosUssdController extends Controller
                     $client_details->client_id = $client->id;
                     $session->other = json_encode($client_details);
                     $session->save();
-//                }  
+//                }
                 //PHP_EOL;
             }
 //            exit;
