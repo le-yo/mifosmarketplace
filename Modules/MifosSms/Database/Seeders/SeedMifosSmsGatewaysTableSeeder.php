@@ -30,7 +30,7 @@ class SeedMifosSmsGatewaysTableSeeder extends Seeder
                 'name' => "Africastalking",
             ),
             array(
-                'name' => "Connect Bind",
+                'name' => "Route Mobile",
             ),
         ));
     }

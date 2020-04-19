@@ -43,13 +43,13 @@ class MifosInstanceConfigTableSeeder extends Seeder
             array(
                 'name' => 'Hazina',
                 'slug' => 'hazina',
-//                'mifos_url' => "https://hazinatrust.mifosconnect.com/",
-                'mifos_url' => "https://hazinademo.mifosconnect.com/",
+                'mifos_url' => "https://hazinatrust.mifosconnect.com/",
+//                'mifos_url' => "https://hazinademo.mifosconnect.com/",
                 'username' => "API",
-//                'password' => Crypt::encrypt('ap!@dm1N'),
-                'password' => Crypt::encrypt('API@123'),
-//                'tenant' => "hazinatrust",
-                'tenant' => "hazinademo",
+                'password' => Crypt::encrypt('ap!@dm1N'),
+//                'password' => Crypt::encrypt('API@123'),
+                'tenant' => "hazinatrust",
+//                'tenant' => "hazinademo",
             ),
         ));
     }
