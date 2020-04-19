@@ -93,7 +93,7 @@ class MifosSmsController extends Controller
 
     public static function sendSMSViaConnectBind($to,$message,$config){
         $no = substr($to,-9);
-        $to = "+254".$no;
+        $to = "254".$no;
         $url = "http://rslr.connectbind.com/bulksms/bulksms?username=".$config->username."&password=".Crypt::decrypt($config->key)."&type=0&dlr=1&destination=".$to."&source=".$config->sender_name."&message=".urlencode($message);
 //        $url = "http://rslr.connectbind.com:8080/bulksms/bulksms?username=".$config->username."&password=".Crypt::decrypt($config->key)."&type=0&dlr=1&destination=".$to."&source=".$config->sender_name."&message=".urlencode($message);
         $ch = curl_init();
