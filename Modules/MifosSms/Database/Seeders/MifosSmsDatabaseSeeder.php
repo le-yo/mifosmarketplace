@@ -17,5 +17,6 @@ class MifosSmsDatabaseSeeder extends Seeder
         Model::unguard();
         $this->call("Modules\MifosSms\Database\Seeders\SeedMifosSmsGatewaysTableSeeder");
         $this->call("Modules\MifosSms\Database\Seeders\SeedMifosSmsConfigsTableSeeder");
+        $this->call("Modules\MifosSms\Database\Seeders\SeedHookNotificationTableSeeder");
     }
 }

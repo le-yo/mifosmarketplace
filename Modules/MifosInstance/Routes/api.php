@@ -13,9 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/mifossms', function (Request $request) {
+Route::middleware('auth:api')->get('/mifosinstance', function (Request $request) {
     return $request->user();
 });
-
-
-Route::post('/mifoshook/{app}', 'HookController@hookNotification');

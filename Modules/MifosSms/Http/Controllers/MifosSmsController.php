@@ -17,6 +17,31 @@ class MifosSmsController extends Controller
         print_r($response);
         exit;
     }
+    public static function sendSms($to,$message,$config){
+        $log = new MifosSmsLog();
+        $log->app_id = $config->app_id;
+        $log->gateway_id = $config->gateway_id;
+        $log->phone = $to;
+        $log->message = $message;
+        $log->status = 0;
+        $log->save();
+        if($config->gateway_id == 1){
+
+            $response = self::sendSmsViaWasiliana($to,$message,$config);
+        }
+        if($config->gateway_id == 2){
+            $response =  self::sendSmsViaAT($to,$message,$config);
+        }
+        if($config->gateway_id == 3){
+            $response = self::sendSMSViaConnectBind($to,$message,$config);
+        }
+        $log->content = $response;
+        $log->save();
+
+        return $response;
+
+    }
+
     public static function sendSmsViaAT($to,$message,$config){
 
         $data = ['phone' => $to, 'message' => $message];
@@ -37,7 +62,6 @@ class MifosSmsController extends Controller
     }
 
     public static function sendSmsViaWasiliana($to,$message,$config){
-
         $data = array();
         $data['recipients'] = array($to);
         $data['from'] = $config->sender_name;
@@ -68,13 +92,6 @@ class MifosSmsController extends Controller
     }
 
     public static function sendSMSViaConnectBind($to,$message,$config){
-        $log = new MifosSmsLog();
-        $log->app_id = $config->app_id;
-        $log->gateway_id = $config->gateway_id;
-        $log->phone = $to;
-        $log->message = $message;
-        $log->status = 0;
-        $log->save();
         $url = "http://rslr.connectbind.com/bulksms/bulksms?username=".$config->username."&password=".Crypt::decrypt($config->key)."&type=0&dlr=1&destination=".$to."&source=".$config->sender_name."&message=".urlencode($message);
 //        $url = "http://rslr.connectbind.com:8080/bulksms/bulksms?username=".$config->username."&password=".Crypt::decrypt($config->key)."&type=0&dlr=1&destination=".$to."&source=".$config->sender_name."&message=".urlencode($message);
         $ch = curl_init();
@@ -96,8 +113,6 @@ class MifosSmsController extends Controller
         }
         $dt = ['slug' => 'send_sms_response', 'content' => $data];
         //log response
-        $log->content = $data;
-        $log->save();
         curl_close($ch);
         return $data;
     }

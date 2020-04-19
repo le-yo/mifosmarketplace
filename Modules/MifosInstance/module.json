@@ -1,0 +1,13 @@
+{
+    "name": "MifosInstance",
+    "alias": "mifosinstance",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\MifosInstance\\Providers\\MifosInstanceServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

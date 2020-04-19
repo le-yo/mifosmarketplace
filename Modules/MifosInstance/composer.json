@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/mifosinstance",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\MifosInstance\\Providers\\MifosInstanceServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\MifosInstance\\": ""
+        }
+    }
+}

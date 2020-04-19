@@ -1,5 +1,6 @@
 {
     "MifosReminder": true,
     "MifosUssd": true,
-    "MifosSms": true
+    "MifosSms": true,
+    "MifosInstance": true
 }
