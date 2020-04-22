@@ -202,7 +202,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
             array(
                 'app_id' => 2,
                 'title' => 'Welcome to PawaCredit',
-                'description' => 'Home',
+                'description' => 'Set PIN',
                 'is_root' => 1,
                 'type' => 2,
                 'skippable'=>true,
@@ -213,7 +213,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
             array(
                 'app_id' => 2,
                 'title' => 'Welcome to PawaCredit',
-                'description' => 'Home',
+                'description' => 'Set PIN',
                 'is_root' => 1,
                 'type' => 1,
                 'skippable'=>true,

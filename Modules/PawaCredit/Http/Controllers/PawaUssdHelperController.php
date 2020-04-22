@@ -828,7 +828,9 @@ class PawaUssdHelperController extends Controller
     {
         //confirm this stuff
         $menu_items = self::getMenuItems($session->menu_id);
-        if(!empty($menu->confirmation_message)){
+        if(!empty($menu->description)){
+            $confirmation = "Confirm: " . $menu->description;
+        }elseif(!empty($menu->confirmation_message)){
             $confirmation = "Confirm: " . $menu->confirmation_message;
         }else{
             $confirmation = "Confirm: " . $menu->title;
