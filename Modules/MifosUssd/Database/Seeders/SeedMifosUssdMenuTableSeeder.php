@@ -232,7 +232,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
                 'confirmation_message' => "Get PawaCredit",
 //                'confirmation_message' => "Your Token of KES {amount} has been sent successfully. Kindly make payment by {due_date}",
             ),
-            //Menu 19
+            //Menu 20
             array(
                 'app_id' => 2,
                 'title' => 'Repay Loan',

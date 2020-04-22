@@ -307,7 +307,7 @@ class SeedMifosUssdMenuItemsTableSeeder extends Seeder
             array(
                 'menu_id' => 18,
                 'description' => 'Repay',
-                'next_menu_id' => 19,
+                'next_menu_id' => 20,
                 'step' => 0,
                 'validation' => 'custom',
                 'confirmation_phrase' => 'IGNORE',

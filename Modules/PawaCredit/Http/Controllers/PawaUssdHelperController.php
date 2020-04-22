@@ -19,6 +19,7 @@ use Modules\MifosUssd\Entities\MifosUssdResponse;
 use Modules\MifosUssd\Entities\MifosUssdSession;
 use Illuminate\Support\Facades\Validator;
 use Modules\MifosUssd\Entities\MifosUssdUserMenuSkipLogic;
+use SmoDav\Mpesa\Laravel\Facades\STK;
 
 class PawaUssdHelperController extends Controller
 {
@@ -1188,7 +1189,18 @@ class PawaUssdHelperController extends Controller
                 }
                 self::sendResponse($response,2,$session);
                 break;
-
+            case 20:
+                //veify if the PINs are equal
+                $amount = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,40)->orderBy('id', 'DESC')->first()->response;
+                STK::request($amount)
+                    ->from($session->phone)
+                    ->usingReference($session->phone,'GetPawa')
+                    ->push();
+                $msg = "You may also pay later by Lipa Na MPESA, PayBill 777784, Account ".$session->phone." amount KES ".$amount;
+                $MifosSmsConfig = MifosSmsConfig::whereAppId(4)->first();
+                MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
+                self::sendResponse("Kindly wait to enter your MPESA PIN to complete the transaction",3,$session);
+                break;
             default :
                 return true;
                 break;

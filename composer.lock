@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf657ee5985839fe76f3a572ca3c346c",
+    "content-hash": "32432c913893e56d3311a4a6f2ca336e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -683,6 +683,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -729,6 +730,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
@@ -1595,6 +1597,56 @@
             "time": "2020-03-21T18:07:53+00:00"
         },
         {
+            "name": "predis/predis",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Predis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete Redis client for PHP and HHVM",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2016-06-16T16:22:20+00:00"
+        },
+        {
             "name": "psr/container",
             "version": "1.0.0",
             "source": {
@@ -2033,6 +2085,73 @@
                 "uuid"
             ],
             "time": "2020-02-21T04:36:14+00:00"
+        },
+        {
+            "name": "smodav/mpesa",
+            "version": "v5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SmoDav/mpesa.git",
+                "reference": "6db0c3879e97b5fab64b34d2d4153ace4600cc9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SmoDav/mpesa/zipball/6db0c3879e97b5fab64b34d2d4153ace4600cc9a",
+                "reference": "6db0c3879e97b5fab64b34d2d4153ace4600cc9a",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2",
+                "illuminate/support": "^5.0|^6.0|^7.0",
+                "nesbot/carbon": "^1.0 || ^2.0",
+                "php": ">=5.6.0",
+                "predis/predis": "^1.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "~5.7|~6.2|~8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "SmoDav\\Mpesa\\Laravel\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "STK": "SmoDav\\Mpesa\\Laravel\\Facades\\STK",
+                        "Simulate": "SmoDav\\Mpesa\\Laravel\\Facades\\Simulate",
+                        "Registrar": "SmoDav\\Mpesa\\Laravel\\Facades\\Registrar",
+                        "Identity": "SmoDav\\Mpesa\\Laravel\\Facades\\Identity"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Mpesa/Support/helpers.php"
+                ],
+                "psr-4": {
+                    "SmoDav\\Mpesa\\": "src/Mpesa/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "SmoDav",
+                    "email": "smodavprivate@gmail.com"
+                }
+            ],
+            "description": "M-Pesa API implementation",
+            "keywords": [
+                "api",
+                "laravel",
+                "mpesa",
+                "safaricom",
+                "transactions"
+            ],
+            "time": "2020-04-13T05:04:32+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
