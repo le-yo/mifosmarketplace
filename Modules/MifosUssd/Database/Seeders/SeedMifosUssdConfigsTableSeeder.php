@@ -34,6 +34,15 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'tenant' => "hazinatrust",
                 'ussd_gateway_id' => 1,
             ),
+            array(
+                'app_id' => 2,
+                'app_name' => 'pawacredit',
+                'mifos_url' => "https://hazinademo.mifosconnect.com/",
+                'username' => "API",
+                'password' => Crypt::encrypt('ap!@dm1N'),
+                'tenant' => "hazinatrust",
+                'ussd_gateway_id' => 1,
+            ),
         ));
     }
 }

@@ -187,6 +187,62 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
                 'next_mifos_ussd_menu_id'=>0,
                 'confirmation_message' => "Thank you for using Hazina USSD",
             ),
+            //Menu 16
+            array(
+                'app_id' => 2,
+                'title' => 'Welcome to PawaCredit',
+                'description' => 'Register',
+                'is_root' => 1,
+                'type' => 2,
+                'skippable'=>true,
+                'next_mifos_ussd_menu_id'=>17,
+                'confirmation_message' => "Your registration was successful",
+            ),
+            //Menu 17
+            array(
+                'app_id' => 2,
+                'title' => 'Welcome to PawaCredit',
+                'description' => 'Home',
+                'is_root' => 1,
+                'type' => 2,
+                'skippable'=>true,
+                'next_mifos_ussd_menu_id'=>18,
+                'confirmation_message' => "Your PIN was set successfully",
+            ),
+            //Menu 18
+            array(
+                'app_id' => 2,
+                'title' => 'Welcome to PawaCredit',
+                'description' => 'Home',
+                'is_root' => 1,
+                'type' => 1,
+                'skippable'=>true,
+                'next_mifos_ussd_menu_id'=>18,
+                'confirmation_message' => "Your PIN was set successfully",
+            ),
+            //Menu 19
+            array(
+                'app_id' => 2,
+                'title' => 'Get PawaCredit',
+                'description' => 'Get PawaCredit',
+                'is_root' => 1,
+                'type' => 2,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>18,
+                'confirmation_message' => "Get PawaCredit",
+//                'confirmation_message' => "Your Token of KES {amount} has been sent successfully. Kindly make payment by {due_date}",
+            ),
+            //Menu 19
+            array(
+                'app_id' => 2,
+                'title' => 'Repay Loan',
+                'description' => 'Repay Loan',
+                'is_root' => 1,
+                'type' => 2,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>18,
+                'confirmation_message' => "Your have successfully repaid KES {amount}. Kindly make the pending payment of KES {balance}  by {due_date}",
+            ),
         ));
     }
 }

@@ -1,0 +1,13 @@
+{
+    "name": "PawaCredit",
+    "alias": "pawacredit",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\PawaCredit\\Providers\\PawaCreditServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

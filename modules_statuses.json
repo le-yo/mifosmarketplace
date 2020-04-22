@@ -2,5 +2,7 @@
     "MifosReminder": true,
     "MifosUssd": true,
     "MifosSms": true,
-    "MifosInstance": true
+    "MifosInstance": true,
+    "PawaCredit": true,
+    "HelaplusTokens": true
 }

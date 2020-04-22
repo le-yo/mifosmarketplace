@@ -46,6 +46,13 @@ class SeedMifosSmsConfigsTableSeeder extends Seeder
                 'key' => Crypt::encrypt('H4z1na5T'),
                 'sender_name' => "HAZINAGROUP",
             ),
+            array(
+                'app_id' => 4,
+                'gateway_id' => 1,
+                'username' => "helaplus",
+                'key' => Crypt::encrypt('rICdLH73o7OTfprEWldpyCHTtHRfMK5661J2XIZ0pnjiajv1Sf1zZBOAUoXrMmwt'),
+                'sender_name' => "HELAPLUS",
+            ),
         ));
     }
 }

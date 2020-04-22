@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/helaplustokens",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\HelaplusTokens\\Providers\\HelaplusTokensServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\HelaplusTokens\\": ""
+        }
+    }
+}

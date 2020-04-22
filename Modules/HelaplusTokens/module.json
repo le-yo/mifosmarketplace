@@ -1,0 +1,13 @@
+{
+    "name": "HelaplusTokens",
+    "alias": "helaplustokens",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\HelaplusTokens\\Providers\\HelaplusTokensServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
