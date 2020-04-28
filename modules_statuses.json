@@ -4,5 +4,6 @@
     "MifosSms": true,
     "MifosInstance": true,
     "PawaCredit": true,
-    "HelaplusTokens": true
+    "HelaplusTokens": true,
+    "UnitTrust": true
 }

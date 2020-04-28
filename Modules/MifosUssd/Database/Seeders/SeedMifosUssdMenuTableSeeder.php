@@ -243,6 +243,74 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
                 'next_mifos_ussd_menu_id'=>18,
                 'confirmation_message' => "Your have successfully repaid KES {amount}. Kindly make the pending payment of KES {balance}  by {due_date}",
             ),
+            //Menu 21
+            array(
+                'app_id' => 3,
+                'title' => 'Welcome to ICEA LION GROUP',
+                'description' => 'Set PIN',
+                'is_root' => 1,
+                'type' => 1,
+                'skippable'=>true,
+                'next_mifos_ussd_menu_id'=>22,
+                'confirmation_message' => "Your PIN was set successfully",
+            ),
+            //Menu 22
+            array(
+                'app_id' => 3,
+                'title' => 'Please Choose a Company',
+                'description' => 'ICEA',
+                'is_root' => 1,
+                'type' => 1,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>22,
+                'confirmation_message' => "Verification",
+//                'confirmation_message' => "Your Token of KES {amount} has been sent successfully. Kindly make payment by {due_date}",
+            ),
+            //Menu 23
+            array(
+                'app_id' => 3,
+                'title' => 'Create a profile',
+                'description' => 'Register',
+                'is_root' => 1,
+                'type' => 2,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>22,
+//                'confirmation_message' => "Verification",
+                'confirmation_message' => "Welcome to ICEA LION. Your profile has been successfully created. Dial 665*9# to proceed to the main menu.",
+            ),
+            //Menu 24
+            array(
+                'app_id' => 3,
+                'title' => 'Welcome to ICEA LION GROUP',
+                'description' => 'Set PIN',
+                'is_root' => 1,
+                'type' => 1,
+                'skippable'=>true,
+                'next_mifos_ussd_menu_id'=>22,
+                'confirmation_message' => "Your PIN was set successfully",
+            ),
+            //Menu 25
+            array(
+                'app_id' => 3,
+                'title' => 'Registration',
+                'description' => 'Set PIN',
+                'is_root' => 1,
+                'type' => 1,
+                'skippable'=>true,
+                'next_mifos_ussd_menu_id'=>22,
+                'confirmation_message' => "Your PIN was set successfully",
+            ),
+            //Menu 26
+            array(
+                'app_id' => 2,
+                'title' => 'Deposit',
+                'description' => 'Deposit',
+                'is_root' => 1,
+                'type' => 2,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>18,
+                'confirmation_message' => "Your have successfully Deposited KES {amount}.",
+            ),
         ));
     }
 }

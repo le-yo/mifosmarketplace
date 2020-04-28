@@ -1,0 +1,13 @@
+{
+    "name": "UnitTrust",
+    "alias": "unittrust",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\UnitTrust\\Providers\\UnitTrustServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
