@@ -472,7 +472,7 @@ class MifosHelperController extends Controller
         //get clients savings account:
         $savingsAccounts = self::getClientSavingsAccounts($client_id,$config);
         foreach ($savingsAccounts as $sa){
-            if($sa->shortProductName == 'TAC'){
+            if($sa->shortProductName == 'TAC' && $sa->status->id==300){
                 $linkAccountId = $sa->id;
                 break;
             }
