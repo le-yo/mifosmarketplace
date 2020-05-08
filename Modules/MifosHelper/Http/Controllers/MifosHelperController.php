@@ -519,7 +519,7 @@ class MifosHelperController extends Controller
         $loan_data['graceOnPrincipalPayment'] = $loanproduct->graceOnPrincipalPayment; //6
         $loan_data['graceOnInterestPayment'] = $loanproduct->graceOnInterestPayment; //6
         $loan_data['submittedOnDate'] = $date;
-        $loan_data['repaymentsStartingFromDate'] = $groupMeetingDate;
+//        $loan_data['repaymentsStartingFromDate'] = $groupMeetingDate;
         $loan_data['calendarId'] = $calendarId;
         $loan_data['linkAccountId'] = $linkAccountId;
         $loan_data['charges'] = array();
