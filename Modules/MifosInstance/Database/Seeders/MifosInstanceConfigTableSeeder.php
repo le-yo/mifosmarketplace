@@ -52,8 +52,8 @@ class MifosInstanceConfigTableSeeder extends Seeder
 //                'tenant' => "hazinademo",
             ),
             array(
-                'name' => 'Hazina',
-                'slug' => 'hazina',
+                'name' => 'hazinademo',
+                'slug' => 'hazinademo',
                 'mifos_url' => "https://hazinademo.mifosconnect.com/",
                 'username' => "API",
                 'password' => Crypt::encrypt('API@123'),

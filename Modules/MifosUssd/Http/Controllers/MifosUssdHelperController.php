@@ -257,8 +257,9 @@ class MifosUssdHelperController extends Controller
                 break;
             case 3:
                 //veify if the PINs are equal
-                $PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,2)->orderBy('id', 'DESC')->first();
-                $CONFIRM_PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,2)->orderBy('id', 'DESC')->first();
+                $PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,6)->orderBy('id', 'DESC')->first();
+                $CONFIRM_PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,3)->orderBy('id', 'DESC')->first();
+
                 if($PIN->response == $CONFIRM_PIN->response){
                     //set PIN and send to Mifos
                     $datatable = array(
@@ -268,6 +269,7 @@ class MifosUssdHelperController extends Controller
                     );
                     $config = MifosUssdConfig::whereAppId($session->app_id)->first();
                     $client_details = json_decode($session->other);
+                    $client_details->pin = Crypt::encrypt($PIN->response);
                     $r = MifosHelperController::setDatatable('PIN',$client_details->client_id,json_encode($datatable),$config);
 
                     if (!empty($r->errors)) {
@@ -288,7 +290,6 @@ class MifosUssdHelperController extends Controller
                     $client_details->pin = Crypt::encrypt($PIN->response);
                     $session->other = json_encode($client_details);
                     $session->save();
-
                     return TRUE;
                     }else{
                     $step = $session->progress - 1;
@@ -300,7 +301,6 @@ class MifosUssdHelperController extends Controller
             case 4:
                 if($message == '0'){
                     $menu = MifosUssdMenu::find(12);
-
                     $response = MifosUssdHelperController::nextMenuSwitch($session,$menu);
                     MifosUssdHelperController::sendResponse($response, 1, $session,null);
                 }else{
@@ -358,6 +358,8 @@ class MifosUssdHelperController extends Controller
 //                    $r = MifosHelperController::MifosPostTransaction($postURl, json_encode($datatable),$config);
 
                     //store PIN in session
+//                    print_r($PIN->response);
+//                    exit;
                     $client_details->pin = Crypt::encrypt($PIN->response);
                     $session->other = json_encode($client_details);
                     $session->save();
