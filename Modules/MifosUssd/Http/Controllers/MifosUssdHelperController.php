@@ -299,7 +299,7 @@ class MifosUssdHelperController extends Controller
                 }
                 break;
             case 4:
-                if($message == '0'){
+                if($message == '0' && strlen($message)==1){
                     $menu = MifosUssdMenu::find(12);
                     $response = MifosUssdHelperController::nextMenuSwitch($session,$menu);
                     MifosUssdHelperController::sendResponse($response, 1, $session,null);
