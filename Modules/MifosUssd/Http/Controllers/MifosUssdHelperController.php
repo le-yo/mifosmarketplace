@@ -257,7 +257,7 @@ class MifosUssdHelperController extends Controller
                 break;
             case 3:
                 //veify if the PINs are equal
-                $PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,6)->orderBy('id', 'DESC')->first();
+                $PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,2)->orderBy('id', 'DESC')->first();
                 $CONFIRM_PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,3)->orderBy('id', 'DESC')->first();
 
                 if($PIN->response == $CONFIRM_PIN->response){
@@ -381,6 +381,9 @@ class MifosUssdHelperController extends Controller
 
     public function validatePIN($session,$message){
         $other_details = json_decode($session->other);
+
+        if(isset($other_details->pin)){
+
         if($message == Crypt::decrypt($other_details->pin)){
            $menu = MifosUssdMenu::find(3);
            $response = self::nextMenuSwitch($session,$menu);
@@ -389,7 +392,14 @@ class MifosUssdHelperController extends Controller
         }else{
             $response = "Invalid PIN. Kindly Re enter your PIN";
         }
-            self::sendResponse($response, 1, $session,null);
+
+        }else{
+            $menu = MifosUssdMenu::find(12);
+            $response = "In order to proceed, kindly reset you PIN".PHP_EOL.MifosUssdHelperController::nextMenuSwitch($session,$menu);
+            MifosUssdHelperController::sendResponse($response, 1, $session,null);
+        }
+
+        self::sendResponse($response, 1, $session,null);
     }
 
     public static function ussdLog($session,$input,$type,$text){
