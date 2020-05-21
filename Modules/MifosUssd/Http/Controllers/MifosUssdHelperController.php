@@ -395,7 +395,7 @@ class MifosUssdHelperController extends Controller
 
         }else{
             $menu = MifosUssdMenu::find(12);
-            $response = "In order to proceed, kindly reset you PIN".PHP_EOL.MifosUssdHelperController::nextMenuSwitch($session,$menu);
+            $response = "In order to proceed:".PHP_EOL.MifosUssdHelperController::nextMenuSwitch($session,$menu);
             MifosUssdHelperController::sendResponse($response, 1, $session,null);
         }
 
