@@ -154,11 +154,13 @@ class MifosUssdHelperController extends Controller
                 $config = MifosUssdConfig::whereAppId($session->app_id)->first();
                 if($menuItem->id == 28){
                     $product_id =7;
+                    $syncDisbursementWithMeeting=true;
                 }else{
                     $product_id = 2;
+                    $syncDisbursementWithMeeting=false;
                 }
                 //apply for the loan
-                $response = MifosHelperController::applyLoan($product_id,$other->client_id,$amount,$config);
+                $response = MifosHelperController::applyLoan($product_id,$other->client_id,$amount,$config,$syncDisbursementWithMeeting);
 
                 if (empty($response->loanId)) {
                     $response = "We had a problem processing your loan. Kindly retry or contact customer care";

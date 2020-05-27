@@ -458,7 +458,7 @@ class MifosHelperController extends Controller
         return $response;
     }
 
-    public static function applyLoan($product_id,$client_id, $amount,$config){
+    public static function applyLoan($product_id,$client_id, $amount,$config,$syncDisbursementWithMeeting=false){
         $linkAccountId = '';
         $groupId = self::getUserGroupId($client_id,$config);
         $user_group = self::getUserGroup($groupId,$config);
@@ -522,6 +522,11 @@ class MifosHelperController extends Controller
 //        $loan_data['repaymentsStartingFromDate'] = $groupMeetingDate;
         $loan_data['calendarId'] = $calendarId;
         $loan_data['linkAccountId'] = $linkAccountId;
+
+        if($syncDisbursementWithMeeting){
+        $loan_data['syncDisbursementWithMeeting'] = $syncDisbursementWithMeeting;
+        }
+
         $loan_data['charges'] = array();
         $charges = array();
         foreach ($loanproduct->charges as $charge){
