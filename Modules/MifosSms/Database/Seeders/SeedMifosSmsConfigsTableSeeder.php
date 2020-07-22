@@ -32,7 +32,7 @@ class SeedMifosSmsConfigsTableSeeder extends Seeder
                 'key' => Crypt::encrypt('9d55d032eb07bee9025dc7d4bb4a1bfb4e3991dac7a4bfc1fbf439296298e1f4'),
                 'sender_name' => "PESAPAL",
             ),
-            array(
+            array( 
                 'app_id' => 2,
                 'gateway_id' => 1,
                 'username' => "nyota",
@@ -43,7 +43,7 @@ class SeedMifosSmsConfigsTableSeeder extends Seeder
                 'app_id' => 3,
                 'gateway_id' => 3,
                 'username' => "itld-hazina",
-                'key' => Crypt::encrypt('H4z1na5T'),
+                'key' => Crypt::encrypt('H4z!na5T'),
                 'sender_name' => "HAZINAGROUP",
             ),
             array(
