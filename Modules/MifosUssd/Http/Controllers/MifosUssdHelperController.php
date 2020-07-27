@@ -162,7 +162,7 @@ class MifosUssdHelperController extends Controller
                 }else{
                     $product_id = 2;
                     $syncDisbursementWithMeeting=false;
-                } 
+                }
                 //apply for the loan
                 $response = MifosHelperController::applyLoan($product_id,$other->client_id,$amount,$config,$syncDisbursementWithMeeting);
 
@@ -262,10 +262,13 @@ class MifosUssdHelperController extends Controller
                 }
                 break;
             case 3:
-                //veify if the PINs are equal
-                $PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,2)->orderBy('id', 'DESC')->first();
-                $CONFIRM_PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,3)->orderBy('id', 'DESC')->first();
 
+
+                //veify if the PINs are equal
+                $PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,3)->orderBy('id', 'DESC')->first();
+                $CONFIRM_PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,6)->orderBy('id', 'DESC')->first();
+//                print_r($CONFIRM_PIN->response);
+//                exit;
                 if($PIN->response == $CONFIRM_PIN->response){
                     //set PIN and send to Mifos
                     $datatable = array(
@@ -277,7 +280,6 @@ class MifosUssdHelperController extends Controller
                     $client_details = json_decode($session->other);
                     $client_details->pin = Crypt::encrypt($PIN->response);
                     $r = MifosHelperController::setDatatable('PIN',$client_details->client_id,json_encode($datatable),$config);
-
                     if (!empty($r->errors)) {
 
                         if (strpos($r->defaultUserMessage, 'already exists')) {
@@ -291,7 +293,6 @@ class MifosUssdHelperController extends Controller
                     }
                     // post the encoded application details
 //                    $r = MifosHelperController::MifosPostTransaction($postURl, json_encode($datatable),$config);
-
                     //store PIN in session
                     $client_details->pin = Crypt::encrypt($PIN->response);
                     $session->other = json_encode($client_details);
