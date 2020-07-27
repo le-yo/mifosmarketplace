@@ -152,16 +152,17 @@ class MifosUssdHelperController extends Controller
                 $other = json_decode($session->other);
 
                 $config = MifosUssdConfig::whereAppId($session->app_id)->first();
+
                 if($menuItem->id == 28){
-                    $product_id =7;
+                    $product_id=7;
                     $syncDisbursementWithMeeting=true;
                 }elseif($menuItem->id == 52){
-                    $product_id =5;
+                    $product_id=5;
                     $syncDisbursementWithMeeting=true;
                 }else{
                     $product_id = 2;
                     $syncDisbursementWithMeeting=false;
-                }
+                } 
                 //apply for the loan
                 $response = MifosHelperController::applyLoan($product_id,$other->client_id,$amount,$config,$syncDisbursementWithMeeting);
 
