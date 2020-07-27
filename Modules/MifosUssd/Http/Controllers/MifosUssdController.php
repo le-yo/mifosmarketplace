@@ -93,7 +93,6 @@ class MifosUssdController extends Controller
         set_time_limit(100000);
 
         //check if the app exists
-
         $app = MifosUssdConfig::whereAppName($app)->first();
 
         if(!$app){
@@ -112,16 +111,17 @@ class MifosUssdController extends Controller
             $mifos_ussd_session->phone = $input->phone;
             $mifos_ussd_session->save();
         }else{
-            $mifos_ussd_session->app_id = $app->id;
+            $mifos_ussd_session->app_id = $app->app_id;
             $mifos_ussd_session->save();
         }
 
-
         //check if the user/phone is starting
         if (MifosUssdHelperController::user_is_starting($input->latest_text)) {
-
+//            print_r($app);
+//            exit;
             $mifos_ussd_session = MifosUssdHelperController::resetUser($mifos_ussd_session,$app);
-            $root_menu = MifosUssdMenu::whereAppIdAndIsRoot($app->id,1)->first();
+            $root_menu = MifosUssdMenu::whereAppIdAndIsRoot($app->app_id,1)->first();
+//
             $response = MifosUssdHelperController::nextMenuSwitch($mifos_ussd_session,$root_menu);
             MifosUssdHelperController::sendResponse($response, 1, $mifos_ussd_session,$app,$input);
         } else {

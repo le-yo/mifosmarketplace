@@ -57,7 +57,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'app_name' => 'hazinademo',
                 'mifos_url' => "https://hazinademo.mifosconnect.com/",
                 'username' => "API",
-                'password' => Crypt::encrypt('ap!@dm1N'),
+                'password' => Crypt::encrypt('API@123'),
                 'tenant' => "hazinademo",
                 'ussd_gateway_id' => 1,
             ),

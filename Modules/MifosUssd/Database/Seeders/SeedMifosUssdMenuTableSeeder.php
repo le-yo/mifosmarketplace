@@ -311,6 +311,17 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
                 'next_mifos_ussd_menu_id'=>18,
                 'confirmation_message' => "Your have successfully Deposited KES {amount}.",
             ),
+            //Menu 27
+            array(
+                'app_id' => 1,
+                'title' => 'Apply Sikukuu Loan',
+                'description' => 'Apply Sikukuu Loan',
+                'is_root' => 0,
+                'type' => 3,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>0,
+                'confirmation_message' => "You loan has been submitted successfully. ",
+            ),
         ));
     }
 }

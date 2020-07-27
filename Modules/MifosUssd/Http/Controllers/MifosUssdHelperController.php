@@ -155,6 +155,9 @@ class MifosUssdHelperController extends Controller
                 if($menuItem->id == 28){
                     $product_id =7;
                     $syncDisbursementWithMeeting=true;
+                }elseif($menuItem->id == 52){
+                    $product_id =5;
+                    $syncDisbursementWithMeeting=true;
                 }else{
                     $product_id = 2;
                     $syncDisbursementWithMeeting=false;

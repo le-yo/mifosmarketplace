@@ -493,6 +493,10 @@ class MifosHelperController extends Controller
             $disbursement_date = Carbon::now()->format('d M Y');
         }
 
+        if($loanproduct->id != 2){
+            $disbursement_date = $groupMeetingDate;
+        }
+
         $loan_data = [];
         $loan_data['locale'] = 'en_GB';
         $loan_data['dateFormat'] = 'dd MMMM yyyy';
@@ -537,7 +541,7 @@ class MifosHelperController extends Controller
             }
         }
         $dData = array();
-        $dData['expectedDisbursementDate'] = $disbursement_date;
+        $dData['expectedDisbursementDate'] = $groupMeetingDate;
         $dData['principal'] = $amount;
         $dData['approvedPrincipal'] = $amount;
         $loan_data['disbursementData'] = array();
