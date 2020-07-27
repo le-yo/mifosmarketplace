@@ -541,7 +541,7 @@ class MifosHelperController extends Controller
             }
         }
         $dData = array();
-        $dData['expectedDisbursementDate'] = $groupMeetingDate;
+        $dData['expectedDisbursementDate'] = $disbursement_date;
         $dData['principal'] = $amount;
         $dData['approvedPrincipal'] = $amount;
         $loan_data['disbursementData'] = array();
