@@ -43,7 +43,7 @@ class SeedMifosSmsConfigsTableSeeder extends Seeder
                 'app_id' => 3,
                 'gateway_id' => 3,
                 'username' => "itld-hazina",
-                'key' => Crypt::encrypt('H4z!na5T'),
+                'key' => Crypt::encrypt('H4z!na4T'),
                 'sender_name' => "HAZINAGROUP",
             ),
             array(
