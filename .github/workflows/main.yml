@@ -17,6 +17,7 @@ jobs:
           command: |
             cd /var/www/staging/
             git pull origin develop
+            composer install
             php artisan migrate
             php artisan module:migrate MifosUssd
             php artisan module:seed MifosUssd
