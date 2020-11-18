@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\MifosHelper\Http\Controllers\MifosHelperController;
+use Modules\MifosSms\Entities\MifosSmsConfig;
+use Modules\MifosSms\Http\Controllers\MifosSmsController;
 use Modules\MifosUssd\Entities\MifosUssdConfig;
 use Modules\MifosUssd\Entities\MifosUssdMenu;
 use Modules\MifosUssd\Entities\MifosUssdMenuItems;
@@ -88,12 +90,15 @@ class MifosUssdController extends Controller
     }
     public function app(Request $request,$app)
     {
+
         error_reporting(0);
         header('Content-type: text/plain');
         set_time_limit(100000);
 
         //check if the app exists
         $app = MifosUssdConfig::whereAppName($app)->first();
+
+
 
         if(!$app){
             $mifos_setting = MifosUssdSetting::whereSlug('no_app_found')->first();
@@ -114,6 +119,7 @@ class MifosUssdController extends Controller
             $mifos_ussd_session->app_id = $app->app_id;
             $mifos_ussd_session->save();
         }
+
 
         //check if the user/phone is starting
         if (MifosUssdHelperController::user_is_starting($input->latest_text)) {
@@ -156,6 +162,10 @@ class MifosUssdController extends Controller
                     //accept terms and conditions
                     $menu = MifosUssdMenu::find($mifos_ussd_session->menu_id);
                     $response = MifosUssdHelperController::customApp($mifos_ussd_session, $menu,$message);
+                    break;
+                case 7 :
+                    //Dynamic Loan application process
+                    $response = MifosUssdHelperController::loanApplicationProcess($mifos_ussd_session, $message);
                     break;
                 default:
                     break;

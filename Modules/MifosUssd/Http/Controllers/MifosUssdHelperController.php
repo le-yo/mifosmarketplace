@@ -62,10 +62,10 @@ class MifosUssdHelperController extends Controller
 
     public static function continueUssdProgress($session, $message)
     {
-
         $response = '';
         $menu = MifosUssdMenu::find($session->menu_id);
         //check the user menu
+
 
         switch ($menu->type) {
             case 0:
@@ -132,11 +132,18 @@ class MifosUssdHelperController extends Controller
 
         //validate input to be numeric
         $menuItem = MifosUssdMenuItems::whereMenuIdAndStep($menu->id, $session->progress)->first();
-
+//
+//        print_r($menuItem);
+//        exit;
         if($menuItem->validation == 'custom'){
             if(self::customValidation($session,$message,$menuItem)){
             $step = $session->progress + 1;
             }
+        }elseif(strpos($menuItem->validation, '_preset')) {
+
+        if(self::presetValidation($session,$message,$menuItem)){
+            $step = $session->progress + 1;
+        }
         }elseif($menuItem->validation == 'schedule'){
             if($session->confirm_from == 0){
             $response = "Confirm ".$menu->title.PHP_EOL."Amount ".$message;
@@ -205,15 +212,18 @@ class MifosUssdHelperController extends Controller
         }
 
         $menuItem = MifosUssdMenuItems::whereMenuIdAndStep($menu->id, $step)->first();
+
         if ($menuItem) {
             $session->menu_item_id = $menuItem->id;
-            $session->menu_id = 1;
             $session->progress = $step;
             $session->save();
             return $response. $menuItem->description;
         } else {
-            if($menu->id == 1){
+
+            if($menu->id == 1 || $menu->id == 28){
+
                 $response = $menu->confirmation_message;
+
                 $skipLogic = MifosUssdUserMenuSkipLogic::wherePhoneAndMifosUssdMenuId($session->phone,$menu->id)->first();
                 if(!$skipLogic){
                 $skipLogic = new MifosUssdUserMenuSkipLogic();
@@ -223,14 +233,181 @@ class MifosUssdHelperController extends Controller
                 $skipLogic->skip = true;
                 $skipLogic->save();
                 //send SMS
-                $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
-                MifosSmsController::sendSMSViaConnectBind($session->phone,$response,$MifosSmsConfig);
+                $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
+                $sms_sending_response = MifosSmsController::sendSms($session->phone,$response,$MifosSmsConfig);
+
                 self::sendResponse($response,3,$session);
             }else{
             $response = self::confirmBatch($session, $menu);
             }
             return $response;
         }
+    }
+    public static function presetValidation($session,$message,$menuItem){
+        switch ($menuItem->validation) {
+            case "nationalId_preset":
+
+                $config = MifosUssdConfig::whereAppId($session->app_id)->first();
+
+                //validate national ID from Mifos
+                $response = MifosHelperController::getClientByNationalId($message,$config);
+
+                if(isset($response[0])){
+                    if($response[0]->entityType == 'CLIENTIDENTIFIER'){
+                        //check if ID belongs to the same client
+                        $client = MifosHelperController::getClientbyClientId($response[0]->parentId,$config);
+                        if(substr($client->mobileNo,-9) == (substr($session->phone,-9))){
+                            $client_details = array('client_id'=>$response[0]->parentId,'external_id'=>$message);
+                            $session->other = json_encode($client_details);
+                            $session->save();
+                            return TRUE;
+                        }else{
+                            $response = "National ID is valid but belongs to a different phone number.".PHP_EOL."Please enter your ID";
+                            self::sendResponse($response,1,$session);
+                        }
+                    }elseif($response[0]->entityType == 'CLIENT'){
+                        //check if ID belongs to the same client
+                        $client = MifosHelperController::getClientbyClientId($response[0]->entityId,$config);
+
+                        if(substr($client->mobileNo,-9) == (substr($session->phone,-9))){
+                            $client_details = array('client_id'=>$response[0]->entityId,'external_id'=>$message);
+                            $session->other = json_encode($client_details);
+                            $session->save();
+                            return TRUE;
+                        }else{
+                            $response = "National ID is valid but belongs to a different phone number.".PHP_EOL."Please enter your ID";
+                            self::sendResponse($response,1,$session);
+                        }
+                    }{
+                        return FALSE;
+                    }
+                }else{
+                    $response = "National ID is not registered. Service only available to registered customers";
+                    self::sendResponse($response,1,$session);
+                }
+                break;
+            case "confirm_pin_preset":
+
+                //veify if the PINs are equal
+                $PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,54)->orderBy('id', 'DESC')->first();
+                $CONFIRM_PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,55)->orderBy('id', 'DESC')->first();
+//                print_r($PIN->response);
+//                exit;
+                if($PIN->response == $CONFIRM_PIN->response){
+                    //set PIN and send to Mifos
+                    $datatable = array(
+                        "PIN" => Crypt::encrypt($PIN->response),
+                        "locale"=>"en",
+                        "dateFormat"=> "dd MMMM yyyy"
+                    );
+                    $config = MifosUssdConfig::whereAppId($session->app_id)->first();
+                    $client_details = json_decode($session->other);
+                    $client_details->pin = Crypt::encrypt($PIN->response);
+                    $r = MifosHelperController::setDatatable('PIN',$client_details->client_id,json_encode($datatable),$config);
+                    if (!empty($r->errors)) {
+
+                        if (strpos($r->defaultUserMessage, 'already exists')) {
+                            //we try to update
+                            $r = MifosHelperController::updateDatatable('PIN',$client_details->client_id,json_encode($datatable),$config,1);
+                        }
+                        if(!empty($r->errors)){
+                            $error_msg = 'We had a problem setting your PIN. Kindly retry or contact Customer Care';
+                            self::sendResponse($error_msg,1,$session);
+                        }
+                    }
+                    // post the encoded application details
+//                    $r = MifosHelperController::MifosPostTransaction($postURl, json_encode($datatable),$config);
+                    //store PIN in session
+                    $client_details->pin = Crypt::encrypt($PIN->response);
+                    $session->other = json_encode($client_details);
+                    $session->save();
+                    return TRUE;
+                }else{
+                    $step = $session->progress - 1;
+                    $session->progress = $step;
+                    $session->save();
+                    return FALSE;
+                }
+                break;
+            case "auth_pin_preset":
+                if($message == '0' && strlen($message)==1){
+                    $menu = MifosUssdMenu::find(12);
+                    $response = MifosUssdHelperController::nextMenuSwitch($session,$menu);
+                    MifosUssdHelperController::sendResponse($response, 1, $session,null);
+                }else{
+                    $response = self::validatePIN($session,$message);
+                }
+                break;
+            case "auth_nationalId_preset":
+                $config = MifosUssdConfig::whereAppId($session->app_id)->first();
+                //validate national ID from Mifos
+                $response = MifosHelperController::getClientByNationalId($message,$config);
+                if(isset($response[0])){
+                    if($response[0]->entityType == 'CLIENTIDENTIFIER'){
+                        //check if ID belongs to the same client
+                        $client = MifosHelperController::getClientbyClientId($response[0]->parentId,$config);
+                        if(substr($client->mobileNo,-9) == (substr($session->phone,-9))){
+                            $client_details = array('client_id'=>$response[0]->parentId,'external_id'=>$message);
+                            $session->other = json_encode($client_details);
+                            return TRUE;
+                        }else{
+                            $response = "National ID is valid but belongs to a different phone number.".PHP_EOL."Please enter your ID";
+                            self::sendResponse($response,1,$session);
+                        }
+                    }else{
+                        return FALSE;
+                    }
+                }
+                break;
+            case "auth2_nationalId_preset":
+                //veify if the IDs are equal
+                $PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,2)->orderBy('id', 'DESC')->first();
+                $CONFIRM_PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,2)->orderBy('id', 'DESC')->first();
+                if($PIN->response == $CONFIRM_PIN->response){
+                    //set PIN and send to Mifos
+                    $datatable = array(
+                        "PIN" => Crypt::encrypt($PIN->response),
+                        "locale"=>"en",
+                        "dateFormat"=> "dd MMMM yyyy"
+                    );
+                    $config = MifosUssdConfig::whereAppId($session->app_id)->first();
+                    $client_details = json_decode($session->other);
+                    $r = MifosHelperController::setDatatable('PIN',$client_details->client_id,json_encode($datatable),$config);
+
+                    if (!empty($r->errors)) {
+
+                        if (strpos($r->defaultUserMessage, 'already exists')) {
+                            //we try to update
+                            $r = MifosHelperController::updateDatatable('PIN',$client_details->client_id,json_encode($datatable),$config);
+                        }
+                        if(!empty($r->errors)){
+                            $error_msg = 'We had a problem setting your PIN. Kindly retry or contact Customer Care';
+                            self::sendResponse($error_msg,1,$session);
+                        }
+                    }
+                    // post the encoded application details
+//                    $r = MifosHelperController::MifosPostTransaction($postURl, json_encode($datatable),$config);
+
+                    //store PIN in session
+//                    print_r($PIN->response);
+//                    exit;
+                    $client_details->pin = Crypt::encrypt($PIN->response);
+                    $session->other = json_encode($client_details);
+                    $session->save();
+
+                    return TRUE;
+                }else{
+                    $step = $session->progress - 1;
+                    $session->progress = $step;
+                    $session->save();
+                    return FALSE;
+                }
+                break;
+
+            default :
+                break;
+        }
+        return $response;
     }
 
     public static function customValidation($session,$message,$menuItem){
@@ -387,12 +564,12 @@ class MifosUssdHelperController extends Controller
     }
 
     public function validatePIN($session,$message){
-        $other_details = json_decode($session->other);
 
+        $other_details = json_decode($session->other);
         if(isset($other_details->pin)){
 
         if($message == Crypt::decrypt($other_details->pin)){
-           $menu = MifosUssdMenu::find(3);
+           $menu = MifosUssdMenu::find($session->menu_id+1);
            $response = self::nextMenuSwitch($session,$menu);
 //           print_r($menu);
 //           exit;
@@ -489,6 +666,14 @@ class MifosUssdHelperController extends Controller
                 $response = $menu->confirmation_message;
                 MifosUssdHelperController::sendResponse($response,3,$mifos_ussd_session);
                 break;
+            case 6:
+                //Get the products
+                self::storeUssdResponse($mifos_ussd_session, $menu->id);
+                $mifos_ussd_session->progress = 1;
+                $mifos_ussd_session->save();
+                $response = self::loanApplicationProcess($mifos_ussd_session,"");
+                $response = $menu->title.PHP_EOL.$response;
+                break;
             default :
                 self::resetUser($mifos_ussd_session,null);
                 $response = "An authentication error occurred";
@@ -499,6 +684,66 @@ class MifosUssdHelperController extends Controller
 
     }
 
+    public function loanApplicationProcess($session,$message){
+
+
+        switch ($session->progress) {
+            case 1:
+                //fetch loan products
+                $config = MifosUssdConfig::find($session->app_id);
+                $loanProducts = MifosHelperController::getLoanProducts($config);
+                $i = 1;
+                $response = "";
+                foreach ($loanProducts as $lP){
+                    $response = $response . $i . ": " . $lP->name . PHP_EOL;
+                    $i++;
+                }
+                $session->progress = 2;
+                $session->session = 7;
+                $session->save();
+                break;
+            case 2:
+                echo "hapa sasa";
+                exit;
+                //start a process
+                self::storeUssdResponse($mifos_ussd_session, $menu->id);
+                $response = self::singleProcess($menu, $mifos_ussd_session, 1);
+                return $menu->title.PHP_EOL.$response;
+                break;
+            case 3:
+                //start a process
+                self::storeUssdResponse($mifos_ussd_session, $menu->id);
+                $response = self::singleProcess($menu, $mifos_ussd_session, 1);
+                return $menu->title.PHP_EOL.$response;
+                break;
+            case 4:
+                //start a process
+                self::storeUssdResponse($mifos_ussd_session, $menu->id);
+                $message = '';
+                self::customApp($mifos_ussd_session,$menu,$message);
+                break;
+            case 5:
+                //start a process
+                self::storeUssdResponse($mifos_ussd_session, $menu->id);
+                $response = $menu->confirmation_message;
+                MifosUssdHelperController::sendResponse($response,3,$mifos_ussd_session);
+                break;
+            case 6:
+                //Get the products
+                self::storeUssdResponse($mifos_ussd_session, $menu->id);
+                $response = self::loanApplicationProcess($menu, $mifos_ussd_session, 1);
+                $response = $menu->confirmation_message;
+                MifosUssdHelperController::sendResponse($response,3,$mifos_ussd_session);
+                break;
+            default :
+                self::resetUser($mifos_ussd_session,null);
+                $response = "An authentication error occurred";
+                break;
+        }
+
+        return $response;
+
+    }
     public static function customApp($session,$menu,$message){
 
 
@@ -666,6 +911,13 @@ class MifosUssdHelperController extends Controller
         return $mifos_ussd_session;
     }
 
+    public function replaceTemplates($session,$response){
+        $config = MifosUssdConfig::find($session->app_id);
+        $search  = array('{app_name}','{app_ussd}');
+        $replace = array(ucwords($config->app_name),$config->ussd_code);
+        $response = str_replace($search, $replace, $response);
+        return $response;
+    }
 
     public static function sendResponse($response, $type, $session=null,$input=null)
     {
@@ -674,6 +926,7 @@ class MifosUssdHelperController extends Controller
             $session->app_id = 0;
         }
 
+        $response = self::replaceTemplates($session,$response);
         //Log response
         MifosUssdHelperController::ussdLog($session,$input,0,$response);
 

@@ -33,6 +33,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'password' => Crypt::encrypt('ap!@dm1N'),
                 'tenant' => "hazinatrust",
                 'ussd_gateway_id' => 1,
+                'ussd_code' => "*665*300#",
             ),
             array(
                 'app_id' => 2,
@@ -42,6 +43,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'password' => Crypt::encrypt('ap!@dm1N'),
                 'tenant' => "hazinatrust",
                 'ussd_gateway_id' => 1,
+                'ussd_code' => "",
             ),
             array(
                 'app_id' => 3,
@@ -51,6 +53,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'password' => Crypt::encrypt('ap!@dm1N'),
                 'tenant' => "hazinatrust",
                 'ussd_gateway_id' => 1,
+                'ussd_code' => "*665#",
             ),
             array(
                 'app_id' => 4,
@@ -60,6 +63,17 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'password' => Crypt::encrypt('API@123'),
                 'tenant' => "hazinademo",
                 'ussd_gateway_id' => 1,
+                'ussd_code' => "*665#",
+            ),
+            array(
+                'app_id' => 5,
+                'app_name' => 'tresor',
+                'mifos_url' => "https://tresor.mifosconnect.com/",
+                'username' => "API",
+                'password' => Crypt::encrypt('Tresor@P!'),
+                'tenant' => "tresor",
+                'ussd_gateway_id' => 1,
+                'ussd_code' => "*665*365#",
             ),
         ));
     }

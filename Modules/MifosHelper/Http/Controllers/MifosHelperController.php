@@ -207,7 +207,7 @@ class MifosHelperController extends Controller
     }
 
     public static function MifosGetTransaction($url,$post_data=null,$config){
-        $data = ['slug' => 'mifos_get_request', 'content' => $url];
+        $data = ['slug' => 'get_'.$url, 'content' => $url];
         //log request
         MifosRequestLog::create($data);
 //        print_r($url);
@@ -243,7 +243,7 @@ class MifosHelperController extends Controller
     }
 
     public static function MifosPostTransaction($url,$post_data,$config){
-        $data = ['slug' => 'mifos_post_request', 'content' => $post_data];
+        $data = ['slug' => 'post_'.$url, 'content' => $post_data];
         //log request
         MifosRequestLog::create($data);
         $ch = curl_init();
@@ -278,7 +278,7 @@ class MifosHelperController extends Controller
     }
 
     public static function MifosPutTransaction($url,$post_data,$config){
-        $data = ['slug' => 'mifos_post_request', 'content' => $post_data];
+        $data = ['slug' => 'put_'.$url, 'content' => $post_data];
         //log request
         MifosRequestLog::create($data);
         $ch = curl_init();
@@ -336,9 +336,11 @@ class MifosHelperController extends Controller
     }
 
     public static function getClientByNationalId($externalid,$config){
+
         $user = FALSE;
-        $url =$config->mifos_url . "fineract-provider/api/v1/search?exactMatch=true&query=" . $externalid . "&resource=clientIdentifiers&tenantIdentifier=" .$config->tenant;
+        $url =$config->mifos_url . "fineract-provider/api/v1/search?exactMatch=true&query=" . $externalid . "&resource=clients,clientIdentifiers&tenantIdentifier=" .$config->tenant;
         // Get client
+
         $client = self::MifosGetTransaction($url, $post_data = '',$config);
         return $client;
     }
@@ -610,6 +612,12 @@ class MifosHelperController extends Controller
         $url = $config->mifos_url . "fineract-provider/api/v1/loans/" . $loan_id . "?tenantIdentifier=" .$config->tenant;
         $loan = self::MifosGetTransaction($url,null,$config);
         return $loan;
+    }
+    public static function getLoanProducts($config)
+    {
+        $url = $config->mifos_url . "fineract-provider/api/v1/loanproducts/?tenantIdentifier=" .$config->tenant;
+        $loan_products = self::MifosGetTransaction($url,null,$config);
+        return $loan_products;
     }
 
 }

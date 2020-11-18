@@ -43,21 +43,47 @@ class MifosSmsController extends Controller
     }
 
     public static function sendSmsViaAT($to,$message,$config){
+        $message = urlencode($message);
 
-        $data = ['phone' => $to, 'message' => $message];
+        $curl = curl_init();
 
-        $gateway    = new AfricasTalkingGateway($config->username, Crypt::decrypt($config->key));
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.africastalking.com/version1/messaging",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "username=$config->username&to=$to&message=$message&from=".$config->sender_name,
+            CURLOPT_HTTPHEADER => array(
+                "apikey: ".Crypt::decrypt($config->key),
+                "Content-Type: application/x-www-form-urlencoded"
+            ),
+        ));
 
-        try
-        {
-            $results = $gateway->sendMessage($to, $message,$config->sender_name);
-        }
-        catch ( AfricasTalkingGatewayException $e )
-        {
-            $result = $e->getMessage();
-        }
+        $response = curl_exec($curl);
 
-        return $results;
+        curl_close($curl);
+
+
+//        $data = ['phone' => $to, 'message' => $message];
+//
+//        $gateway    = new AfricasTalkingGateway($config->username, Crypt::decrypt($config->key));
+//
+//        try
+//        {
+//            $results = $gateway->sendMessage($to, $message,$config->sender_name);
+//
+//        }
+//        catch ( AfricasTalkingGatewayException $e )
+//        {
+//            $results = $e->getMessage();
+
+//        }
+
+        return $response;
 
     }
 
@@ -95,7 +121,6 @@ class MifosSmsController extends Controller
         $no = substr($to,-9);
         $to = "254".$no;
         $url = "http://rslr.connectbind.com/bulksms/bulksms?username=".$config->username."&password=".Crypt::decrypt($config->key)."&type=0&dlr=1&destination=".$to."&source=".$config->sender_name."&message=".urlencode($message);
-//        $url = "http://rslr.connectbind.com:8080/bulksms/bulksms?username=".$config->username."&password=".Crypt::decrypt($config->key)."&type=0&dlr=1&destination=".$to."&source=".$config->sender_name."&message=".urlencode($message);
         $ch = curl_init();
         $data = ""; 
         curl_setopt($ch, CURLOPT_URL, $url);
