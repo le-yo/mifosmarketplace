@@ -223,7 +223,7 @@ class MifosUssdHelperController extends Controller
             if($menu->id == 1 || $menu->id == 28){
 
                 $response = $menu->confirmation_message;
-
+                $response = self::replaceTemplates($session,$response);
                 $skipLogic = MifosUssdUserMenuSkipLogic::wherePhoneAndMifosUssdMenuId($session->phone,$menu->id)->first();
                 if(!$skipLogic){
                 $skipLogic = new MifosUssdUserMenuSkipLogic();
