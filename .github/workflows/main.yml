@@ -15,8 +15,14 @@ jobs:
         uses: fifsky/ssh-action@master
         with:
           command: |
-            cd /var/www/shop4me
-            git pull origin master
+            cd /var/www/staging/
+            git pull origin develop
+            php artisan migrate
+            php artisan module:migrate MifosUssd
+            php artisan module:seed MifosUssd
+            php artisan module:migrate MifosSms
+            php artisan module:seed MifosSms
+
           host: ${{ secrets.SERVER_IP }}
           user: root
           key: ${{ secrets.SSH_PRIVATE_KEY}}
