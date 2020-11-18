@@ -1,0 +1,22 @@
+# Deployment Workflow
+ 
+name: CI
+
+# on push to master
+on:
+  push:
+    branches: [ develop ]
+jobs:
+  test-php:
+    name: Deploy Mifosmarketplace
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Mifosmarketplace
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd /var/www/shop4me
+            git pull origin master
+          host: ${{ secrets.SERVER_IP }}
+          user: root
+          key: ${{ secrets.SSH_PRIVATE_KEY}}
