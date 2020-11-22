@@ -797,18 +797,18 @@ class MifosUssdHelperController extends Controller
 
                     //apply for the loan
                     $response = MifosHelperController::applyConfirmedLoan($session);
-                    print_r($response);
-                    exit;
+                        $config = MifosUssdConfig::whereAppId($session->app_id)->first();
+                        $other_details = json_decode($session->other);
                     if (empty($response->loanId)) {
                         $response = "We had a problem processing your loan. Kindly retry or contact customer care";
-                        $message = "Dear {first_name}, your loan request of {amount} was not successfully submitted. Please try again or call us on 0706247815 / 0784247815 for assistance.";
+                        $message = "Dear {first_name}, your loan request of {amount} was not successfully submitted. Please try again.";
 
-                        $client = MifosHelperController::getClientByClientId($other->client_id,$config);
+                        $client = MifosHelperController::getClientByClientId($other_details->client_id,$config);
                         $search  = array('{first_name}','{amount}');
-                        $replace = array($client->firstname,$amount);
+                        $replace = array($client->firstname,$other_details->loan_amount);
                         $msg = str_replace($search, $replace, $message);
-                        $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
-                        MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                        $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
+                        MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
                         //self::resetUser($user);
                         self::sendResponse($response, 2, $session);
                     } else {
@@ -816,10 +816,10 @@ class MifosUssdHelperController extends Controller
                         $message = "Dear {first_name}, your loan request of {amount} has been received and is undergoing approval as loan {loan_account_number}. Please wait for confirmation.";
                         $client = MifosHelperController::getClientByClientId($response->clientId,$config);
                         $search  = array('{first_name}','{amount}','{loan_account_number}');
-                        $replace = array($client->firstname,$amount,$response->loanId);
+                        $replace = array($client->firstname,$other_details->loan_amount,$response->loanId);
                         $msg = str_replace($search, $replace, $message);
-                        $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
-                        MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                        $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
+                        MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
                         self::sendResponse($ussd_message,2,$session);
                     }
                     $response = "Loan Application received";
@@ -834,18 +834,19 @@ class MifosUssdHelperController extends Controller
                     $session->session = 7;
                     $session->save();
                 }else{
-                    $response = "Invalid Loan Period. Enter Period";
+                    $response = "Loan application not confirmed. Try again later";
+                    self::sendResponse($response,2,$session);
                 }
 
                 break;
-            case 6:
-                self::storeUssdResponse($session, $message);
-                if(self::isLoanApplicationConfirmed($session,$message)){
-                    //sendLoanApplication to Mifos
-                }else{
-                   $response = "Loan Application rejected";
-                }
-                break;
+//            case 6:
+//                self::storeUssdResponse($session, $message);
+//                if(self::isLoanApplicationConfirmed($session,$message)){
+//                    //sendLoanApplication to Mifos
+//                }else{
+//                   $response = "Loan Application rejected";
+//                }
+//                break;
             default :
                 $response = "Invalid Response";
                 break;

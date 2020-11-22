@@ -663,7 +663,6 @@ class MifosHelperController extends Controller
             $disbursement_date = Carbon::now()->format('d M Y');
         }
 
-
         $loan_data = [];
         $loan_data['locale'] = 'en_GB';
         $loan_data['dateFormat'] = 'dd MMMM yyyy';
@@ -673,7 +672,7 @@ class MifosHelperController extends Controller
         $loan_data['fundId'] = $loanproduct->fundId;
         $loan_data['loanTermFrequency'] = $repaymentPeriods;
         $loan_data['loanTermFrequencyType'] = $loanproduct->repaymentFrequencyType->id; // 1
-        $loan_data['loanType'] = 'jlg';
+        $loan_data['loanType'] = "individual";
         $loan_data['numberOfRepayments'] = $repaymentPeriods;
         $loan_data['repaymentEvery'] = $loanproduct->repaymentEvery; // 2
         $loan_data['repaymentFrequencyType'] = $loanproduct->repaymentFrequencyType->id; //3
