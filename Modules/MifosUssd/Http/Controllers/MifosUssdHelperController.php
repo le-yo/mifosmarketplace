@@ -686,7 +686,6 @@ class MifosUssdHelperController extends Controller
 
     public function loanApplicationProcess($session,$message){
 
-
         switch ($session->progress) {
             case 1:
                 //fetch loan products
@@ -792,8 +791,37 @@ class MifosUssdHelperController extends Controller
 
                 break;
             case 5:
+
                 self::storeUssdResponse($session, $message);
                 if(self::confirmApplyLoan($session,$message)){
+
+                    //apply for the loan
+                    $response = MifosHelperController::applyConfirmedLoan($session);
+                    print_r($response);
+                    exit;
+                    if (empty($response->loanId)) {
+                        $response = "We had a problem processing your loan. Kindly retry or contact customer care";
+                        $message = "Dear {first_name}, your loan request of {amount} was not successfully submitted. Please try again or call us on 0706247815 / 0784247815 for assistance.";
+
+                        $client = MifosHelperController::getClientByClientId($other->client_id,$config);
+                        $search  = array('{first_name}','{amount}');
+                        $replace = array($client->firstname,$amount);
+                        $msg = str_replace($search, $replace, $message);
+                        $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
+                        MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                        //self::resetUser($user);
+                        self::sendResponse($response, 2, $session);
+                    } else {
+                        $ussd_message = "You loan application has been received successfully";
+                        $message = "Dear {first_name}, your loan request of {amount} has been received and is undergoing approval as loan {loan_account_number}. Please wait for confirmation.";
+                        $client = MifosHelperController::getClientByClientId($response->clientId,$config);
+                        $search  = array('{first_name}','{amount}','{loan_account_number}');
+                        $replace = array($client->firstname,$amount,$response->loanId);
+                        $msg = str_replace($search, $replace, $message);
+                        $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
+                        MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                        self::sendResponse($ussd_message,2,$session);
+                    }
                     $response = "Loan Application received";
                     self::sendResponse($response,3,$session);
 //                    $other_details = json_decode($session->other);

@@ -10,6 +10,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Crypt;
 use Modules\MifosHelper\Entities\MifosRequestLog;
 use Modules\MifosReminder\Entities\MifosReminderOutbox;
+use Modules\MifosUssd\Entities\MifosUssdConfig;
 use Modules\MifosUssd\Entities\MifosUssdMenu;
 
 class MifosHelperController extends Controller
@@ -620,31 +621,35 @@ class MifosHelperController extends Controller
         return $loan_products;
     }
 
-    public static function applyConfirmedLoan($session,$config,$syncDisbursementWithMeeting=false){
+    public static function applyConfirmedLoan($session,$syncDisbursementWithMeeting=false){
+        $config = MifosUssdConfig::whereAppId($session->app_id)->first();
 
-        print_r($session);
-        exit;
+        $other_details = json_decode($session->other);
+        $client_id = $other_details->client_id;
+
         $linkAccountId = '';
-        $groupId = self::getUserGroupId($client_id,$config);
-        $user_group = self::getUserGroup($groupId,$config);
-        $calendarId = $user_group->collectionMeetingCalendar->id;
-        $groupMeetingDate = Carbon::parse(implode('-', $user_group->collectionMeetingCalendar->nextTenRecurringDates[0]))->format('d M Y');
+//        $groupId = self::getUserGroupId($client_id,$config);
+//        print_r($groupId);
+//        exit;
+//        $user_group = self::getUserGroup($groupId,$config);
+//        $calendarId = $user_group->collectionMeetingCalendar->id;
+//        $groupMeetingDate = Carbon::parse(implode('-', $user_group->collectionMeetingCalendar->nextTenRecurringDates[0]))->format('d M Y');
 
         //get loan settings:
-        $url = $config->mifos_url . "fineract-provider/api/v1/loanproducts/".$product_id."?template=true&tenantIdentifier=" .$config->tenant;
-        $loanproduct = self::MifosGetTransaction($url,null,$config);
-
+//        $url = $config->mifos_url . "fineract-provider/api/v1/loanproducts/".$product_id."?template=true&tenantIdentifier=" .$config->tenant;
+//        $loanproduct = self::MifosGetTransaction($url,null,$config);
+        $loanproduct = $other_details->selected_product;
         //get clients savings account:
-        $savingsAccounts = self::getClientSavingsAccounts($client_id,$config);
-        foreach ($savingsAccounts as $sa){
-            if($sa->shortProductName == 'TAC' && $sa->status->id==300){
-                $linkAccountId = $sa->id;
-                break;
-            }
-        }
+//        $savingsAccounts = self::getClientSavingsAccounts($client_id,$config);
+//        foreach ($savingsAccounts as $sa){
+//            if($sa->shortProductName == 'TAC' && $sa->status->id==300){
+//                $linkAccountId = $sa->id;
+//                break;
+//            }
+//        }
 
 
-        $repaymentPeriods = $loanproduct->maxNumberOfRepayments;;
+        $repaymentPeriods = $other_details->loan_period;
 
         $date = Carbon::now()->format('d M Y');
 
@@ -658,16 +663,13 @@ class MifosHelperController extends Controller
             $disbursement_date = Carbon::now()->format('d M Y');
         }
 
-        if($loanproduct->id != 2){
-            $disbursement_date = $groupMeetingDate;
-        }
 
         $loan_data = [];
         $loan_data['locale'] = 'en_GB';
         $loan_data['dateFormat'] = 'dd MMMM yyyy';
         $loan_data['clientId'] = $client_id;
         $loan_data['productId'] = $loanproduct->id;
-        $loan_data['principal'] = $amount;
+        $loan_data['principal'] = $other_details->loan_amount;
         $loan_data['fundId'] = $loanproduct->fundId;
         $loan_data['loanTermFrequency'] = $repaymentPeriods;
         $loan_data['loanTermFrequencyType'] = $loanproduct->repaymentFrequencyType->id; // 1
@@ -678,7 +680,7 @@ class MifosHelperController extends Controller
         $loan_data['interestRatePerPeriod'] = $loanproduct->interestRatePerPeriod;
         $loan_data['interestRateFrequencyType'] = $loanproduct->interestRateFrequencyType->id;
         $loan_data['amortizationType'] = $loanproduct->amortizationType->id; //4
-        $loan_data['groupId'] = $groupId;
+//        $loan_data['groupId'] = $groupId;
 //        $loan_data['interestType'] = self::getInterestType($loan_settings->productId);
         $loan_data['interestType'] = 0;
         $loan_data['interestCalculationPeriodType'] = $loanproduct->interestCalculationPeriodType->id; //5
@@ -689,8 +691,8 @@ class MifosHelperController extends Controller
         $loan_data['graceOnInterestPayment'] = $loanproduct->graceOnInterestPayment; //6
         $loan_data['submittedOnDate'] = $date;
 //        $loan_data['repaymentsStartingFromDate'] = $groupMeetingDate;
-        $loan_data['calendarId'] = $calendarId;
-        $loan_data['linkAccountId'] = $linkAccountId;
+//        $loan_data['calendarId'] = $calendarId;
+//        $loan_data['linkAccountId'] = $linkAccountId;
 
         if($syncDisbursementWithMeeting){
             $loan_data['syncDisbursementWithMeeting'] = $syncDisbursementWithMeeting;
@@ -707,8 +709,8 @@ class MifosHelperController extends Controller
         }
         $dData = array();
         $dData['expectedDisbursementDate'] = $disbursement_date;
-        $dData['principal'] = $amount;
-        $dData['approvedPrincipal'] = $amount;
+        $dData['principal'] = $other_details->loan_amount;
+        $dData['approvedPrincipal'] = $other_details->loan_amount;
         $loan_data['disbursementData'] = array();
         array_push($loan_data['disbursementData'],$dData);
         $postURl = $config->mifos_url . "fineract-provider/api/v1/loans?tenantIdentifier=" .$config->tenant;
