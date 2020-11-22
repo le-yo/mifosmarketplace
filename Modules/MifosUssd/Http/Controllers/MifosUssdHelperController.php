@@ -692,56 +692,164 @@ class MifosUssdHelperController extends Controller
                 //fetch loan products
                 $config = MifosUssdConfig::find($session->app_id);
                 $loanProducts = MifosHelperController::getLoanProducts($config);
+
+                $other_details = json_decode($session->other);
+
+                $other_details->loan_products = $loanProducts;
+                $session->other = json_encode($other_details);
+                $session->save();
+
                 $i = 1;
                 $response = "";
                 foreach ($loanProducts as $lP){
                     $response = $response . $i . ": " . $lP->name . PHP_EOL;
                     $i++;
                 }
+//                $session->menu_id = "apply_loan";
+                $session->menu_item_id = 2;
                 $session->progress = 2;
                 $session->session = 7;
                 $session->save();
                 break;
-            case 2:
-                echo "hapa sasa";
-                exit;
-                //start a process
-                self::storeUssdResponse($mifos_ussd_session, $menu->id);
-                $response = self::singleProcess($menu, $mifos_ussd_session, 1);
-                return $menu->title.PHP_EOL.$response;
+            case 2: //Enter Amount
+                self::storeUssdResponse($session, $message);
+                //Enter Amount
+                if(self::validateProductSelection($session,$message)){
+                    $other_details = json_decode($session->other);
+                    $loanProducts = $other_details->loan_products;
+                    $i = 1;
+                    foreach ($loanProducts as $key=>$lP){
+                        if($key+1 == $message){
+                            $other_details = json_decode($session->other);
+                            $selected_product = $lP;
+                            $other_details->selected_product = $selected_product;
+                            $session->other = json_encode($other_details);
+                            $session->save();
+                            break;
+                        }
+                        $i++;
+                    }
+                    $session->menu_item_id = 2;
+                    $session->progress = 3;
+                    $session->session = 7;
+                    $session->save();
+                    $response = "Enter Amount (".$selected_product->minPrincipal." to ".$selected_product->maxPrincipal.")";
+                }else{
+                    $response = "Invalid response".PHP_EOL."Apply Loan".PHP_EOL;
+                    $i = 1;
+                    $other_details = json_decode($session->other);
+                    $loanProducts = $other_details->loan_products;
+                    foreach ($loanProducts as $lP){
+                        $response = $response . $i . ": " . $lP->name . PHP_EOL;
+                        $i++;
+                    }
+                }
                 break;
-            case 3:
-                //start a process
-                self::storeUssdResponse($mifos_ussd_session, $menu->id);
-                $response = self::singleProcess($menu, $mifos_ussd_session, 1);
-                return $menu->title.PHP_EOL.$response;
+            case 3: //select period
+              self::storeUssdResponse($session, $message);
+                //Enter Amount
+                if(self::validateloanAmount($session,$message)){
+                    $other_details = json_decode($session->other);
+                    $other_details->loan_amount = $message;
+                    $selected_product = $other_details->selected_product;
+                    $session->other = json_encode($other_details);
+                    $session->menu_item_id = 2;
+                    $session->progress = 4;
+                    $session->session = 7;
+                    $session->save();
+                    $response = "Enter Repayment Period between in ".$selected_product->repaymentFrequencyType->value." between ".$selected_product->minNumberOfRepayments." and ".$selected_product->maxNumberOfRepayments;
+                }else{
+                    $response = "Invalid response".PHP_EOL."Apply Loan".PHP_EOL;
+                    $i = 1;
+                    $other_details = json_decode($session->other);
+                    $loanProducts = $other_details->loan_products;
+                    foreach ($loanProducts as $lP){
+                        $response = $response . $i . ": " . $lP->name . PHP_EOL;
+                        $i++;
+                    }
+                }
                 break;
-            case 4:
-                //start a process
-                self::storeUssdResponse($mifos_ussd_session, $menu->id);
-                $message = '';
-                self::customApp($mifos_ussd_session,$menu,$message);
+            case 4: //Confirm Details
+                self::storeUssdResponse($session, $message);
+                if(self::validateLoanPeriod($session,$message)){
+                    $other_details = json_decode($session->other);
+                    $other_details->loan_period = $message;
+                    $session->other = json_encode($other_details);
+                    $selected_product = $other_details->selected_product;
+                    $session->save();
+                    $response = "Confirm Apply ".$other_details->selected_product->name.":".PHP_EOL;
+                    $response = $response."Amount: ".$other_details->loan_amount.PHP_EOL;
+                    $response = $response."Period: ".$message." ".PHP_EOL;
+                    $response = $response."1: Yes".PHP_EOL;
+                    $response = $response."2: No".PHP_EOL;
+                    $session->menu_item_id = 3;
+                    $session->progress = 5;
+                    $session->session = 7;
+                    $session->save();
+                }else{
+                    $response = "Invalid Loan Period. Enter Period";
+                }
+
                 break;
             case 5:
-                //start a process
-                self::storeUssdResponse($mifos_ussd_session, $menu->id);
-                $response = $menu->confirmation_message;
-                MifosUssdHelperController::sendResponse($response,3,$mifos_ussd_session);
+                self::storeUssdResponse($session, $message);
+                if(self::confirmApplyLoan($session,$message)){
+                    $response = "Loan Application received";
+                    self::sendResponse($response,3,$session);
+//                    $other_details = json_decode($session->other);
+//                    $response = "Confirm Apply ".$other_details->selected_product->name.":".PHP_EOL;
+//                    $response = $response."Amount:";
+                    echo "confirm details";
+                    exit;
+                    $session->menu_item_id = 3;
+                    $session->progress = 4;
+                    $session->session = 7;
+                    $session->save();
+                }else{
+                    $response = "Invalid Loan Period. Enter Period";
+                }
+
                 break;
             case 6:
-                //Get the products
-                self::storeUssdResponse($mifos_ussd_session, $menu->id);
-                $response = self::loanApplicationProcess($menu, $mifos_ussd_session, 1);
-                $response = $menu->confirmation_message;
-                MifosUssdHelperController::sendResponse($response,3,$mifos_ussd_session);
+                self::storeUssdResponse($session, $message);
+                if(self::isLoanApplicationConfirmed($session,$message)){
+                    //sendLoanApplication to Mifos
+                }else{
+                   $response = "Loan Application rejected";
+                }
                 break;
             default :
-                self::resetUser($mifos_ussd_session,null);
-                $response = "An authentication error occurred";
+                $response = "Invalid Response";
                 break;
         }
 
         return $response;
+
+    }
+
+    public function confirmApplyLoan($session,$message){
+        $is_valid = TRUE;
+        return $is_valid;
+    }
+    public function validateloanAmount($session,$message){
+        $is_valid = TRUE;
+        return $is_valid;
+    }
+
+    public function isLoanApplicationConfirmed($session,$message){
+        $is_valid = TRUE;
+        return $is_valid;
+    }
+
+    public function validateProductSelection($session,$message){
+        $is_valid = TRUE;
+        return $is_valid;
+
+    }
+
+    public function validateLoanPeriod($session,$message){
+        $is_valid = TRUE;
+        return $is_valid;
 
     }
     public static function customApp($session,$menu,$message){

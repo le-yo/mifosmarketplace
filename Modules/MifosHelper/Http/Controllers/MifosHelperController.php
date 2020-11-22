@@ -620,4 +620,102 @@ class MifosHelperController extends Controller
         return $loan_products;
     }
 
+    public static function applyConfirmedLoan($session,$config,$syncDisbursementWithMeeting=false){
+
+        print_r($session);
+        exit;
+        $linkAccountId = '';
+        $groupId = self::getUserGroupId($client_id,$config);
+        $user_group = self::getUserGroup($groupId,$config);
+        $calendarId = $user_group->collectionMeetingCalendar->id;
+        $groupMeetingDate = Carbon::parse(implode('-', $user_group->collectionMeetingCalendar->nextTenRecurringDates[0]))->format('d M Y');
+
+        //get loan settings:
+        $url = $config->mifos_url . "fineract-provider/api/v1/loanproducts/".$product_id."?template=true&tenantIdentifier=" .$config->tenant;
+        $loanproduct = self::MifosGetTransaction($url,null,$config);
+
+        //get clients savings account:
+        $savingsAccounts = self::getClientSavingsAccounts($client_id,$config);
+        foreach ($savingsAccounts as $sa){
+            if($sa->shortProductName == 'TAC' && $sa->status->id==300){
+                $linkAccountId = $sa->id;
+                break;
+            }
+        }
+
+
+        $repaymentPeriods = $loanproduct->maxNumberOfRepayments;;
+
+        $date = Carbon::now()->format('d M Y');
+
+        if(Carbon::now()->isWeekend()){
+            if(Carbon::now()->isSaturday()){
+                $disbursement_date = Carbon::now()->addDays(2)->format('d M Y');
+            }else{
+                $disbursement_date = Carbon::now()->addDays(1)->format('d M Y');
+            }
+        }else{
+            $disbursement_date = Carbon::now()->format('d M Y');
+        }
+
+        if($loanproduct->id != 2){
+            $disbursement_date = $groupMeetingDate;
+        }
+
+        $loan_data = [];
+        $loan_data['locale'] = 'en_GB';
+        $loan_data['dateFormat'] = 'dd MMMM yyyy';
+        $loan_data['clientId'] = $client_id;
+        $loan_data['productId'] = $loanproduct->id;
+        $loan_data['principal'] = $amount;
+        $loan_data['fundId'] = $loanproduct->fundId;
+        $loan_data['loanTermFrequency'] = $repaymentPeriods;
+        $loan_data['loanTermFrequencyType'] = $loanproduct->repaymentFrequencyType->id; // 1
+        $loan_data['loanType'] = 'jlg';
+        $loan_data['numberOfRepayments'] = $repaymentPeriods;
+        $loan_data['repaymentEvery'] = $loanproduct->repaymentEvery; // 2
+        $loan_data['repaymentFrequencyType'] = $loanproduct->repaymentFrequencyType->id; //3
+        $loan_data['interestRatePerPeriod'] = $loanproduct->interestRatePerPeriod;
+        $loan_data['interestRateFrequencyType'] = $loanproduct->interestRateFrequencyType->id;
+        $loan_data['amortizationType'] = $loanproduct->amortizationType->id; //4
+        $loan_data['groupId'] = $groupId;
+//        $loan_data['interestType'] = self::getInterestType($loan_settings->productId);
+        $loan_data['interestType'] = 0;
+        $loan_data['interestCalculationPeriodType'] = $loanproduct->interestCalculationPeriodType->id; //5
+        $loan_data['allowPartialPeriodInterestCalcualtion'] = $loanproduct->allowPartialPeriodInterestCalcualtion;
+        $loan_data['expectedDisbursementDate'] = $disbursement_date;
+        $loan_data['transactionProcessingStrategyId'] = $loanproduct->transactionProcessingStrategyId; //6
+        $loan_data['graceOnPrincipalPayment'] = $loanproduct->graceOnPrincipalPayment; //6
+        $loan_data['graceOnInterestPayment'] = $loanproduct->graceOnInterestPayment; //6
+        $loan_data['submittedOnDate'] = $date;
+//        $loan_data['repaymentsStartingFromDate'] = $groupMeetingDate;
+        $loan_data['calendarId'] = $calendarId;
+        $loan_data['linkAccountId'] = $linkAccountId;
+
+        if($syncDisbursementWithMeeting){
+            $loan_data['syncDisbursementWithMeeting'] = $syncDisbursementWithMeeting;
+        }
+
+        $loan_data['charges'] = array();
+        $charges = array();
+        foreach ($loanproduct->charges as $charge){
+            if($charge->chargeTimeType->code == 'chargeTimeType.disbursement'){
+                $charges['chargeId']=$charge->id;
+                $charges['amount']=$charge->amount;
+                array_push($loan_data['charges'],$charges);
+            }
+        }
+        $dData = array();
+        $dData['expectedDisbursementDate'] = $disbursement_date;
+        $dData['principal'] = $amount;
+        $dData['approvedPrincipal'] = $amount;
+        $loan_data['disbursementData'] = array();
+        array_push($loan_data['disbursementData'],$dData);
+        $postURl = $config->mifos_url . "fineract-provider/api/v1/loans?tenantIdentifier=" .$config->tenant;
+        // post the encoded application details
+        $loanApplication = self::MifosPostTransaction($postURl, json_encode($loan_data),$config);
+
+        return $loanApplication;
+    }
+
 }
