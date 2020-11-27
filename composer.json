@@ -16,7 +16,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "nwidart/laravel-modules": "^6.2",
-        "smodav/mpesa": "^5.1"
+        "smodav/mpesa": "^5.2"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
