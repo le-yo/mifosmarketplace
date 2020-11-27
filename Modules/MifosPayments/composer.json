@@ -1,0 +1,25 @@
+{
+    "name": "nwidart/mifospayments",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\MifosPayments\\Providers\\MifosPaymentsServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\MifosPayments\\": ""
+        }
+    }
+}

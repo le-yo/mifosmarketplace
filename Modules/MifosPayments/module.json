@@ -1,0 +1,13 @@
+{
+    "name": "MifosPayments",
+    "alias": "mifospayments",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\MifosPayments\\Providers\\MifosPaymentsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
