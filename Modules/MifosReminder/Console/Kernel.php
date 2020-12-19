@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call('Modules\MifosReminder\Http\Controllers\MifosReminderController@send')->dailyAt('08:00')->name('payment-reminder');
+        $schedule->call('Modules\MifosReminder\Http\Controllers\MifosReminderController@send')->dailyAt('08:00')->name('payment-reminder')->withoutOverlapping();
     }
 
     /**
