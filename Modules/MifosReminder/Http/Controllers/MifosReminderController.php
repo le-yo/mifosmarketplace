@@ -25,9 +25,26 @@ class MifosReminderController extends Controller
 
     }
 
+    public function testNyota(){
+        ini_set('max_execution_time', -1);
+        ini_set('memory_limit', '-1');
+        $reminders = MifosReminder::where("mifos_reminder_app_id","=",2)->get();
 
+        if($reminders){
+            foreach ($reminders as $key=>$reminder){
+                $job = (new SendReminder($reminder))->onQueue('reminders');
+                $this->dispatch($job);
+            }
+        }
+        echo "done";
+//        $response = MifosHelperController::sendSmsViaWasiliana('254716615274',"This is a test",$config);
+//        print_r($response);
+//        exit;
+    }
     public function send()
     {
+        ini_set('max_execution_time', -1);
+        ini_set('memory_limit', '-1');
         //get configured messages
         $reminders = MifosReminder::where("schedule_time","=",Carbon::now()->format('H:i'))->get();
 

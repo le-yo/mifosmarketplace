@@ -14,4 +14,5 @@
 Route::prefix('mifosreminder')->group(function() {
     Route::get('/', 'MifosReminderController@index');
     Route::get('/send', 'MifosReminderController@send');
+    Route::get('/testNyota', 'MifosReminderController@testNyota');
 });

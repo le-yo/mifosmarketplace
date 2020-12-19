@@ -92,6 +92,7 @@ class MifosHelperController extends Controller
     {
         // Get the url for running the report
 //        $getURl = $mifos_url."fineract-provider/api/v1/runreports/Loan%20Payments%20Due%20Report?";
+//        $getURl = $config->mifos_url."fineract-provider/api/v1/runreports/Loan%20Payments%20Due%20Report?R_startDate=".Carbon::today()->addDays(-5)->format('Y-m-d')."&R_endDate=".Carbon::today()->addDays(5)->format('Y-m-d')."&R_officeId=1";
         $getURl = $config->mifos_url."fineract-provider/api/v1/runreports/Loan%20Payments%20Due%20Report?R_startDate=".Carbon::today()->addDays($reminder->day)->format('Y-m-d')."&R_endDate=".Carbon::today()->addDays($reminder->day+1)->format('Y-m-d')."&R_officeId=1";
 
         // Send a GET request
@@ -179,6 +180,10 @@ class MifosHelperController extends Controller
     {
 
         $data = ['slug' => 'mifos_get_request', 'content' => $url];
+
+        $data = ['slug' => 'get_'.$url, 'content' => $url];
+        //log request
+        MifosRequestLog::create($data);
         //log request
 //        Log::create($data);
         $client = new Client(['verify' => false]);
@@ -200,10 +205,12 @@ class MifosHelperController extends Controller
             $response = $exception->getResponse()->getBody()->getContents();
 
         }
-        $data = ['slug' => 'mifos_get_response', 'content' => \GuzzleHttp\json_encode($response)];
+
+        $data = ['slug' => 'mifos_get_response', 'content' => json_encode($response)];
+        //log request
+        MifosRequestLog::create($data);
         //log request
 //        Log::create($data);
-
         return $response;
     }
 
