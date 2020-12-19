@@ -46,6 +46,60 @@ class MifosReminderTableSeeder extends Seeder
                 'message' => "Dear {name}, your loan payment is late. Kindly pay {amount} immediately to avoid penalties and possible denial of future loans. Paybill 189779 Account {prefix}{external_id}",
                 'day' => "-1",
                 'schedule_time' => "08:00",
+            ),
+            array(
+                'mifos_reminder_app_id' => 3,
+                'message' => "Dear {name}, your loan will fall due tomorrow. Kindly pay {amount} by {due_date} to avoid additional charges. Paybill 4034061 Account {external_id}.",
+                'day' => "1",
+                'schedule_time' => "08:00",
+            ),
+            array(
+                'mifos_reminder_app_id' => 3,
+                'message' => "Dear {name}, your loan payment of {amount} has been overdue for 1 day. Kindly pay immediately to avoid additional charges and possible denial of future loans. Paybill 4034061 Account {external_id}.",
+                'day' => "-1",
+                'schedule_time' => "08:00",
+            ),
+            array(
+                'mifos_reminder_app_id' => 3,
+                'message' => "Dear {name}, your loan payment of {amount} has been overdue for 7 days. Kindly pay immediately to avoid additional charges and possible denial of future loans. Paybill 4034061 Account {external_id}.",
+                'day' => "-7",
+                'schedule_time' => "08:00",
+            ),
+            array(
+                'mifos_reminder_app_id' => 3,
+                'message' => "Dear {name}, your loan payment of {amount} has been overdue for 14 day. Kindly pay immediately to avoid additional charges and possible denial of future loans. Paybill 4034061 Account {external_id}.",
+                'day' => "-14",
+                'schedule_time' => "08:00",
+            ),
+            array(
+                'mifos_reminder_app_id' => 3,
+                'message' => "Dear {name}, your loan payment of {amount} has been overdue for 21 day. Kindly pay immediately to avoid additional charges and possible denial of future loans. Paybill 4034061 Account {external_id}.",
+                'day' => "-21",
+                'schedule_time' => "08:00",
+            ),
+            array(
+                'mifos_reminder_app_id' => 3,
+                'message' => "Dear {name}, your loan payment of {amount} has been overdue for 28 day. Kindly pay immediately to avoid additional charges and possible denial of future loans. Paybill 4034061 Account {external_id}.",
+                'day' => "-28",
+                'schedule_time' => "08:00",
+            ), 
+            array(
+                'mifos_reminder_app_id' => 3,
+                'message' => "Dear {name}, your loan payment of {amount} has been overdue for 35 day. Kindly pay immediately to avoid additional charges and possible denial of future loans. Paybill 4034061 Account {external_id}.",
+                'day' => "-35",
+                'schedule_time' => "08:00",
+            ),
+            array(
+                'mifos_reminder_app_id' => 3,
+                'message' => "Dear {name}, your loan payment of {amount} has been overdue for 42 day. Kindly pay immediately to avoid additional charges and possible denial of future loans. Paybill 4034061 Account {external_id}.",
+                'day' => "-42",
+                'schedule_time' => "08:00",
+            ),
+            array(
+                'mifos_reminder_app_id' => 3,
+                'message' => "Dear {name}, your loan payment of {amount} has been overdue for 49 day. Kindly pay immediately to avoid additional charges and possible denial of future loans. Paybill 4034061 Account {external_id}.",
+                'day' => "-49",
+                'schedule_time' => "08:00",
             )
         ));
     }

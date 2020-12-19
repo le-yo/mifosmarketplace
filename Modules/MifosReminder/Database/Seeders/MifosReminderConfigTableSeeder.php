@@ -47,6 +47,17 @@ class MifosReminderConfigTableSeeder extends Seeder
                 'sms_key' => Crypt::encrypt('ue482g2BtYHMLNIz0m81Wliyk83hhPPdIzU2SIkNLbHDyiEA3fWQUlDzIfpIJT4G'),
                 'sender_name' => "NYOTA",
             ),
+            array(
+                'mifos_reminder_app_id' => 3,
+                'mifos_url' => "https://zawadimashinani.mifosconnect.com/",
+                'username' => "API",
+                'password' => Crypt::encrypt('Z@waPi'),
+                'tenant' => "zawadimashinani",
+                'mifos_reminder_sms_gateway_id' => 1,
+                'sms_username' => "ZAWADILTD",
+                'sms_key' => Crypt::encrypt('5aDgsnaKwVh8oQRUM9623jJZuEX0BGkzTknbRWUVYTrYEuofaLGwlNzOd2pFV3Xf'),
+                'sender_name' => "ZAWADILTD",
+            ),
         ));
     }
 }
