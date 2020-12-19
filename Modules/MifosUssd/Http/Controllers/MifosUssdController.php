@@ -126,9 +126,11 @@ class MifosUssdController extends Controller
 //            print_r($app);
 //            exit;
             $mifos_ussd_session = MifosUssdHelperController::resetUser($mifos_ussd_session,$app);
+
             $root_menu = MifosUssdMenu::whereAppIdAndIsRoot($app->app_id,1)->first();
 //
             $response = MifosUssdHelperController::nextMenuSwitch($mifos_ussd_session,$root_menu);
+
             MifosUssdHelperController::sendResponse($response, 1, $mifos_ussd_session,$app,$input);
         } else {
             $message = $input->latest_text;
@@ -166,6 +168,10 @@ class MifosUssdController extends Controller
                 case 7 :
                     //Dynamic Loan application process
                     $response = MifosUssdHelperController::loanApplicationProcess($mifos_ussd_session, $message);
+                    break;
+                case 8 :
+                    //Dynamic Loan application process
+                    $response = MifosUssdHelperController::loanRepaymentProcess($mifos_ussd_session, $message);
                     break;
                 default:
                     break;
