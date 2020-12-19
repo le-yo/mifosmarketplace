@@ -35,12 +35,15 @@ class SendReminder implements ShouldQueue
      */
     public function handle()
     {
+        ini_set('max_execution_time', -1);
+        ini_set('memory_limit', '-1');
 
         $config = MifosReminderConfig::find($this->reminder->mifos_reminder_app_id);
         $response = MifosHelperController::listAllDueAndOverdueClients($config,$this->reminder);
 
         foreach ($response as $sd)
         {
+
             $check = MifosReminderOutbox::wherePhone('254'.substr($sd['Mobile No'], -9))->whereDate('created_at', Carbon::today())->whereReminderId($this->reminder->id)->first();
 
             if($check) {
@@ -81,6 +84,7 @@ class SendReminder implements ShouldQueue
 
             if (count($period) !== 0)
             {
+
                 // Set the correct balance for the period
                 $sd['Loan Balance'] = $period[0]->totalOutstandingForPeriod;
                 $sd['totalOverdue'] = $loanDataResponse->summary->totalOverdue;
@@ -88,6 +92,8 @@ class SendReminder implements ShouldQueue
                 $exploded = explode("-",$sd['Due Date']);
                 $due_date = Carbon::createFromDate($exploded[0], $exploded[1], $exploded[2]);
                 $diff = Carbon::now()->diffInDays($due_date,false);
+//                print_r("diff is ".$diff. "reminder is ".$this->reminder->day);
+//                exit;
                 if($diff == $this->reminder->day) {
                     self::sendReminder($this->reminder,$sd,$config);
                 }
@@ -98,6 +104,7 @@ class SendReminder implements ShouldQueue
 
     public function sendReminder($reminder,$sd,$config)
     {
+
         //populate outbox
         $message = new MifosReminderOutbox();
         $message->app_id = $reminder->mifos_reminder_app_id;
@@ -111,7 +118,8 @@ class SendReminder implements ShouldQueue
         $msg = str_replace($search, $replace, $subject);
         $message->message = $msg;
         $message->save();
-        if(strlen($sd['Mobile No']) > 7) {
+        if(strlen($sd['Mobile No']) > 7) { 
+
 //            $response = MifosHelperController::sendSms('254728355429',$msg,$config);
             if($config->mifos_reminder_sms_gateway_id == 2){
                 $response = MifosHelperController::sendSmsViaAT('254'.substr($sd['Mobile No'], -9),$msg,$config);
