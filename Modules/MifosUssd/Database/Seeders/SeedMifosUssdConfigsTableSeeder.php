@@ -34,6 +34,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'tenant' => "hazinatrust",
                 'ussd_gateway_id' => 1,
                 'ussd_code' => "*665*300#",
+                'paybill' => "",
             ),
             array(
                 'app_id' => 2,
@@ -44,6 +45,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'tenant' => "hazinatrust",
                 'ussd_gateway_id' => 1,
                 'ussd_code' => "",
+                'paybill' => "",
             ),
             array(
                 'app_id' => 3,
@@ -54,6 +56,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'tenant' => "hazinatrust",
                 'ussd_gateway_id' => 1,
                 'ussd_code' => "*665#",
+                'paybill' => "",
             ),
             array(
                 'app_id' => 4,
@@ -64,6 +67,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'tenant' => "hazinademo",
                 'ussd_gateway_id' => 1,
                 'ussd_code' => "*665#",
+                'paybill' => "",
             ),
             array(
                 'app_id' => 5,
@@ -74,6 +78,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'tenant' => "tresor",
                 'ussd_gateway_id' => 1,
                 'ussd_code' => "*665*365#",
+                'paybill' => "4017901",
             ),
         ));
     }

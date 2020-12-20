@@ -13,8 +13,8 @@ class AddPaybillToUssdConfigsTable extends Migration
      */
     public function up()
     {
-        Schema::table('ussd_configs', function (Blueprint $table) {
-
+        Schema::table('mifos_ussd_configs', function (Blueprint $table) {
+            $table->string('paybill')->after('ussd_code')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddPaybillToUssdConfigsTable extends Migration
      */
     public function down()
     {
-        Schema::table('ussd_configs', function (Blueprint $table) {
-
+        Schema::table('mifos_ussd_configs', function (Blueprint $table) {
+            $table->dropColumn('paybill');
         });
     }
 }
