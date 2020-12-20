@@ -789,11 +789,11 @@ class MifosUssdHelperController extends Controller
                     //initiate STK Push
 
                     STK::request($message)
-                        ->from("254728355429")
+                        ->from($session->phone)
                         ->usingReference($selected_loan_account->productName."-".$selected_loan_account->id,$selected_loan_account->id)
                         ->push();
                     $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
-                    MifosSmsController::sendSms("254728355429",$sms,$MifosSmsConfig);
+                    MifosSmsController::sendSms($session->phone,$sms,$MifosSmsConfig);
 //                    $notify = new NotifyController();
 //                    $msg = "Thanks for your order. You may also pay later by Lipa Na MPESA, PayBill 777784, Account ".$acc." amount 2999";
 //                    $notify->sendSms($user->phone,$msg);
@@ -935,11 +935,11 @@ class MifosUssdHelperController extends Controller
                     //initiate STK Push
 
                     STK::request($message)
-                        ->from("254728355429")
+                        ->from($session->phone)
                         ->usingReference($selected_loan_account->productName."-".$selected_loan_account->id,$selected_loan_account->id)
                         ->push();
                     $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
-                    MifosSmsController::sendSms("254728355429",$sms,$MifosSmsConfig);
+//                    MifosSmsController::sendSms("254728355429",$sms,$MifosSmsConfig);
 //                    $notify = new NotifyController();
 //                    $msg = "Thanks for your order. You may also pay later by Lipa Na MPESA, PayBill 777784, Account ".$acc." amount 2999";
 //                    $notify->sendSms($user->phone,$msg);
@@ -981,7 +981,7 @@ class MifosUssdHelperController extends Controller
                 if(is_numeric($message)){
 
                     STK::request($message)
-                        ->from("254728355429")
+                        ->from($session->phone)
                         ->usingReference("CCF-".$client_id,"CCF-".$client_id)
                         ->push();
 //                    $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
