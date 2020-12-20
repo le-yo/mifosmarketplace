@@ -169,9 +169,9 @@ class MifosUssdController extends Controller
                     //Dynamic Loan application process
                     $response = MifosUssdHelperController::loanApplicationProcess($mifos_ussd_session, $message);
                     break;
-                case 8 :
+                case 8:
                     //Dynamic Loan application process
-                    $response = MifosUssdHelperController::loanRepaymentProcess($mifos_ussd_session, $message);
+                    $response = MifosUssdHelperController::depositfromMpesaProcess($mifos_ussd_session, $message);
                     break;
                 default:
                     break;

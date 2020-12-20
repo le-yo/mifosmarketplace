@@ -683,6 +683,19 @@ class MifosUssdHelperController extends Controller
             case 7:
              $response = self::loanRepaymentProcess($mifos_ussd_session,"",$menu);
                 break;
+            case 8:
+                $response = self::checkBalanceProcess($mifos_ussd_session,"",$menu);
+                break;
+            case 9:
+                $response = self::depositfromMpesaProcess($mifos_ussd_session,"",$menu);
+                break;
+            case 10:
+                $response = $menu->title;
+                self::sendResponse($response,3,$mifos_ussd_session);
+                break;
+            case 11:
+                $response = self::checkDepositBalanceProcess($mifos_ussd_session,"",$menu);
+                break;
             default :
                 self::resetUser($mifos_ussd_session,null);
                 $response = "An authentication error occurred";
@@ -693,6 +706,152 @@ class MifosUssdHelperController extends Controller
 
     }
 
+    public function checkBalanceProcess($session,$message,$menu=null){
+
+        switch ($session->progress) {
+            case 0:
+                //Loan Repayment process
+                $other = json_decode($session->other);
+                $client_id = $other->client_id;
+                $config = MifosUssdConfig::find($session->app_id);
+                $loanAccounts = MifosHelperController::getClientLoanAccounts($client_id,$config);
+                $other->loanAccounts = $loanAccounts;
+                $session->other = json_encode($other);
+                $balance = 0;
+                $response = $menu->title;
+                $i = 1;
+                foreach ($loanAccounts as $lA){
+                    if($lA->status->id ==300){
+                        $balance = $balance+$lA->loanBalance;
+                        $response = $response.PHP_EOL.$lA->productName.": ".$lA->loanBalance."/-";
+                        $i++;
+                    }
+                }
+
+                $session->menu_id = $menu->id;
+                $session->menu_item_id = 0;
+                $session->progress = 1;
+                $session->session = 8;
+                $session->save();
+                if($balance==0){
+                    $response = "You have no active loans";
+                    self::sendResponse($response,2,$session);
+                }else{
+                    self::sendResponse($response,2,$session);
+                }
+                break;
+            case 1:
+                //validate loan products
+                $config = MifosUssdConfig::find($session->app_id);
+//                $loanProducts = MifosHelperController::getLoanProducts($config);
+
+                $other_details = json_decode($session->other);
+
+                $loanAccounts = $other_details->loanAccounts;
+
+
+                $i = 1;
+                $response = "";
+                $i = 1;
+                foreach ($loanAccounts as $lA){
+                    if($lA->status->id ==300){
+                        if($message == $i){
+                        $other_details->selected_loan_account = $lA;
+                        $session->other = json_encode($other_details);
+                        $response = "Repay ".$lA->productName." loan. Current balance ".$lA->loanBalance."/-".PHP_EOL."Enter Amount";
+                        continue;
+                        }
+                        $i++;
+                    }
+                }
+                if($response == ""){
+                    $session->progress = 0;
+                    $session->save();
+                    $menu = MifosUssdMenu::find($session->menu_id);
+                    self::loanRepaymentProcess($session,"",$menu);
+                }else{
+                    $session->progress = 2;
+                    $session->save();
+                }
+                break;
+            case 2: //Enter Amount
+                self::storeUssdResponse($session, $message);
+
+                $other_details = json_decode($session->other);
+                $selected_loan_account = $other_details->selected_loan_account;
+
+                //validate amount
+                if(is_numeric($message) && $message>0 && $message < $selected_loan_account->loanBalance){
+
+                    $config = MifosUssdConfig::find($session->app_id);
+
+                    $sms = "Dear {first_name}, to pay your loan go to Lipa na M-PESA >> Paybill >> Business No.: ".$config->paybill." >> Account No.: {prefix}{phone_number}.";
+                    //initiate STK Push
+
+                    STK::request($message)
+                        ->from("254728355429")
+                        ->usingReference($selected_loan_account->productName."-".$selected_loan_account->id,$selected_loan_account->id)
+                        ->push();
+                    $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
+                    MifosSmsController::sendSms("254728355429",$sms,$MifosSmsConfig);
+//                    $notify = new NotifyController();
+//                    $msg = "Thanks for your order. You may also pay later by Lipa Na MPESA, PayBill 777784, Account ".$acc." amount 2999";
+//                    $notify->sendSms($user->phone,$msg);
+
+                    self::sendResponse("Kindly wait to enter your MPESA PIN to complete the transaction",3,$session);
+                    print_r($message);
+                    exit;
+                    $response = "";
+                    echo "amount iko sawa";
+                    exit;
+                }else{
+                    $response = "Amount must be betweeen 0 and ".$selected_loan_account->loanBalance;
+                    self::sendResponse($response,2,$session);
+                }
+
+                break;
+            default :
+                $response = "Invalid Response";
+                break;
+        }
+
+        return $response;
+
+    }
+    public function checkDepositBalanceProcess($session,$message,$menu=null){
+
+        switch ($session->progress) {
+            case 0:
+                //Loan Repayment process
+                $other = json_decode($session->other);
+                $client_id = $other->client_id;
+                $config = MifosUssdConfig::find($session->app_id);
+                $balance = 0;
+                $savingsAccounts = MifosHelperController::getClientSavingsAccounts($client_id,$config);
+                $response = $menu->title;
+                $i = 1;
+                foreach ($savingsAccounts as $sA){
+                    if($sA->status->id ==300){
+                        $balance = $balance+$sA->accountBalance;
+                        $response = $response.PHP_EOL.$sA->shortProductName.": ".$sA->accountBalance."/-";
+                        $i++;
+                    }
+                }
+                if($balance==0){
+                    $response = "Your deposit balance is KES 0/-";
+                    self::sendResponse($response,2,$session);
+                }else{
+                    self::sendResponse($response,2,$session);
+                }
+                break;
+            default :
+                $response = "Invalid Response";
+                break;
+        }
+
+        return $response;
+
+    }
     public function loanRepaymentProcess($session,$message,$menu=null){
 
         switch ($session->progress) {
@@ -797,91 +956,45 @@ class MifosUssdHelperController extends Controller
                 }
 
                 break;
-            case 3: //select period
-              self::storeUssdResponse($session, $message);
-                //Enter Amount
-                if(self::validateloanAmount($session,$message)){
-                    $other_details = json_decode($session->other);
-                    $other_details->loan_amount = $message;
-                    $selected_product = $other_details->selected_product;
-                    $session->other = json_encode($other_details);
-                    $session->menu_item_id = 2;
-                    $session->progress = 4;
-                    $session->session = 7;
-                    $session->save();
-                    $response = "Enter Repayment Period between in ".$selected_product->repaymentFrequencyType->value." between ".$selected_product->minNumberOfRepayments." and ".$selected_product->maxNumberOfRepayments;
-                }else{
-                    $response = "Invalid response".PHP_EOL."Apply Loan".PHP_EOL;
-                    $i = 1;
-                    $other_details = json_decode($session->other);
-                    $loanProducts = $other_details->loan_products;
-                    foreach ($loanProducts as $lP){
-                        $response = $response . $i . ": " . $lP->name . PHP_EOL;
-                        $i++;
-                    }
-                }
+            default :
+                $response = "Invalid Response";
                 break;
-            case 4: //Confirm Details
-                self::storeUssdResponse($session, $message);
-                if(self::validateLoanPeriod($session,$message)){
-                    $other_details = json_decode($session->other);
-                    $other_details->loan_period = $message;
-                    $session->other = json_encode($other_details);
-                    $selected_product = $other_details->selected_product;
-                    $session->save();
-                    $response = "Confirm Apply ".$other_details->selected_product->name.":".PHP_EOL;
-                    $response = $response."Amount: ".$other_details->loan_amount.PHP_EOL;
-                    $response = $response."Period: ".$message." ".PHP_EOL;
-                    $response = $response."1: Yes".PHP_EOL;
-                    $response = $response."2: No".PHP_EOL;
-                    $session->menu_item_id = 3;
-                    $session->progress = 5;
-                    $session->session = 7;
-                    $session->save();
-                }else{
-                    $response = "Invalid Loan Period. Enter Period";
-                }
+        }
 
+        return $response;
+
+    }
+    public function depositfromMpesaProcess($session,$message,$menu=null){
+
+        switch ($session->progress) {
+            case 0:
+                    $response = "Deposit from M-PESA".PHP_EOL."Enter Amount";
+                    $session->session = 8;
+                    $session->progress = 1;
+                    $session->save();
                 break;
-            case 5:
-
+            case 1: //Enter Amount
                 self::storeUssdResponse($session, $message);
-                if(self::confirmApplyLoan($session,$message)){
+                $other = json_decode($session->other);
+                $client_id = $other->client_id;
+                //validate amount
+                if(is_numeric($message)){
 
-                    //apply for the loan
-                    $response = MifosHelperController::applyConfirmedLoan($session);
-                        $config = MifosUssdConfig::whereAppId($session->app_id)->first();
-                        $other_details = json_decode($session->other);
-                    if (empty($response->loanId)) {
-                        $response = "We had a problem processing your loan. Kindly retry or contact customer care";
-                        $message = "Dear {first_name}, your loan request of {amount} was not successfully submitted. Please try again.";
+                    STK::request($message)
+                        ->from("254728355429")
+                        ->usingReference("CCF-".$client_id,"CCF-".$client_id)
+                        ->push();
+//                    $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
+//                    MifosSmsController::sendSms("254728355429",$sms,$MifosSmsConfig);
+//                    $notify = new NotifyController();
+//                    $msg = "Thanks for your order. You may also pay later by Lipa Na MPESA, PayBill 777784, Account ".$acc." amount 2999";
+//                    $notify->sendSms($user->phone,$msg);
 
-                        $client = MifosHelperController::getClientByClientId($other_details->client_id,$config);
-                        $search  = array('{first_name}','{amount}');
-                        $replace = array($client->firstname,$other_details->loan_amount);
-                        $msg = str_replace($search, $replace, $message);
-                        $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
-                        MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
-                        //self::resetUser($user);
-                        self::sendResponse($response, 2, $session);
-                    } else {
-                        $ussd_message = "You loan application has been received successfully";
-                        $message = "Dear {first_name}, your loan request of {amount} has been received and is undergoing approval as loan {loan_account_number}. Please wait for confirmation.";
-                        $client = MifosHelperController::getClientByClientId($response->clientId,$config);
-                        $search  = array('{first_name}','{amount}','{loan_account_number}');
-                        $replace = array($client->firstname,$other_details->loan_amount,$response->loanId);
-                        $msg = str_replace($search, $replace, $message);
-                        $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
-                        MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
-                        self::sendResponse($ussd_message,2,$session);
-                    }
-                    $response = "Loan Application received";
-                    self::sendResponse($response,3,$session);
+                    self::sendResponse("Kindly wait to enter your MPESA PIN to complete the transaction",3,$session);
                 }else{
-                    $response = "Loan application not confirmed. Try again later";
+                    $response = "Amount must be numeric";
                     self::sendResponse($response,2,$session);
                 }
-
                 break;
             default :
                 $response = "Invalid Response";

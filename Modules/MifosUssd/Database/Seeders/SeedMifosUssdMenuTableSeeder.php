@@ -185,7 +185,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
                 'type' => 5,
                 'skippable'=>false,
                 'next_mifos_ussd_menu_id'=>0,
-                'confirmation_message' => "Thank you for using Hazina USSD",
+                'confirmation_message' => "Thank you for using USSD",
             ),
             //Menu 16
             array(
@@ -359,7 +359,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
             ),
 //            //Menu 31
             array(
-                'app_id' => 31,
+                'app_id' => 5,
                 'title' => 'Loans',
                 'description' => 'Loans Menu',
                 'is_root' => 0,
@@ -370,7 +370,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
             ),
 //            //Menu 32
             array(
-                'app_id' => 1,
+                'app_id' => 5,
                 'title' => 'Deposits',
                 'description' => 'Deposits Menu',
                 'is_root' => 0,
@@ -381,7 +381,7 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
             ),
 //            //Menu 33
             array(
-                'app_id' => 1,
+                'app_id' => 5,
                 'title' => 'Apply Loan',
                 'description' => 'Apply Loan Menu',
                 'is_root' => 0,
@@ -392,11 +392,55 @@ class SeedMifosUssdMenuTableSeeder extends Seeder
             ),
             //Menu 34
             array(
-                'app_id' => 1,
+                'app_id' => 5,
                 'title' => 'Select Loan to Repay',
                 'description' => 'Repay Loan Menu',
                 'is_root' => 0,
                 'type' => 7,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>0,
+                'confirmation_message' => "",
+            ),
+            //Menu 35 //check balance
+            array(
+                'app_id' => 5,
+                'title' => 'Loan Balance:',
+                'description' => 'Repay Loan Menu',
+                'is_root' => 0,
+                'type' => 8,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>0,
+                'confirmation_message' => "",
+            ),
+            //Menu 36 //Deposit from M-PESA
+            array(
+                'app_id' => 5,
+                'title' => 'Deposit from M-PESA:',
+                'description' => 'Deposit from M-PESA',
+                'is_root' => 0,
+                'type' => 9,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>0,
+                'confirmation_message' => "",
+            ),
+            //Menu 37 //Deposit from M-PESA
+            array(
+                'app_id' => 5,
+                'title' => 'Thank you for using {app_name} USSD',
+                'description' => 'Logout',
+                'is_root' => 0,
+                'type' => 10,
+                'skippable'=>false,
+                'next_mifos_ussd_menu_id'=>0,
+                'confirmation_message' => "",
+            ),
+            //Menu 38 //Check balance
+            array(
+                'app_id' => 5,
+                'title' => 'Deposit Balance',
+                'description' => 'Logout',
+                'is_root' => 0,
+                'type' => 11,
                 'skippable'=>false,
                 'next_mifos_ussd_menu_id'=>0,
                 'confirmation_message' => "",
