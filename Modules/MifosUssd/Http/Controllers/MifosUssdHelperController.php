@@ -852,7 +852,7 @@ class MifosUssdHelperController extends Controller
         return $response;
 
     }
-    public function loanRepaymentProcess($session,$message,$menu=null){
+    public static function loanRepaymentProcess($session,$message,$menu=null){
 
         switch ($session->progress) {
             case 0:
@@ -969,7 +969,7 @@ class MifosUssdHelperController extends Controller
         switch ($session->progress) {
             case 0:
                     $response = "Deposit from M-PESA".PHP_EOL."Enter Amount";
-                    $session->session = 8;
+                    $session->session = 9;
                     $session->progress = 1;
                     $session->save();
                 break;

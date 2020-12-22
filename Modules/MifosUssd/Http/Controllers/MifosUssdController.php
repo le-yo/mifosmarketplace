@@ -134,7 +134,8 @@ class MifosUssdController extends Controller
             MifosUssdHelperController::sendResponse($response, 1, $mifos_ussd_session,$app,$input);
         } else {
             $message = $input->latest_text;
-
+//            print_r($mifos_ussd_session);
+//            exit;
             switch ($mifos_ussd_session->session) {
 
                 case 0 :
@@ -160,7 +161,6 @@ class MifosUssdController extends Controller
                     $response = self::resetPIN($mifos_ussd_session, $message);
                     break;
                 case 6 :
-
                     //accept terms and conditions
                     $menu = MifosUssdMenu::find($mifos_ussd_session->menu_id);
                     $response = MifosUssdHelperController::customApp($mifos_ussd_session, $menu,$message);
@@ -170,6 +170,10 @@ class MifosUssdController extends Controller
                     $response = MifosUssdHelperController::loanApplicationProcess($mifos_ussd_session, $message);
                     break;
                 case 8:
+                    //Dynamic Loan application process
+                    $response = MifosUssdHelperController::loanRepaymentProcess($mifos_ussd_session, $message);
+                    break;
+                case 9:
                     //Dynamic Loan application process
                     $response = MifosUssdHelperController::depositfromMpesaProcess($mifos_ussd_session, $message);
                     break;
