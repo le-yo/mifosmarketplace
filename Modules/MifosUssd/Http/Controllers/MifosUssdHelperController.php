@@ -177,8 +177,9 @@ class MifosUssdHelperController extends Controller
                     $search  = array('{first_name}','{amount}');
                     $replace = array($client->firstname,$amount);
                     $msg = str_replace($search, $replace, $message);
-                    $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
-                    MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                    $app = MifosUssdConfig::find($session->app_id);
+                    $MifosSmsConfig = MifosSmsConfig::find($app->sms_app_id);
+                    MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
                     //self::resetUser($user);
                     self::sendResponse($response, 2, $session);
                 } else {
@@ -188,8 +189,9 @@ class MifosUssdHelperController extends Controller
                     $search  = array('{first_name}','{amount}','{loan_account_number}');
                     $replace = array($client->firstname,$amount,$response->loanId);
                     $msg = str_replace($search, $replace, $message);
-                    $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
-                    MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                    $app = MifosUssdConfig::find($session->app_id);
+                    $MifosSmsConfig = MifosSmsConfig::find($app->sms_app_id);
+                    MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
                     self::sendResponse($ussd_message,2,$session);
                 }
             }
@@ -229,8 +231,11 @@ class MifosUssdHelperController extends Controller
                 $skipLogic->skip = true;
                 $skipLogic->save();
                 //send SMS
-                $MifosSmsConfig = MifosSmsConfig::whereAppName($session->app_name)->first();
-                $sms_sending_response = MifosSmsController::sendSms($session->phone,$response,$MifosSmsConfig);
+                //check if the app exists
+                $app = MifosUssdConfig::find($session->app_id);
+                $MifosSmsConfig = MifosSmsConfig::find($app->sms_app_id);
+                //send SMS
+                MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
 
                 self::sendResponse($response,3,$session);
             }else{
@@ -838,8 +843,10 @@ class MifosUssdHelperController extends Controller
                         ->from($session->phone)
                         ->usingReference($selected_loan_account->productName."-".$selected_loan_account->id,$selected_loan_account->id)
                         ->push();
-                    $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
-                    MifosSmsController::sendSms($session->phone,$sms,$MifosSmsConfig);
+                    $app = MifosUssdConfig::find($session->app_id);
+                    $MifosSmsConfig = MifosSmsConfig::find($app->sms_app_id);
+                    //send SMS
+                    MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
 //                    $notify = new NotifyController();
 //                    $msg = "Thanks for your order. You may also pay later by Lipa Na MPESA, PayBill 777784, Account ".$acc." amount 2999";
 //                    $notify->sendSms($user->phone,$msg);
@@ -984,7 +991,10 @@ class MifosUssdHelperController extends Controller
                         ->from($session->phone)
                         ->usingReference($selected_loan_account->productName."-".$selected_loan_account->id,$selected_loan_account->id)
                         ->push();
-                    $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
+                    $app = MifosUssdConfig::find($session->app_id);
+                    $MifosSmsConfig = MifosSmsConfig::find($app->sms_app_id);
+                    //send SMS
+//                    MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
 //                    MifosSmsController::sendSms("254728355429",$sms,$MifosSmsConfig);
 //                    $notify = new NotifyController();
 //                    $msg = "Thanks for your order. You may also pay later by Lipa Na MPESA, PayBill 777784, Account ".$acc." amount 2999";
@@ -1173,7 +1183,9 @@ class MifosUssdHelperController extends Controller
                         $search  = array('{first_name}','{amount}');
                         $replace = array($client->firstname,$other_details->loan_amount);
                         $msg = str_replace($search, $replace, $message);
-                        $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
+                        $app = MifosUssdConfig::find($session->app_id);
+                        $MifosSmsConfig = MifosSmsConfig::find($app->sms_app_id);
+                        //send SMS
                         MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
                         //self::resetUser($user);
                         self::sendResponse($response, 2, $session);
@@ -1184,7 +1196,9 @@ class MifosUssdHelperController extends Controller
                         $search  = array('{first_name}','{amount}','{loan_account_number}');
                         $replace = array($client->firstname,$other_details->loan_amount,$response->loanId);
                         $msg = str_replace($search, $replace, $message);
-                        $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
+                        $app = MifosUssdConfig::find($session->app_id);
+                        $MifosSmsConfig = MifosSmsConfig::find($app->sms_app_id);
+                        //send SMS
                         MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
                         self::sendResponse($ussd_message,2,$session);
                     }
@@ -1243,9 +1257,10 @@ class MifosUssdHelperController extends Controller
                 $search  = array('{first_name}','{prefix}','{phone_number}');
                 $replace = array($client->firstname,"TAC","254".substr($session->phone,-9));
                 $msg = str_replace($search, $replace, $message);
-                $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
+                $app = MifosUssdConfig::find($session->app_id);
+                $MifosSmsConfig = MifosSmsConfig::find($app->sms_app_id);
                 //send SMS
-                MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
                 self::sendResponse($msg,2,$session);
                 break;
             case 8:
@@ -1264,9 +1279,10 @@ class MifosUssdHelperController extends Controller
                             $search  = array('{first_name}','{amount_due}','{prefix}','{phone_number}');
                             $replace = array($client->firstname,$lA->loanBalance,$lA->shortProductName,"254".substr($session->phone,-9));
                             $msg = str_replace($search, $replace, $message);
-                            $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
+                            $app = MifosUssdConfig::find($session->app_id);
+                            $MifosSmsConfig = MifosSmsConfig::find($app->sms_app_id);
                             //send SMS
-                            MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                            MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
                             break;
                         }
                         $i++;
@@ -1322,9 +1338,10 @@ class MifosUssdHelperController extends Controller
                             $search  = array('{first_name}','{prefix}','{phone_number}');
                             $replace = array($client->firstname,$SA->shortProductName,"254".substr($session->phone,-9));
                             $msg = str_replace($search, $replace, $message);
-                            $MifosSmsConfig = MifosSmsConfig::whereAppId(3)->first();
+                            $app = MifosUssdConfig::find($session->app_id);
+                            $MifosSmsConfig = MifosSmsConfig::find($app->sms_app_id);
                             //send SMS
-                            MifosSmsController::sendSMSViaConnectBind($session->phone,$msg,$MifosSmsConfig);
+                            MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
                             break;
                             $i++;
                         }

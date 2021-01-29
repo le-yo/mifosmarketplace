@@ -35,6 +35,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'ussd_gateway_id' => 1,
                 'ussd_code' => "*665*300#",
                 'paybill' => "",
+                'sms_app_id'=>3,
             ),
             array(
                 'app_id' => 2,
@@ -46,6 +47,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'ussd_gateway_id' => 1,
                 'ussd_code' => "",
                 'paybill' => "",
+                'sms_app_id'=>4,
             ),
             array(
                 'app_id' => 3,
@@ -57,6 +59,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'ussd_gateway_id' => 1,
                 'ussd_code' => "*665#",
                 'paybill' => "",
+                'sms_app_id'=>4,
             ),
             array(
                 'app_id' => 4,
@@ -68,6 +71,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'ussd_gateway_id' => 1,
                 'ussd_code' => "*665#",
                 'paybill' => "",
+                'sms_app_id'=>3,
             ),
             array(
                 'app_id' => 5,
@@ -79,6 +83,7 @@ class SeedMifosUssdConfigsTableSeeder extends Seeder
                 'ussd_gateway_id' => 1,
                 'ussd_code' => "*665*365#",
                 'paybill' => "4017901",
+                'sms_app_id'=>5,
             ),
         ));
     }
