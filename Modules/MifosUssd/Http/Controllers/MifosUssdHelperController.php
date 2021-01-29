@@ -229,7 +229,7 @@ class MifosUssdHelperController extends Controller
                 $skipLogic->skip = true;
                 $skipLogic->save();
                 //send SMS
-                $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
+                $MifosSmsConfig = MifosSmsConfig::whereAppName($session->app_name)->first();
                 $sms_sending_response = MifosSmsController::sendSms($session->phone,$response,$MifosSmsConfig);
 
                 self::sendResponse($response,3,$session);
