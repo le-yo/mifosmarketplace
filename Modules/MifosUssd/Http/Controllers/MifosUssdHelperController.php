@@ -67,17 +67,13 @@ class MifosUssdHelperController extends Controller
         $menu = MifosUssdMenu::find($session->menu_id);
         //check the user menu
 
-
         switch ($menu->type) {
             case 0:
                 //authentication mini app
-
                 break;
             case 1:
                 //continue to another menu
-
                 $response = self::continueUssdMenu($session, $message, $menu);
-
                 break;
             case 2:
 
@@ -134,8 +130,7 @@ class MifosUssdHelperController extends Controller
         //validate input to be numeric
         $menuItem = MifosUssdMenuItems::whereMenuIdAndStep($menu->id, $session->progress)->first();
 //
-//        print_r($menuItem);
-//        exit;
+
         if($menuItem->validation == 'custom'){
             if(self::customValidation($session,$message,$menuItem)){
             $step = $session->progress + 1;
@@ -413,7 +408,6 @@ class MifosUssdHelperController extends Controller
     }
 
     public static function customValidation($session,$message,$menuItem){
-
         switch ($menuItem->id) {
             case 1:
                 $config = MifosUssdConfig::whereAppId($session->app_id)->first();
@@ -441,8 +435,6 @@ class MifosUssdHelperController extends Controller
                 }
                 break;
             case 3:
-
-
                 //veify if the PINs are equal
                 $PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,3)->orderBy('id', 'DESC')->first();
                 $CONFIRM_PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,6)->orderBy('id', 'DESC')->first();
@@ -515,7 +507,7 @@ class MifosUssdHelperController extends Controller
                 }
                 break;
             case 6:
-                //veify if the IDs are equal
+                //veify if the PINs are equal
                 $PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,2)->orderBy('id', 'DESC')->first();
                 $CONFIRM_PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,2)->orderBy('id', 'DESC')->first();
                 if($PIN->response == $CONFIRM_PIN->response){
@@ -558,7 +550,56 @@ class MifosUssdHelperController extends Controller
                     return FALSE;
                 }
                 break;
+            case 7:
 
+                //veify if the PINs are equal
+                $PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,6)->orderBy('id', 'DESC')->first();
+
+                $CONFIRM_PIN = MifosUssdResponse::wherePhoneAndMenuIdAndMenuItemId($session->phone, $session->menu_id,7)->orderBy('id', 'DESC')->first();
+
+                if($PIN->response == $CONFIRM_PIN->response){
+                    //set PIN and send to Mifos
+                    $datatable = array(
+                        "PIN" => Crypt::encrypt($PIN->response),
+                        "locale"=>"en",
+                        "dateFormat"=> "dd MMMM yyyy"
+                    );
+                    $config = MifosUssdConfig::whereAppId($session->app_id)->first();
+                    $client_details = json_decode($session->other);
+                    $r = MifosHelperController::setDatatable('PIN',$client_details->client_id,json_encode($datatable),$config);
+
+                    if (!empty($r->errors)) {
+
+                        if (strpos($r->defaultUserMessage, 'already exists')) {
+                            //we try to update
+                            $r = MifosHelperController::updateDatatable('PIN',$client_details->client_id,json_encode($datatable),$config);
+                        }
+
+                        if(!empty($r->errors)){
+                            $error_msg = 'We had a problem setting your PIN. Kindly retry or contact Customer Care';
+                            self::sendResponse($error_msg,1,$session);
+                        }
+                    }
+                    // post the encoded application details
+//                    $r = MifosHelperController::MifosPostTransaction($postURl, json_encode($datatable),$config);
+
+                    //store PIN in session
+//                    print_r($PIN->response);
+//                    exit;
+                    $client_details->pin = Crypt::encrypt($PIN->response);
+                    $session->other = json_encode($client_details);
+                    $session->save();
+                    $root_menu = MifosUssdMenu::whereAppIdAndIsRoot($session->app_id,1)->first();
+                    $response = "You have Reset Your PIN Successfully.".PHP_EOL.MifosUssdHelperController::nextMenuSwitch($session,$root_menu);
+                    self::sendResponse($response,1,$session);
+                    return TRUE;
+                }else{
+                    $step = $session->progress - 1;
+                    $session->progress = $step;
+                    $session->save();
+                    return FALSE;
+                }
+                break;
             default :
                 break;
         }
@@ -577,12 +618,17 @@ class MifosUssdHelperController extends Controller
 //           print_r($menu);
 //           exit;
         }else{
-            $response = "Invalid PIN. Kindly Re enter your PIN";
+            $response = "Invalid PIN. Kindly Re enter your PIN or reply with 0 to reset";
         }
 
         }else{
+//            echo "Not other details";
+//            exit;
             $menu = MifosUssdMenu::find(12);
-            $response = "In order to proceed:".PHP_EOL.MifosUssdHelperController::nextMenuSwitch($session,$menu);
+//            print_r($menu);
+//            exit;
+            $response = "Proceed to ".MifosUssdHelperController::nextMenuSwitch($session,$menu);
+
             MifosUssdHelperController::sendResponse($response, 1, $session,null);
         }
 
