@@ -129,8 +129,6 @@ class MifosUssdHelperController extends Controller
 
         //validate input to be numeric
         $menuItem = MifosUssdMenuItems::whereMenuIdAndStep($menu->id, $session->progress)->first();
-//
-
         if($menuItem->validation == 'custom'){
             if(self::customValidation($session,$message,$menuItem)){
             $step = $session->progress + 1;
@@ -495,21 +493,26 @@ class MifosUssdHelperController extends Controller
                 //validate national ID from Mifos
                 $response = MifosHelperController::getClientByNationalId($message,$config);
                 if(isset($response[0])){
-                    if($response[0]->entityType == 'CLIENTIDENTIFIER'){
-                        //check if ID belongs to the same client
-                        $client = MifosHelperController::getClientbyClientId($response[0]->parentId,$config);
-                        if(substr($client->mobileNo,-9) == (substr($session->phone,-9))){
-                            $client_details = array('client_id'=>$response[0]->parentId,'external_id'=>$message);
-                            $session->other = json_encode($client_details);
-                            return TRUE;
-                        }else{
-                            $response = "National ID is valid but belongs to a different phone number.".PHP_EOL."Please enter your ID";
-                            self::sendResponse($response,1,$session);
+                    foreach ($response as $rp){
+                        if($rp->entityType == 'CLIENTIDENTIFIER'){
+
+                            //check if ID belongs to the same client
+                            $client = MifosHelperController::getClientbyClientId($response[0]->parentId,$config);
+                            if(substr($client->mobileNo,-9) == (substr($session->phone,-9))){
+                                $client_details = array('client_id'=>$response[0]->parentId,'external_id'=>$message);
+                                $session->other = json_encode($client_details);
+                                return TRUE;
+                            }else{
+                                $response = "National ID is valid but belongs to a different phone number.".PHP_EOL."Please enter your ID";
+                                self::sendResponse($response,1,$session);
+                            }
+                            break;
                         }
-                    }else{
-                        return FALSE;
                     }
+                }else{
+                    return FALSE;
                 }
+
                 break;
             case 6:
                 //veify if the PINs are equal
