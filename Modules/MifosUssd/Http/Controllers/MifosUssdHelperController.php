@@ -849,17 +849,17 @@ class MifosUssdHelperController extends Controller
                     $app = MifosUssdConfig::find($session->app_id);
                     $MifosSmsConfig = MifosSmsConfig::find($app->sms_app_id);
                     //send SMS
-                    MifosSmsController::sendSms($session->phone,$msg,$MifosSmsConfig);
+                    MifosSmsController::sendSms($session->phone,$sms,$MifosSmsConfig);
 //                    $notify = new NotifyController();
 //                    $msg = "Thanks for your order. You may also pay later by Lipa Na MPESA, PayBill 777784, Account ".$acc." amount 2999";
 //                    $notify->sendSms($user->phone,$msg);
 
                     self::sendResponse("Kindly wait to enter your MPESA PIN to complete the transaction",3,$session);
-                    print_r($message);
-                    exit;
-                    $response = "";
-                    echo "amount iko sawa";
-                    exit;
+//                    print_r($message);
+//                    exit;
+//                    $response = "";
+//                    echo "amount iko sawa";
+//                    exit;
                 }else{
                     $response = "Amount must be betweeen 0 and ".$selected_loan_account->loanBalance;
                     self::sendResponse($response,2,$session);
