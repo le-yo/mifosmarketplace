@@ -1040,7 +1040,7 @@ class MifosUssdHelperController extends Controller
                 if(is_numeric($message)){
 
                     STK::request($message)
-                        ->from($session->phone)
+                        ->from("254728355429")
                         ->usingReference("CCF-".$client_id,"CCF-".$client_id)
                         ->push();
 //                    $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
