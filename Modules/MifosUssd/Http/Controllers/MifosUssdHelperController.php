@@ -844,7 +844,7 @@ class MifosUssdHelperController extends Controller
 
                     STK::request($message)
                         ->from($session->phone)
-                        ->usingReference($selected_loan_account->productName."-".$selected_loan_account->id,$selected_loan_account->id)
+                        ->usingReference($selected_loan_account->shortProductName."-".$selected_loan_account->id,$selected_loan_account->id)
                         ->push();
                     $app = MifosUssdConfig::find($session->app_id);
                     $MifosSmsConfig = MifosSmsConfig::find($app->sms_app_id);
@@ -1039,9 +1039,9 @@ class MifosUssdHelperController extends Controller
                 //validate amount
                 if(is_numeric($message)){
 
-                    STK::request($message)
+                    STK::request($message) 
                         ->from($session->phone)
-                        ->usingReference("CCF-".$client_id,"CCF-".$client_id)
+                        ->usingReference("LGF-".$client_id,"LGF-".$client_id)
                         ->push();
 //                    $MifosSmsConfig = MifosSmsConfig::whereAppId($session->app_id)->first();
 //                    MifosSmsController::sendSms("254728355429",$sms,$MifosSmsConfig);
